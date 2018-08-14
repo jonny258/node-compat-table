@@ -40,7 +40,7 @@ body > header > * {
 }
 label[for=flagged] {
   cursor: pointer;
-  right: 200px;
+  right: 375px;
   font-size: 12px;
   top: 2px;
 }
