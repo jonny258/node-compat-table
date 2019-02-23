@@ -213,8 +213,8 @@
   },
   "ES2017": {
     "_successful": 11,
-    "_count": 64,
-    "_percent": 0.171875,
+    "_count": 65,
+    "_percent": 0.16923076923076924,
     "features›Object static methods›Object.values": "undefined is not a function",
     "features›Object static methods›Object.entries": "undefined is not a function",
     "features›Object static methods›Object.getOwnPropertyDescriptors": "undefined is not a function",
@@ -234,6 +234,7 @@
     "features›async functions›cannot await in parameters": "Unexpected token function",
     "features›async functions›async methods, object literals": "Unexpected identifier",
     "features›async functions›async methods, classes": "Unexpected reserved word",
+    "features›async functions›async arrow functions in methods, classes": "Unexpected reserved word",
     "features›async functions›async arrow functions": "Malformed arrow function parameter list",
     "features›async functions›correct prototype chain": "Unexpected token function",
     "features›async functions›async function prototype, Symbol.toStringTag": "Unexpected token function",

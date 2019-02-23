@@ -212,8 +212,8 @@
     "misc›template literal revision": true
   },
   "ES2017": {
-    "_successful": 64,
-    "_count": 64,
+    "_successful": 65,
+    "_count": 65,
     "_percent": 1,
     "features›Object static methods›Object.values": true,
     "features›Object static methods›Object.entries": true,
@@ -234,6 +234,7 @@
     "features›async functions›cannot await in parameters": true,
     "features›async functions›async methods, object literals": true,
     "features›async functions›async methods, classes": true,
+    "features›async functions›async arrow functions in methods, classes": true,
     "features›async functions›async arrow functions": true,
     "features›async functions›correct prototype chain": true,
     "features›async functions›async function prototype, Symbol.toStringTag": true,

@@ -212,9 +212,9 @@
     "misc›template literal revision": "Invalid hexadecimal escape sequence"
   },
   "ES2017": {
-    "_successful": 33,
-    "_count": 64,
-    "_percent": 0.515625,
+    "_successful": 34,
+    "_count": 65,
+    "_percent": 0.5230769230769231,
     "features›Object static methods›Object.values": true,
     "features›Object static methods›Object.entries": true,
     "features›Object static methods›Object.getOwnPropertyDescriptors": true,
@@ -234,6 +234,7 @@
     "features›async functions›cannot await in parameters": true,
     "features›async functions›async methods, object literals": true,
     "features›async functions›async methods, classes": true,
+    "features›async functions›async arrow functions in methods, classes": true,
     "features›async functions›async arrow functions": true,
     "features›async functions›correct prototype chain": true,
     "features›async functions›async function prototype, Symbol.toStringTag": true,

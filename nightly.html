@@ -12825,6 +12825,29 @@ p.then(function(result) {
         </tr>
         <tr>
           <td class="feature subsub">
+            <div class="hash" id="ES2017-features-async-functions-async-arrow-functions-in-methods--classes"></div><a href="#ES2017-features-async-functions-async-arrow-functions-in-methods--classes">async arrow functions in methods, classes</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">function doSomething(callback) {
+  callback();
+}
+class C {
+  a(){
+    doSomething(async () =&gt; {
+      await 1;
+      asyncTestPassed();
+    });
+  }
+};
+var p = new C().a();</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
             <div class="hash" id="ES2017-features-async-functions-async-arrow-functions"></div><a href="#ES2017-features-async-functions-async-arrow-functions">async arrow functions</a>
             <div class="info">?
               <div class="fn">function(){

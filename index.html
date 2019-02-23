@@ -33,7 +33,7 @@
                   <table>
                     <tr>
                       <td>nightly</td>
-                      <td>v8 7.1.302.33-node.13</td>
+                      <td>v8 7.1.302.33-node.14</td>
                     </tr>
                   </table>
                 </div><sup>Nightly!</sup><sub class="flagged">99% complete</sub><sub class="unflagged">99% complete</sub>
@@ -23715,7 +23715,7 @@ return a === 3;</div>}
                   <table>
                     <tr>
                       <td>nightly</td>
-                      <td>v8 7.1.302.33-node.13</td>
+                      <td>v8 7.1.302.33-node.14</td>
                     </tr>
                   </table>
                 </div><sup>Nightly!</sup><sub class="flagged">100% complete</sub><sub class="unflagged">100% complete</sub>
@@ -25476,7 +25476,7 @@ return (get + '' === &quot;length,1,2&quot;);</div>}
                   <table>
                     <tr>
                       <td>nightly</td>
-                      <td>v8 7.1.302.33-node.13</td>
+                      <td>v8 7.1.302.33-node.14</td>
                     </tr>
                   </table>
                 </div><sup>Nightly!</sup><sub class="flagged">100% complete</sub><sub class="unflagged">100% complete</sub>
@@ -25997,7 +25997,7 @@ return (get + '' === &quot;length,1,2&quot;);</div>}
                       <td>v8 5.8.283.41</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">65% complete</sub><sub class="unflagged">65% complete</sub>
+                </div><sub class="flagged">66% complete</sub><sub class="unflagged">66% complete</sub>
               </th>
               <th class="version v7">7.10.1
                 <div class="details"><small>(these versions have identical results)</small>
@@ -26061,7 +26061,7 @@ return (get + '' === &quot;length,1,2&quot;);</div>}
                       <td>v8 5.5.372.40</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">54% complete</sub><sub class="unflagged">51% complete</sub>
+                </div><sub class="flagged">55% complete</sub><sub class="unflagged">52% complete</sub>
               </th>
               <th class="version v7">7.5.0
                 <div class="details"><small>(these versions have identical results)</small>
@@ -26107,7 +26107,7 @@ return (get + '' === &quot;length,1,2&quot;);</div>}
                       <td>v8 5.4.500.36</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">54% complete</sub><sub class="unflagged">28% complete</sub>
+                </div><sub class="flagged">55% complete</sub><sub class="unflagged">27% complete</sub>
               </th>
               <th class="version v6">6.16.0
                 <div class="details"><small>(these versions have identical results)</small>
@@ -26491,7 +26491,7 @@ return (get + '' === &quot;length,1,2&quot;);</div>}
                       <td>v8 4.6.85.28</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">17% complete</sub><sub class="unflagged">17% complete</sub>
+                </div><sub class="flagged">16% complete</sub><sub class="unflagged">16% complete</sub>
               </th>
               <th class="version v4">4.9.1
                 <div class="details"><small>(these versions have identical results)</small>
@@ -26735,7 +26735,7 @@ return (get + '' === &quot;length,1,2&quot;);</div>}
                       <td>v8 4.5.103.30</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">17% complete</sub><sub class="unflagged">17% complete</sub>
+                </div><sub class="flagged">16% complete</sub><sub class="unflagged">16% complete</sub>
               </th>
               <th class="version v0">0.12.18
                 <div class="details"><small>(these versions have identical results)</small>
@@ -26745,7 +26745,7 @@ return (get + '' === &quot;length,1,2&quot;);</div>}
                       <td>v8 3.28.71.20</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">17% complete</sub><sub class="unflagged">17% complete</sub>
+                </div><sub class="flagged">16% complete</sub><sub class="unflagged">17% complete</sub>
               </th>
               <th class="version v0">0.10.48
                 <div class="details"><small>(these versions have identical results)</small>
@@ -27407,6 +27407,44 @@ p.then(function(result) {
           <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Unexpected reserved word">Error</div><div class="Error flagged " title="Unexpected reserved word">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Unexpected reserved word">Error</div><div class="Error flagged " title="Unexpected reserved word">Error</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2017-features-async-functions-async-arrow-functions-in-methods--classes"></div><a href="#ES2017-features-async-functions-async-arrow-functions-in-methods--classes">async arrow functions in methods, classes</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">function doSomething(callback) {
+  callback();
+}
+class C {
+  a(){
+    doSomething(async () =&gt; {
+      await 1;
+      asyncTestPassed();
+    });
+  }
+};
+var p = new C().a();</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result flag"><div class="Error unflagged " title="Unexpected token (">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token (">Error</div><div class="Error flagged " title="Unexpected token (">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token (">Error</div><div class="Error flagged " title="Unexpected token (">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Unexpected token (">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected reserved word">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
         </tr>
         <tr>
           <td class="feature subsub">
@@ -28838,7 +28876,7 @@ return i === 0;</div>}
                   <table>
                     <tr>
                       <td>nightly</td>
-                      <td>v8 7.1.302.33-node.13</td>
+                      <td>v8 7.1.302.33-node.14</td>
                     </tr>
                   </table>
                 </div><sup>Nightly!</sup><sub class="flagged">100% complete</sub><sub class="unflagged">100% complete</sub>
@@ -30614,7 +30652,7 @@ return tag`\01\1\xg\xAg\u0\u0g\u00g\u000g\u{g\u{0\u{110000}${0}\0`;</div>}
                   <table>
                     <tr>
                       <td>nightly</td>
-                      <td>v8 7.1.302.33-node.13</td>
+                      <td>v8 7.1.302.33-node.14</td>
                     </tr>
                   </table>
                 </div><sup>Nightly!</sup><sub class="flagged">91% complete</sub><sub class="unflagged">87% complete</sub>
@@ -32746,7 +32784,7 @@ return eval('({ /\x2A before \x2A/' + str + '/\x2A after \x2A/ }.f)') + '' === s
                   <table>
                     <tr>
                       <td>nightly</td>
-                      <td>v8 7.1.302.33-node.13</td>
+                      <td>v8 7.1.302.33-node.14</td>
                     </tr>
                   </table>
                 </div><sup>Nightly!</sup><sub class="flagged">11% complete</sub><sub class="unflagged">7% complete</sub>
