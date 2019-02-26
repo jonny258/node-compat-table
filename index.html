@@ -664,7 +664,7 @@
                       <td>v8 5.4.500.36</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">99% complete</sub><sub class="unflagged">99% complete</sub>
+                </div><sub class="flagged">99% complete</sub><sub class="unflagged">98% complete</sub>
               </th>
               <th class="version v6">6.16.0
                 <div class="details"><small>(these versions have identical results)</small>
@@ -2962,6 +2962,46 @@ return cr.length === 3 &amp;&amp; lf.length === 3 &amp;&amp; crlf.length === 3
           <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
           <td class="result"><div class="Error unflagged " title="Unexpected token ILLEGAL">Error</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Unexpected token ILLEGAL">Error</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2015-syntax-template-literals-TemplateStrings-call-site-caching"></div><a href="#ES2015-syntax-template-literals-TemplateStrings-call-site-caching">TemplateStrings call site caching</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">// Safari 12 sometimes garbage collects the cached TemplateStrings,
+// even when the call site is still alive.
+// This is almost impossible to write a test case for, but we can test
+// the general semantics.
+// https://bugs.webkit.org/show_bug.cgi?id=190756
+function strings(array) {
+  return array;
+}
+function getStrings() {
+  return strings`foo`;
+}
+var original = getStrings();
+var other = strings`foo`;
+return original === getStrings() &amp;&amp; original !== other;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="18">

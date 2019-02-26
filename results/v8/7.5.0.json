@@ -301,8 +301,8 @@
   },
   "ES2015": {
     "_successful": 681,
-    "_count": 687,
-    "_percent": 0.9912663755458515,
+    "_count": 688,
+    "_percent": 0.9898255813953488,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": true,
@@ -356,6 +356,7 @@
     "syntax›template literals›tagged template literals": true,
     "syntax›template literals›passed array is frozen": true,
     "syntax›template literals›line break normalisation": true,
+    "syntax›template literals›TemplateStrings call site caching": false,
     "syntax›RegExp \"y\" and \"u\" flags›\"y\" flag": true,
     "syntax›RegExp \"y\" and \"u\" flags›\"y\" flag, lastIndex": true,
     "syntax›RegExp \"y\" and \"u\" flags›\"u\" flag": true,

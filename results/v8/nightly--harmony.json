@@ -1,5 +1,5 @@
 {
-  "_version": "12.0.0-nightly2019022579a3348d14--harmony",
+  "_version": "12.0.0-nightly20190226ccd6b12fec--harmony",
   "_engine": "v8 7.1.302.33-node.14",
   "ESNEXT": {
     "_successful": 18,
@@ -300,9 +300,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": true
   },
   "ES2015": {
-    "_successful": 685,
-    "_count": 687,
-    "_percent": 0.9970887918486172,
+    "_successful": 686,
+    "_count": 688,
+    "_percent": 0.997093023255814,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": true,
@@ -356,6 +356,7 @@
     "syntax›template literals›tagged template literals": true,
     "syntax›template literals›passed array is frozen": true,
     "syntax›template literals›line break normalisation": true,
+    "syntax›template literals›TemplateStrings call site caching": true,
     "syntax›RegExp \"y\" and \"u\" flags›\"y\" flag": true,
     "syntax›RegExp \"y\" and \"u\" flags›\"y\" flag, lastIndex": true,
     "syntax›RegExp \"y\" and \"u\" flags›\"u\" flag": true,
