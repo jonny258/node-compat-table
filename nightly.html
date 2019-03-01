@@ -14665,7 +14665,10 @@ return view[0] === 0n;</div>}
             <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-DataView-prototype-getBigInt64"></div><a href="#ESNEXT-candidate--stage-3--BigInt-DataView-prototype-getBigInt64">DataView.prototype.getBigInt64</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return typeof DataView.prototype.getBigInt64 === 'function';</div>}
+                <div class="code">var buffer = new ArrayBuffer(64);
+var view = new DataView(buffer);
+view.setBigInt64(0, 1n);
+return view.getBigInt64(0) === 1n;</div>}
               </div>
             </div>
           </td>
@@ -14677,7 +14680,10 @@ return view[0] === 0n;</div>}
             <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-DataView-prototype-getBigUint64"></div><a href="#ESNEXT-candidate--stage-3--BigInt-DataView-prototype-getBigUint64">DataView.prototype.getBigUint64</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return typeof DataView.prototype.getBigUint64 === 'function';</div>}
+                <div class="code">var buffer = new ArrayBuffer(64);
+var view = new DataView(buffer);
+view.setBigUint64(0, 1n);
+return view.getBigUint64(0) === 1n;</div>}
               </div>
             </div>
           </td>
