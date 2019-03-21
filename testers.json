@@ -908,7 +908,7 @@
     "proposal (stage 1)›Object.freeze and Object.seal syntax›Sealing, function arguments": "function foo(| bar, baz |) {\n  return bar + baz;\n}\nif (foo(1, 2) !== 3) return;\ntry {\n  foo(1, 2, 3);\n} catch (e) {\n  return true;\n}",
     "proposal (stage 1)›Object.freeze and Object.seal syntax›Freezing, function arguments": "function foo(# bar, baz #) {\n  if (baz === 42) bar = 27;\n  return bar + baz;\n}\nif (foo(1, 2) !== 3) return;\ntry {\n  foo(1, 42);\n} catch (e) {\n  return true;\n}",
     "proposal (stage 1)›String.prototype.replaceAll": "return 'q=query+string+parameters'.replaceAll('+', ' ') === 'q=query string parameters';",
-    "proposal (stage 1)›String.prototype.codePoints": "var results = [];\nfor (let code of 'a𠮷b'.codePoints()) results.push(code);\nreturn results.length === 3\n  && results[0] === 97\n  && results[1] === 134071\n  && results[2] === 98;",
+    "proposal (stage 1)›String.prototype.codePoints": "var results = [];\nfor (let code of 'a𠮷b'.codePoints()) results.push(code);\nreturn results.length === 3\n  && results[0].codePoint === 97 && results[0].position === 0\n  && results[1].codePoint === 134071 && results[1].position === 1\n  && results[2].codePoint === 98 && results[2].position === 4;",
     "proposal (stage 1)›getting last item from array›Array.prototype.lastItem": "return [1, 2, 3].lastItem === 3;",
     "proposal (stage 1)›getting last item from array›Array.prototype.lastIndex": "return [1, 2, 3].lastIndex === 2;",
     "proposal (stage 1)›Collections methods›Map.groupBy": "var map = Map.groupBy(new Set([1, 2, 3, 4]), it => it % 2)\nreturn map.size === 2\n  && map.get(0)[0] === 2\n  && map.get(0)[1] === 4\n  && map.get(1)[0] === 1\n  && map.get(1)[1] === 3;",
