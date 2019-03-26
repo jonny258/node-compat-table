@@ -14536,6 +14536,21 @@ return new C().x() === 42;</div>}
           <td class="result"><div class="Error" title="Invalid character">Error</div></td>
         </tr>
         <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields-computed-instance-class-fields"></div><a href="#ESNEXT-candidate--stage-3--instance-class-fields-computed-instance-class-fields">computed instance class fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  ['x'] = 42;
+}
+return new C().x === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
           <td class="feature sub" colspan="3">
             <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--static-class-fields"></div><a href="#ESNEXT-candidate--stage-3--static-class-fields">static class fields</a>
@@ -14574,6 +14589,21 @@ return new C().x() === 42;</div>}
           </td>
           <td class="result"></td>
           <td class="result"><div class="Error" title="Invalid character">Error</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--static-class-fields-computed-static-class-fields"></div><a href="#ESNEXT-candidate--stage-3--static-class-fields-computed-static-class-fields">computed static class fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  static ['x'] = 42;
+}
+return C.x === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="3">

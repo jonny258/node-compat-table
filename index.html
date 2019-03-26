@@ -33037,7 +33037,7 @@ return eval('({ /\x2A before \x2A/' + str + '/\x2A after \x2A/ }.f)') + '' === s
                       <td>v8 7.3.492.25-node.7</td>
                     </tr>
                   </table>
-                </div><sup>Nightly!</sup><sub class="flagged">11% complete</sub><sub class="unflagged">9% complete</sub>
+                </div><sup>Nightly!</sup><sub class="flagged">13% complete</sub><sub class="unflagged">10% complete</sub>
               </th>
               <th class="version v11">11.12.0
                 <div class="details"><small>(these versions have identical results)</small>
@@ -33125,7 +33125,7 @@ return eval('({ /\x2A before \x2A/' + str + '/\x2A after \x2A/ }.f)') + '' === s
                       <td>v8 7.0.276.28-node.5</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">10% complete</sub><sub class="unflagged">6% complete</sub>
+                </div><sub class="flagged">11% complete</sub><sub class="unflagged">6% complete</sub>
               </th>
               <th class="version v10">10.15.3
                 <div class="details"><small>(these versions have identical results)</small>
@@ -33241,7 +33241,7 @@ return eval('({ /\x2A before \x2A/' + str + '/\x2A after \x2A/ }.f)') + '' === s
                       <td>v8 6.7.288.43-node.7</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">8% complete</sub><sub class="unflagged">6% complete</sub>
+                </div><sub class="flagged">9% complete</sub><sub class="unflagged">6% complete</sub>
               </th>
               <th class="version v10">10.3.0
                 <div class="details"><small>(these versions have identical results)</small>
@@ -34586,6 +34586,36 @@ return new C().x() === 42;</div>}
           <td class="result"><div class="Error unflagged " title="Unexpected reserved word">Error</div><div class="Error flagged " title="Unexpected reserved word">Error</div></td>
         </tr>
         <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields-computed-instance-class-fields"></div><a href="#ESNEXT-candidate--stage-3--instance-class-fields-computed-instance-class-fields">computed instance class fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  ['x'] = 42;
+}
+return new C().x === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result flag"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
+          <td class="result flag"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
+          <td class="result flag"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
+          <td class="result flag"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected reserved word">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+        </tr>
+        <tr>
           <td class="feature sub" colspan="18">
             <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--static-class-fields"></div><a href="#ESNEXT-candidate--stage-3--static-class-fields">static class fields</a>
@@ -34651,6 +34681,36 @@ return new C().x() === 42;</div>}
           <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Unexpected token ILLEGAL">Error</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected reserved word">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--static-class-fields-computed-static-class-fields"></div><a href="#ESNEXT-candidate--stage-3--static-class-fields-computed-static-class-fields">computed static class fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  static ['x'] = 42;
+}
+return C.x === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token =">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected reserved word">Error</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
