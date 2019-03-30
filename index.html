@@ -33067,7 +33067,7 @@ return eval('({ /\x2A before \x2A/' + str + '/\x2A after \x2A/ }.f)') + '' === s
                       <td>v8 7.4.288.13-node.13</td>
                     </tr>
                   </table>
-                </div><sup>Nightly!</sup><sub class="flagged">13% complete</sub><sub class="unflagged">12% complete</sub>
+                </div><sup>Nightly!</sup><sub class="flagged">12% complete</sub><sub class="unflagged">11% complete</sub>
               </th>
               <th class="version v11">11.13.0
                 <div class="details"><small>(these versions have identical results)</small>
@@ -33161,7 +33161,7 @@ return eval('({ /\x2A before \x2A/' + str + '/\x2A after \x2A/ }.f)') + '' === s
                       <td>v8 7.0.276.28-node.5</td>
                     </tr>
                   </table>
-                </div><sub class="flagged">11% complete</sub><sub class="unflagged">6% complete</sub>
+                </div><sub class="flagged">10% complete</sub><sub class="unflagged">6% complete</sub>
               </th>
               <th class="version v10">10.15.3
                 <div class="details"><small>(these versions have identical results)</small>
@@ -34474,50 +34474,6 @@ return descriptor.value === actualGlobal &amp;&amp; !descriptor.enumerable &amp;
         <tr>
           <td class="feature sub" colspan="18">
             <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--"></div><a href="#ESNEXT-candidate--stage-3--"></a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3---String-prototype-matchAll"></div><a href="#ESNEXT-candidate--stage-3---String-prototype-matchAll">String.prototype.matchAll</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var iterator = '11a2bb'.matchAll(/(\d)(\D)/g);
-if(iterator[Symbol.iterator]() !== iterator)return false;
-var a = '', b = '', c = '', step;
-while(!(step = iterator.next()).done){
-  a += step.value[0];
-  b += step.value[1];
-  c += step.value[2];
-}
-return a === '1a2b'
-  &amp;&amp; b === '12'
-  &amp;&amp; c === 'ab';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Yes unflagged " title="Test passed">Yes</div><div class="Yes flagged " title="Test passed">Yes</div></td>
-          <td class="result flag"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
-          <td class="result flag"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div><div class="Error flagged " title="&quot;11a2bb&quot;.matchAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="undefined is not a function">Error</div><div class="Error flagged " title="undefined is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Object 11a2bb has no method &#x27;matchAll&#x27;">Error</div><div class="Error flagged " title="Object 11a2bb has no method &#x27;matchAll&#x27;">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="18">
-            <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields"></div><a href="#ESNEXT-candidate--stage-3--instance-class-fields">instance class fields</a>
             </h3>
           </td>
@@ -34749,6 +34705,79 @@ return C.x === 42;</div>}
           <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Unexpected token =">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div><div class="Error flagged " title="Block-scoped declarations (let, const, function, class) not yet supported outside strict mode">Error</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected reserved word">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="18">
+            <h3>
+              <div class="hash" id="ESNEXT-candidate--stage-3--"></div><a href="#ESNEXT-candidate--stage-3--"></a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3---numeric-separators"></div><a href="#ESNEXT-candidate--stage-3---numeric-separators">numeric separators</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return 1_000_000.000_001 === 1000000.000001 &amp;&amp;
+  0b1010_0001_1000_0101 === 0b1010000110000101;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result flag"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
+          <td class="result flag"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
+          <td class="result flag"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
+          <td class="result flag"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
+          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ILLEGAL">Error</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ILLEGAL">Error</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3---Promise-allSettled"></div><a href="#ESNEXT-candidate--stage-3---Promise-allSettled">Promise.allSettled</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">Promise.allSettled([
+  Promise.resolve(1),
+  Promise.reject(2),
+  Promise.resolve(3)
+]).then(it =&gt; {
+  if (
+    it.length === 3 &amp;&amp;
+    it[0].status === 'fulfilled' &amp;&amp; it[0].value === 1 &amp;&amp;
+    it[1].status === 'rejected' &amp;&amp; it[1].reason === 2 &amp;&amp;
+    it[2].status === 'fulfilled' &amp;&amp; it[2].value === 3
+  ) asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="undefined is not a function">Error</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
         </tr>
         <tr>
@@ -35162,67 +35191,28 @@ return works &amp;&amp; weakref.get() === undefined;</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2---numeric-separators"></div><a href="#ESNEXT-draft--stage-2---numeric-separators">numeric separators</a>
+            <div class="hash" id="ESNEXT-draft--stage-2---String-prototype-replaceAll"></div><a href="#ESNEXT-draft--stage-2---String-prototype-replaceAll">String.prototype.replaceAll</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return 1_000_000.000_001 === 1000000.000001 &amp;&amp;
-  0b1010_0001_1000_0101 === 0b1010000110000101;</div>}
+                <div class="code">return 'q=query+string+parameters'.replaceAll('+', ' ') === 'q=query string parameters';</div>}
               </div>
             </div>
           </td>
-          <td class="result flag"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
-          <td class="result flag"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
-          <td class="result flag"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
-          <td class="result flag"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Yes flagged required" title="Yes, but requires --harmony flag">Flag</div></td>
-          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Invalid or unexpected token">Error</div><div class="Error flagged " title="Invalid or unexpected token">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected identifier">Error</div><div class="Error flagged " title="Unexpected identifier">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2---Promise-allSettled"></div><a href="#ESNEXT-draft--stage-2---Promise-allSettled">Promise.allSettled</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">Promise.allSettled([
-  Promise.resolve(1),
-  Promise.reject(2),
-  Promise.resolve(3)
-]).then(it =&gt; {
-  if (
-    it.length === 3 &amp;&amp;
-    it[0].status === 'fulfilled' &amp;&amp; it[0].value === 1 &amp;&amp;
-    it[1].status === 'rejected' &amp;&amp; it[1].reason === 2 &amp;&amp;
-    it[2].status === 'fulfilled' &amp;&amp; it[2].value === 3
-  ) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.allSettled is not a function">Error</div><div class="Error flagged " title="Promise.allSettled is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="undefined is not a function">Error</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
         </tr>
@@ -35890,33 +35880,6 @@ return 123i === 'string123number123';</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1---String-prototype-replaceAll"></div><a href="#ESNEXT-proposal--stage-1---String-prototype-replaceAll">String.prototype.replaceAll</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return 'q=query+string+parameters'.replaceAll('+', ' ') === 'q=query string parameters';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div><div class="Error flagged " title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="undefined is not a function">Error</div><div class="Error flagged " title="undefined is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Object q=query+string+parameters has no method &#x27;replaceAll&#x27;">Error</div><div class="Error flagged " title="Object q=query+string+parameters has no method &#x27;replaceAll&#x27;">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
             <div class="hash" id="ESNEXT-proposal--stage-1---String-prototype-codePoints"></div><a href="#ESNEXT-proposal--stage-1---String-prototype-codePoints">String.prototype.codePoints</a>
             <div class="info">?
               <div class="fn">function(){
@@ -35979,6 +35942,39 @@ return second === gen2.next().value;</div>}
           <td class="result"><div class="Error unflagged " title="Math.seededPRNG is not a function">Error</div><div class="Error flagged " title="Math.seededPRNG is not a function">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Math.seededPRNG is not a function">Error</div><div class="Error flagged " title="Math.seededPRNG is not a function">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Math.seededPRNG is not a function">Error</div><div class="Error flagged " title="Math.seededPRNG is not a function">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="undefined is not a function">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-proposal--stage-1---Promise-any"></div><a href="#ESNEXT-proposal--stage-1---Promise-any">Promise.any</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">Promise.any([
+  Promise.resolve(1),
+  Promise.reject(2),
+  Promise.resolve(3)
+]).then(it =&gt; {
+  if (it === 1) asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="undefined is not a function">Error</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
         </tr>
@@ -38678,39 +38674,6 @@ return (@inverse function(it){
           <td class="result"><div class="Error unflagged " title="Unexpected token ILLEGAL">Error</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Unexpected token ILLEGAL">Error</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Unexpected token ILLEGAL">Error</div><div class="Error flagged " title="Unexpected token ILLEGAL">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-strawman--stage-0---Promise-any"></div><a href="#ESNEXT-strawman--stage-0---Promise-any">Promise.any</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">Promise.any([
-  Promise.resolve(1),
-  Promise.reject(2),
-  Promise.resolve(3)
-]).then(it =&gt; {
-  if (it === 1) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Promise.any is not a function">Error</div><div class="Error flagged " title="Promise.any is not a function">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="undefined is not a function">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="18">

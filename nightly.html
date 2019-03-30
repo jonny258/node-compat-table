@@ -14448,35 +14448,6 @@ return descriptor.value === actualGlobal &amp;&amp; !descriptor.enumerable &amp;
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--"></div><a href="#ESNEXT-candidate--stage-3--"></a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3---String-prototype-matchAll"></div><a href="#ESNEXT-candidate--stage-3---String-prototype-matchAll">String.prototype.matchAll</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var iterator = '11a2bb'.matchAll(/(\d)(\D)/g);
-if(iterator[Symbol.iterator]() !== iterator)return false;
-var a = '', b = '', c = '', step;
-while(!(step = iterator.next()).done){
-  a += step.value[0];
-  b += step.value[1];
-  c += step.value[2];
-}
-return a === '1a2b'
-  &amp;&amp; b === '12'
-  &amp;&amp; c === 'ab';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Object doesn&#x27;t support property or method &#x27;matchAll&#x27;">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields"></div><a href="#ESNEXT-candidate--stage-3--instance-class-fields">instance class fields</a>
             </h3>
           </td>
@@ -14599,6 +14570,49 @@ return new C().x() === 42;</div>}
   static ['x'] = 42;
 }
 return C.x === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ESNEXT-candidate--stage-3--"></div><a href="#ESNEXT-candidate--stage-3--"></a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3---numeric-separators"></div><a href="#ESNEXT-candidate--stage-3---numeric-separators">numeric separators</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return 1_000_000.000_001 === 1000000.000001 &amp;&amp;
+  0b1010_0001_1000_0101 === 0b1010000110000101;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error" title="Invalid or unexpected token">Error</div></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3---Promise-allSettled"></div><a href="#ESNEXT-candidate--stage-3---Promise-allSettled">Promise.allSettled</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">Promise.allSettled([
+  Promise.resolve(1),
+  Promise.reject(2),
+  Promise.resolve(3)
+]).then(it =&gt; {
+  if (
+    it.length === 3 &amp;&amp;
+    it[0].status === 'fulfilled' &amp;&amp; it[0].value === 1 &amp;&amp;
+    it[1].status === 'rejected' &amp;&amp; it[1].reason === 2 &amp;&amp;
+    it[2].status === 'fulfilled' &amp;&amp; it[2].value === 3
+  ) asyncTestPassed();
+});</div>}
               </div>
             </div>
           </td>
@@ -14821,39 +14835,15 @@ return works &amp;&amp; weakref.get() === undefined;</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2---numeric-separators"></div><a href="#ESNEXT-draft--stage-2---numeric-separators">numeric separators</a>
+            <div class="hash" id="ESNEXT-draft--stage-2---String-prototype-replaceAll"></div><a href="#ESNEXT-draft--stage-2---String-prototype-replaceAll">String.prototype.replaceAll</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return 1_000_000.000_001 === 1000000.000001 &amp;&amp;
-  0b1010_0001_1000_0101 === 0b1010000110000101;</div>}
+                <div class="code">return 'q=query+string+parameters'.replaceAll('+', ' ') === 'q=query string parameters';</div>}
               </div>
             </div>
           </td>
           <td class="result"></td>
-          <td class="result"><div class="Error" title="Unexpected identifier after numeric literal">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2---Promise-allSettled"></div><a href="#ESNEXT-draft--stage-2---Promise-allSettled">Promise.allSettled</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">Promise.allSettled([
-  Promise.resolve(1),
-  Promise.reject(2),
-  Promise.resolve(3)
-]).then(it =&gt; {
-  if (
-    it.length === 3 &amp;&amp;
-    it[0].status === 'fulfilled' &amp;&amp; it[0].value === 1 &amp;&amp;
-    it[1].status === 'rejected' &amp;&amp; it[1].reason === 2 &amp;&amp;
-    it[2].status === 'fulfilled' &amp;&amp; it[2].value === 3
-  ) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
           <td class="result"></td>
-          <td class="result"><div class="Error" title="Object doesn&#x27;t support property or method &#x27;allSettled&#x27;">Error</div></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="3">
@@ -15219,18 +15209,6 @@ return 123i === 'string123number123';</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1---String-prototype-replaceAll"></div><a href="#ESNEXT-proposal--stage-1---String-prototype-replaceAll">String.prototype.replaceAll</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return 'q=query+string+parameters'.replaceAll('+', ' ') === 'q=query string parameters';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error" title="&quot;q=query+string+parameters&quot;.replaceAll is not a function">Error</div></td>
-          <td class="result"><div class="Error" title="Object doesn&#x27;t support property or method &#x27;replaceAll&#x27;">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
             <div class="hash" id="ESNEXT-proposal--stage-1---String-prototype-codePoints"></div><a href="#ESNEXT-proposal--stage-1---String-prototype-codePoints">String.prototype.codePoints</a>
             <div class="info">?
               <div class="fn">function(){
@@ -15265,6 +15243,24 @@ return second === gen2.next().value;</div>}
           </td>
           <td class="result"></td>
           <td class="result"><div class="Error" title="Object doesn&#x27;t support property or method &#x27;seededPRNG&#x27;">Error</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-proposal--stage-1---Promise-any"></div><a href="#ESNEXT-proposal--stage-1---Promise-any">Promise.any</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">Promise.any([
+  Promise.resolve(1),
+  Promise.reject(2),
+  Promise.resolve(3)
+]).then(it =&gt; {
+  if (it === 1) asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="3">
@@ -16657,24 +16653,6 @@ return (@inverse function(it){
           </td>
           <td class="result"><div class="Error" title="Invalid or unexpected token">Error</div></td>
           <td class="result"><div class="Error" title="Invalid character">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-strawman--stage-0---Promise-any"></div><a href="#ESNEXT-strawman--stage-0---Promise-any">Promise.any</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">Promise.any([
-  Promise.resolve(1),
-  Promise.reject(2),
-  Promise.resolve(3)
-]).then(it =&gt; {
-  if (it === 1) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Object doesn&#x27;t support property or method &#x27;any&#x27;">Error</div></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="3">
