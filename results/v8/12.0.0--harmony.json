@@ -1,10 +1,10 @@
 {
-  "_version": "13.0.0-nightly201904249b982feedf",
+  "_version": "12.0.0--harmony",
   "_engine": "v8 7.4.288.21-node.16",
   "ESNEXT": {
-    "_successful": 19,
+    "_successful": 20,
     "_count": 160,
-    "_percent": 0.11875,
+    "_percent": 0.125,
     "candidate (stage 3)›globalThis›\"globalThis\" global property is global object": true,
     "candidate (stage 3)›globalThis›\"globalThis\" global property has correct property descriptor": true,
     "candidate (stage 3)›instance class fields›public instance class fields": true,
@@ -14,7 +14,7 @@
     "candidate (stage 3)›static class fields›public static class fields": true,
     "candidate (stage 3)›static class fields›private static class fields": true,
     "candidate (stage 3)›static class fields›computed static class fields": true,
-    "candidate (stage 3)›numeric separators": "Invalid or unexpected token",
+    "candidate (stage 3)›numeric separators": true,
     "candidate (stage 3)›BigInt›basic functionality": true,
     "candidate (stage 3)›BigInt›constructor": true,
     "candidate (stage 3)›BigInt›BigInt.asUintN": true,
