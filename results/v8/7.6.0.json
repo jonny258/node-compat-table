@@ -301,9 +301,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": true
   },
   "ES2015": {
-    "_successful": 682,
-    "_count": 688,
-    "_percent": 0.9912790697674418,
+    "_successful": 683,
+    "_count": 689,
+    "_percent": 0.9912917271407837,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": true,
@@ -358,6 +358,7 @@
     "syntax›template literals›passed array is frozen": true,
     "syntax›template literals›line break normalisation": true,
     "syntax›template literals›TemplateStrings call site caching": false,
+    "syntax›template literals›TemplateStrings permanent caching": true,
     "syntax›RegExp \"y\" and \"u\" flags›\"y\" flag": true,
     "syntax›RegExp \"y\" and \"u\" flags›\"y\" flag, lastIndex": true,
     "syntax›RegExp \"y\" and \"u\" flags›\"u\" flag": true,

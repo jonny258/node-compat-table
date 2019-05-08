@@ -301,9 +301,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": "Proxy is not defined"
   },
   "ES2015": {
-    "_successful": 301,
-    "_count": 688,
-    "_percent": 0.4375,
+    "_successful": 302,
+    "_count": 689,
+    "_percent": 0.43831640058055155,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": "Unexpected token =",
@@ -358,6 +358,7 @@
     "syntax›template literals›passed array is frozen": true,
     "syntax›template literals›line break normalisation": true,
     "syntax›template literals›TemplateStrings call site caching": false,
+    "syntax›template literals›TemplateStrings permanent caching": true,
     "syntax›RegExp \"y\" and \"u\" flags›\"y\" flag": "Invalid flags supplied to RegExp constructor 'y'",
     "syntax›RegExp \"y\" and \"u\" flags›\"y\" flag, lastIndex": "Invalid flags supplied to RegExp constructor 'y'",
     "syntax›RegExp \"y\" and \"u\" flags›\"u\" flag": "Invalid flags supplied to RegExp constructor 'u'",
