@@ -2,6 +2,9 @@
 
 ORIGIN=https://hubbed:$GITHUB_TOKEN@github.com/williamkapke/node-compat-table.git
 
+#newer version of n stopped working with nightly builds
+npm install -g n@2.1.7
+
 echo
 echo 'downloading latest...'
 rm -rf ./.temp
