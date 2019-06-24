@@ -905,11 +905,9 @@ return cr.length === 3 &amp;&amp; lf.length === 3 &amp;&amp; crlf.length === 3
             <div class="hash" id="ES2015-syntax-template-literals-TemplateStrings-call-site-caching"></div><a href="#ES2015-syntax-template-literals-TemplateStrings-call-site-caching">TemplateStrings call site caching</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">// Safari 12 sometimes garbage collects the cached TemplateStrings,
-// even when the call site is still alive.
-// This is almost impossible to write a test case for, but we can test
-// the general semantics.
-// https://bugs.webkit.org/show_bug.cgi?id=190756
+                <div class="code">// TemplateStrings caching was changed from per-contents to
+// per-call-site.
+// https://github.com/tc39/ecma262/pull/890
 function strings(array) {
   return array;
 }
@@ -919,6 +917,32 @@ function getStrings() {
 var original = getStrings();
 var other = strings`foo`;
 return original === getStrings() &amp;&amp; original !== other;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2015-syntax-template-literals-TemplateStrings-permanent-caching"></div><a href="#ES2015-syntax-template-literals-TemplateStrings-permanent-caching">TemplateStrings permanent caching</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">// Safari 12 caches TemplateStrings using a GC-able &quot;CodeBlock&quot;.
+// But TemplateStrings are supposed to always be identical! When the
+// CodeBlock is reclaimed, the TemplateStrings' identity is broken.
+// Thankfully, [[Call]] vs [[Construct]] generate different CodeBlocks,
+// which exposes the broken behavior.
+// https://bugs.webkit.org/show_bug.cgi?id=190756
+function strings(array) {
+  return array;
+}
+function getStrings() {
+  return strings`foo`;
+}
+var original = getStrings();
+var newed = new getStrings();
+return original === getStrings() &amp;&amp; original === newed;</div>}
               </div>
             </div>
           </td>
@@ -14652,10 +14676,10 @@ return C.x === 42;</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-BigInt-asUintN"></div><a href="#ESNEXT-candidate--stage-3--BigInt-BigInt-asUintN">BigInt.asUintN</a>
+            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-BigInt-asIntN"></div><a href="#ESNEXT-candidate--stage-3--BigInt-BigInt-asIntN">BigInt.asIntN</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return typeof BigInt.asUintN === 'function';</div>}
+                <div class="code">return typeof BigInt.asIntN === 'function';</div>}
               </div>
             </div>
           </td>
@@ -14664,10 +14688,10 @@ return C.x === 42;</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-BigInt-asIntN"></div><a href="#ESNEXT-candidate--stage-3--BigInt-BigInt-asIntN">BigInt.asIntN</a>
+            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-BigInt-asUintN"></div><a href="#ESNEXT-candidate--stage-3--BigInt-BigInt-asUintN">BigInt.asUintN</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return typeof BigInt.asIntN === 'function';</div>}
+                <div class="code">return typeof BigInt.asUintN === 'function';</div>}
               </div>
             </div>
           </td>
@@ -14835,6 +14859,22 @@ return works &amp;&amp; weakref.get() === undefined;</div>}
         </tr>
         <tr>
           <td class="feature subsub">
+            <div class="hash" id="ESNEXT-draft--stage-2---nullish-coalescing-operator-----"></div><a href="#ESNEXT-draft--stage-2---nullish-coalescing-operator-----">nullish coalescing operator (??)</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return null ?? 42 === 42 &amp;&amp;
+  undefined ?? 42 === 42 &amp;&amp;
+  false ?? 42 === false &amp;&amp;
+  '' ?? 42 === '' &amp;&amp;
+  0 ?? 42 === 0;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
             <div class="hash" id="ESNEXT-draft--stage-2---String-prototype-replaceAll"></div><a href="#ESNEXT-draft--stage-2---String-prototype-replaceAll">String.prototype.replaceAll</a>
             <div class="info">?
               <div class="fn">function(){
@@ -14952,6 +14992,55 @@ try {
           </td>
           <td class="result"><div class="Error" title="Unexpected token throw">Error</div></td>
           <td class="result"><div class="Error" title="Syntax error">Error</div></td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ESNEXT-draft--stage-2--optional-chaining-operator-----"></div><a href="#ESNEXT-draft--stage-2--optional-chaining-operator-----">optional chaining operator (?.)</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-draft--stage-2--optional-chaining-operator------optional-property-access"></div><a href="#ESNEXT-draft--stage-2--optional-chaining-operator------optional-property-access">optional property access</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var foo = { baz: 42 };
+var bar = null;
+return foo?.baz === 42 &amp;&amp; bar?.baz === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-draft--stage-2--optional-chaining-operator------optional-bracket-access"></div><a href="#ESNEXT-draft--stage-2--optional-chaining-operator------optional-bracket-access">optional bracket access</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var foo = { baz: 42 };
+var bar = null;
+return foo?.['baz'] === 42 &amp;&amp; bar?.['baz'] === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-draft--stage-2--optional-chaining-operator------optional-method-call"></div><a href="#ESNEXT-draft--stage-2--optional-chaining-operator------optional-method-call">optional method call</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var foo = { baz: function () { return 42; } };
+var bar = null;
+return foo?.baz() === 42 &amp;&amp; bar?.baz() === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="3">
@@ -15190,22 +15279,6 @@ return 123i === 'string123number123';</div>}
           </td>
           <td class="result"><div class="Error" title="Invalid or unexpected token">Error</div></td>
           <td class="result"><div class="Error" title="Unexpected identifier after numeric literal">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1---nullish-coalescing-operator-----"></div><a href="#ESNEXT-proposal--stage-1---nullish-coalescing-operator-----">nullish coalescing operator (??)</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return null ?? 42 === 42 &amp;&amp;
-  undefined ?? 42 === 42 &amp;&amp;
-  false ?? 42 === false &amp;&amp;
-  '' ?? 42 === '' &amp;&amp;
-  0 ?? 42 === 0;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error" title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error" title="Syntax error">Error</div></td>
         </tr>
         <tr>
           <td class="feature subsub">
@@ -15714,55 +15787,6 @@ return C.has(A) + C.has(B);</div>}
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
-              <div class="hash" id="ESNEXT-proposal--stage-1--optional-chaining-operator-----"></div><a href="#ESNEXT-proposal--stage-1--optional-chaining-operator-----">optional chaining operator (?.)</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1--optional-chaining-operator------optional-property-access"></div><a href="#ESNEXT-proposal--stage-1--optional-chaining-operator------optional-property-access">optional property access</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var foo = { baz: 42 };
-var bar = null;
-return foo?.baz === 42 &amp;&amp; bar?.baz === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error" title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error" title="Syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1--optional-chaining-operator------optional-bracket-access"></div><a href="#ESNEXT-proposal--stage-1--optional-chaining-operator------optional-bracket-access">optional bracket access</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var foo = { baz: 42 };
-var bar = null;
-return foo?.['baz'] === 42 &amp;&amp; bar?.['baz'] === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error" title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error" title="Syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1--optional-chaining-operator------optional-method-call"></div><a href="#ESNEXT-proposal--stage-1--optional-chaining-operator------optional-method-call">optional method call</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var foo = { baz: function () { return 42; } };
-var bar = null;
-return foo?.baz() === 42 &amp;&amp; bar?.baz() === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error" title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error" title="Syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
               <div class="hash" id="ESNEXT-proposal--stage-1--partial-application-syntax"></div><a href="#ESNEXT-proposal--stage-1--partial-application-syntax">partial application syntax</a>
             </h3>
           </td>
@@ -16103,13 +16127,13 @@ try {
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
-              <div class="hash" id="ESNEXT-proposal--stage-1--getting-last-item-from-array"></div><a href="#ESNEXT-proposal--stage-1--getting-last-item-from-array">getting last item from array</a>
+              <div class="hash" id="ESNEXT-proposal--stage-1--Getting-last-item-from-array"></div><a href="#ESNEXT-proposal--stage-1--Getting-last-item-from-array">Getting last item from array</a>
             </h3>
           </td>
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1--getting-last-item-from-array-Array-prototype-lastItem"></div><a href="#ESNEXT-proposal--stage-1--getting-last-item-from-array-Array-prototype-lastItem">Array.prototype.lastItem</a>
+            <div class="hash" id="ESNEXT-proposal--stage-1--Getting-last-item-from-array-Array-prototype-lastItem"></div><a href="#ESNEXT-proposal--stage-1--Getting-last-item-from-array-Array-prototype-lastItem">Array.prototype.lastItem</a>
             <div class="info">?
               <div class="fn">function(){
                 <div class="code">return [1, 2, 3].lastItem === 3;</div>}
@@ -16117,11 +16141,11 @@ try {
             </div>
           </td>
           <td class="result"></td>
-          <td class="result"><div class="No" title="Test failed">No</div></td>
+          <td class="result"></td>
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1--getting-last-item-from-array-Array-prototype-lastIndex"></div><a href="#ESNEXT-proposal--stage-1--getting-last-item-from-array-Array-prototype-lastIndex">Array.prototype.lastIndex</a>
+            <div class="hash" id="ESNEXT-proposal--stage-1--Getting-last-item-from-array-Array-prototype-lastIndex"></div><a href="#ESNEXT-proposal--stage-1--Getting-last-item-from-array-Array-prototype-lastIndex">Array.prototype.lastIndex</a>
             <div class="info">?
               <div class="fn">function(){
                 <div class="code">return [1, 2, 3].lastIndex === 2;</div>}
@@ -16129,7 +16153,7 @@ try {
             </div>
           </td>
           <td class="result"></td>
-          <td class="result"><div class="No" title="Test failed">No</div></td>
+          <td class="result"></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="3">
