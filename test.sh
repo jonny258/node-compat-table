@@ -50,9 +50,10 @@ if [ -d "./chromium-latest" ]; then
   chromium-latest/bin/node test.js
 fi
 
-LATEST=$(curl -sL https://nodejs.org/download/chakracore-nightly/index.tab |   awk '{ if (!f && NR > 1) { print $1; f = 1 } }')
-PROJECT_NAME="node" PROJECT_URL="https://nodejs.org/download/chakracore-nightly/" n project $LATEST
-node test.js
+# chakracore stopped publishing NON-windows versions :(
+#LATEST=$(curl -sL https://nodejs.org/download/chakracore-nightly/index.tab |   awk '{ if (!f && NR > 1) { print $1; f = 1 } }')
+#PROJECT_NAME="node" PROJECT_URL="https://nodejs.org/download/chakracore-nightly/" n project $LATEST
+#node test.js
 
 n use 6.10.0
 git add ./results/**/*.json
