@@ -45,10 +45,10 @@ node --es_staging test.js
 node --harmony test.js
 
 # test latest from the v8 team
-bash download-chromium-latest.sh
-if [ -d "./chromium-latest" ]; then
-  chromium-latest/bin/node test.js
-fi
+#bash download-chromium-latest.sh
+#if [ -d "./chromium-latest" ]; then
+#  chromium-latest/bin/node test.js
+#fi
 
 # chakracore stopped publishing NON-windows versions :(
 #LATEST=$(curl -sL https://nodejs.org/download/chakracore-nightly/index.tab |   awk '{ if (!f && NR > 1) { print $1; f = 1 } }')
