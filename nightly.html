@@ -928,13 +928,7 @@ return original === getStrings() &amp;&amp; original !== other;</div>}
             <div class="hash" id="ES2015-syntax-template-literals-TemplateStrings-permanent-caching"></div><a href="#ES2015-syntax-template-literals-TemplateStrings-permanent-caching">TemplateStrings permanent caching</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">// Safari 12 caches TemplateStrings using a GC-able &quot;CodeBlock&quot;.
-// But TemplateStrings are supposed to always be identical! When the
-// CodeBlock is reclaimed, the TemplateStrings' identity is broken.
-// Thankfully, [[Call]] vs [[Construct]] generate different CodeBlocks,
-// which exposes the broken behavior.
-// https://bugs.webkit.org/show_bug.cgi?id=190756
-function strings(array) {
+                <div class="code">function strings(array) {
   return array;
 }
 function getStrings() {
@@ -14472,6 +14466,40 @@ return descriptor.value === actualGlobal &amp;&amp; !descriptor.enumerable &amp;
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
+              <div class="hash" id="ESNEXT-candidate--stage-3--WeakReferences"></div><a href="#ESNEXT-candidate--stage-3--WeakReferences">WeakReferences</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--WeakReferences-WeakRef-minimal-support"></div><a href="#ESNEXT-candidate--stage-3--WeakReferences-WeakRef-minimal-support">WeakRef minimal support</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var O = {};
+var weakref = new WeakRef(O);
+return weakref.deref() === O;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--WeakReferences-Finalizers-minimal-support"></div><a href="#ESNEXT-candidate--stage-3--WeakReferences-Finalizers-minimal-support">Finalizers minimal support</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var fg = new FinalizationGroup(function() {});
+return Object.getPrototypeOf(fg) === FinalizationGroup.prototype;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields"></div><a href="#ESNEXT-candidate--stage-3--instance-class-fields">instance class fields</a>
             </h3>
           </td>
@@ -14840,22 +14868,6 @@ return result === 'tromple';</div>}
           </td>
           <td class="result"></td>
           <td class="result"><div class="No" title="Test failed">No</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2---weak-references"></div><a href="#ESNEXT-draft--stage-2---weak-references">weak references</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var O = {};
-var weakref = System.makeWeakRef(O);
-var works = weakref.get() === O;
-weakref.clear();
-return works &amp;&amp; weakref.get() === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="&#x27;System&#x27; is not defined">Error</div></td>
         </tr>
         <tr>
           <td class="feature subsub">
