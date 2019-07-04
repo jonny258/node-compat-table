@@ -1,10 +1,10 @@
 {
-  "_version": "13.0.0-nightly2019070439a935883d--es_staging",
+  "_version": "12.6.0",
   "_engine": "v8 7.5.288.22-node.14",
   "ESNEXT": {
-    "_successful": 21,
+    "_successful": 20,
     "_count": 161,
-    "_percent": 0.13043478260869565,
+    "_percent": 0.12422360248447205,
     "candidate (stage 3)›globalThis›\"globalThis\" global property is global object": true,
     "candidate (stage 3)›globalThis›\"globalThis\" global property has correct property descriptor": true,
     "candidate (stage 3)›WeakReferences›WeakRef minimal support": "WeakRef is not defined",
@@ -25,7 +25,7 @@
     "candidate (stage 3)›BigInt›BigUint64Array": true,
     "candidate (stage 3)›BigInt›DataView.prototype.getBigInt64": true,
     "candidate (stage 3)›BigInt›DataView.prototype.getBigUint64": true,
-    "candidate (stage 3)›Promise.allSettled": true,
+    "candidate (stage 3)›Promise.allSettled": "Promise.allSettled is not a function",
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": true,
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp.$1-$9": true,
     "draft (stage 2)›Generator function.sent Meta Property": "Unexpected token .",
