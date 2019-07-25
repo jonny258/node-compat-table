@@ -274,3 +274,11 @@ table.results {
   position: absolute;
   margin-top: -46px;
 }
+.anchor {
+  margin-right: 5px;
+  font-size: 90%;
+  visibility: hidden;
+}
+tr:hover > td > .anchor {
+  visibility: visible;
+}
