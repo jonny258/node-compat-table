@@ -36987,9 +36987,142 @@ return C.x === 42;</div>}
         <tr>
           <td class="feature sub" colspan="20">
             <h3>
+              <div class="hash" id="ESNEXT-candidate--stage-3--optional-chaining-operator-----"></div><a href="#ESNEXT-candidate--stage-3--optional-chaining-operator-----">optional chaining operator (?.)</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--optional-chaining-operator------optional-property-access"></div><a href="#ESNEXT-candidate--stage-3--optional-chaining-operator------optional-property-access">optional property access</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var foo = { baz: 42 };
+var bar = null;
+return foo?.baz === 42 &amp;&amp; bar?.baz === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--optional-chaining-operator------optional-bracket-access"></div><a href="#ESNEXT-candidate--stage-3--optional-chaining-operator------optional-bracket-access">optional bracket access</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var foo = { baz: 42 };
+var bar = null;
+return foo?.['baz'] === 42 &amp;&amp; bar?.['baz'] === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--optional-chaining-operator------optional-method-call"></div><a href="#ESNEXT-candidate--stage-3--optional-chaining-operator------optional-method-call">optional method call</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var foo = { baz: function () { return 42; } };
+var bar = null;
+return foo?.baz() === 42 &amp;&amp; bar?.baz() === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="20">
+            <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--"></div><a href="#ESNEXT-candidate--stage-3--"></a>
             </h3>
           </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3---nullish-coalescing-operator-----"></div><a href="#ESNEXT-candidate--stage-3---nullish-coalescing-operator-----">nullish coalescing operator (??)</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return null ?? 42 === 42 &amp;&amp;
+  undefined ?? 42 === 42 &amp;&amp;
+  false ?? 42 === false &amp;&amp;
+  '' ?? 42 === '' &amp;&amp;
+  0 ?? 42 === 0;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
         </tr>
         <tr>
           <td class="feature subsub">
@@ -37465,39 +37598,6 @@ return result === 'tromple';</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2---nullish-coalescing-operator-----"></div><a href="#ESNEXT-draft--stage-2---nullish-coalescing-operator-----">nullish coalescing operator (??)</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return null ?? 42 === 42 &amp;&amp;
-  undefined ?? 42 === 42 &amp;&amp;
-  false ?? 42 === false &amp;&amp;
-  '' ?? 42 === '' &amp;&amp;
-  0 ?? 42 === 0;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token ?">Error</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token ?">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
             <div class="hash" id="ESNEXT-draft--stage-2---String-prototype-replaceAll"></div><a href="#ESNEXT-draft--stage-2---String-prototype-replaceAll">String.prototype.replaceAll</a>
             <div class="info">?
               <div class="fn">function(){
@@ -37717,106 +37817,6 @@ try {
           <td class="result"><div class="Error unflagged " title="Unexpected token throw">Error</div><div class="Error flagged " title="Unexpected token throw">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Unexpected token throw">Error</div><div class="Error flagged " title="Unexpected token throw">Error</div></td>
           <td class="result"><div class="Error unflagged " title="Unexpected token throw">Error</div><div class="Error flagged " title="Unexpected token throw">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="20">
-            <h3>
-              <div class="hash" id="ESNEXT-draft--stage-2--optional-chaining-operator-----"></div><a href="#ESNEXT-draft--stage-2--optional-chaining-operator-----">optional chaining operator (?.)</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2--optional-chaining-operator------optional-property-access"></div><a href="#ESNEXT-draft--stage-2--optional-chaining-operator------optional-property-access">optional property access</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var foo = { baz: 42 };
-var bar = null;
-return foo?.baz === 42 &amp;&amp; bar?.baz === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2--optional-chaining-operator------optional-bracket-access"></div><a href="#ESNEXT-draft--stage-2--optional-chaining-operator------optional-bracket-access">optional bracket access</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var foo = { baz: 42 };
-var bar = null;
-return foo?.['baz'] === 42 &amp;&amp; bar?.['baz'] === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2--optional-chaining-operator------optional-method-call"></div><a href="#ESNEXT-draft--stage-2--optional-chaining-operator------optional-method-call">optional method call</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var foo = { baz: function () { return 42; } };
-var bar = null;
-return foo?.baz() === 42 &amp;&amp; bar?.baz() === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="Unexpected token .">Error</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="Error flagged " title="Unexpected token .">Error</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="20">

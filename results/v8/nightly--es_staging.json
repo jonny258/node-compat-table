@@ -1,5 +1,5 @@
 {
-  "_version": "13.0.0-nightly2019072543e5478e2f--es_staging",
+  "_version": "13.0.0-nightly2019072664e4b0c0ac--es_staging",
   "_engine": "v8 7.5.288.22-node.16",
   "ESNEXT": {
     "_successful": 21,
@@ -16,6 +16,10 @@
     "candidate (stage 3)›static class fields›public static class fields": true,
     "candidate (stage 3)›static class fields›private static class fields": true,
     "candidate (stage 3)›static class fields›computed static class fields": true,
+    "candidate (stage 3)›optional chaining operator (?.)›optional property access": "Unexpected token .",
+    "candidate (stage 3)›optional chaining operator (?.)›optional bracket access": "Unexpected token .",
+    "candidate (stage 3)›optional chaining operator (?.)›optional method call": "Unexpected token .",
+    "candidate (stage 3)›nullish coalescing operator (??)": "Unexpected token ?",
     "candidate (stage 3)›numeric separators": true,
     "candidate (stage 3)›BigInt›basic functionality": true,
     "candidate (stage 3)›BigInt›constructor": true,
@@ -35,10 +39,6 @@
     "draft (stage 2)›throw expressions›parameter initializers": "Unexpected token throw",
     "draft (stage 2)›throw expressions›arrow function bodies": "Unexpected token throw",
     "draft (stage 2)›throw expressions›conditionals": "Unexpected token throw",
-    "draft (stage 2)›optional chaining operator (?.)›optional property access": "Unexpected token .",
-    "draft (stage 2)›optional chaining operator (?.)›optional bracket access": "Unexpected token .",
-    "draft (stage 2)›optional chaining operator (?.)›optional method call": "Unexpected token .",
-    "draft (stage 2)›nullish coalescing operator (??)": "Unexpected token ?",
     "draft (stage 2)›String.prototype.replaceAll": "\"q=query+string+parameters\".replaceAll is not a function",
     "draft (stage 2)›Set methods›Set.prototype.intersection": "(intermediate value).intersection is not a function",
     "draft (stage 2)›Set methods›Set.prototype.union": "(intermediate value).union is not a function",
