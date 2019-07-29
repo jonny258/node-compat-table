@@ -3,8 +3,8 @@
   "_engine": "v8 6.8.275.32-node.35",
   "ESNEXT": {
     "_successful": 15,
-    "_count": 161,
-    "_percent": 0.09316770186335403,
+    "_count": 160,
+    "_percent": 0.09375,
     "candidate (stage 3)›globalThis›\"globalThis\" global property is global object": false,
     "candidate (stage 3)›globalThis›\"globalThis\" global property has correct property descriptor": false,
     "candidate (stage 3)›WeakReferences›WeakRef minimal support": "WeakRef is not defined",
@@ -29,7 +29,6 @@
     "candidate (stage 3)›BigInt›BigUint64Array": true,
     "candidate (stage 3)›BigInt›DataView.prototype.getBigInt64": true,
     "candidate (stage 3)›BigInt›DataView.prototype.getBigUint64": true,
-    "candidate (stage 3)›Promise.allSettled": "Promise.allSettled is not a function",
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": true,
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp.$1-$9": true,
     "draft (stage 2)›Generator function.sent Meta Property": "Unexpected token .",
