@@ -14924,6 +14924,24 @@ return result === 'tromple';</div>}
           <td class="result"></td>
         </tr>
         <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-draft--stage-2---Promise-any"></div><a href="#ESNEXT-draft--stage-2---Promise-any">Promise.any</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">Promise.any([
+  Promise.resolve(1),
+  Promise.reject(2),
+  Promise.resolve(3)
+]).then(it =&gt; {
+  if (it === 1) asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
           <td class="feature sub" colspan="3">
             <h3>
               <div class="hash" id="ESNEXT-draft--stage-2--Class-and-Property-Decorators"></div><a href="#ESNEXT-draft--stage-2--Class-and-Property-Decorators">Class and Property Decorators</a>
@@ -15305,24 +15323,6 @@ return second === gen2.next().value;</div>}
           </td>
           <td class="result"></td>
           <td class="result"><div class="Error" title="Object doesn&#x27;t support property or method &#x27;seededPRNG&#x27;">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1---Promise-any"></div><a href="#ESNEXT-proposal--stage-1---Promise-any">Promise.any</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">Promise.any([
-  Promise.resolve(1),
-  Promise.reject(2),
-  Promise.resolve(3)
-]).then(it =&gt; {
-  if (it === 1) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="3">
