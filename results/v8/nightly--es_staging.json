@@ -1,5 +1,5 @@
 {
-  "_version": "13.0.0-nightly201908032b03e1d0a5--es_staging",
+  "_version": "13.0.0-nightly20190804e3f4ec94b8--es_staging",
   "_engine": "v8 7.6.303.28-node.14",
   "ESNEXT": {
     "_successful": 20,
