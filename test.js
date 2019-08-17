@@ -56,7 +56,7 @@ function next (ver) {
     _percent: 0
   }
   Object.keys(testers[ver]).forEach(function (name) {
-    var script = testers[ver][name]
+    var script = testers[ver][name].code
     results[name] = false // make SURE it makes it to the output
 
     run(script, function (result) {

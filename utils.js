@@ -41,9 +41,15 @@ module.exports = {
     var _testers = require('./testers.json')
     Object.keys(_testers).forEach((esVersion) => {
       testers[esVersion] = {}
-      Object.keys(_testers[esVersion]).forEach((path) =>
-        $set(testers[esVersion], path, {path: path, code: _testers[esVersion][path]})
-      )
+      Object.keys(_testers[esVersion]).forEach((path) => {
+        var item = _testers[esVersion][path]
+
+        $set(testers[esVersion], path, {
+          path: path,
+          spec: item.spec,
+          code: item.code
+        })
+      })
     })
     return testers
   },
