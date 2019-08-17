@@ -55,7 +55,7 @@ node --harmony test.js
 #PROJECT_NAME="node" PROJECT_URL="https://nodejs.org/download/chakracore-nightly/" n project $LATEST
 #node test.js
 
-n use 6.10.0
+n use 10.16.3
 git add ./results/**/*.json
 git add v8.versions
 
