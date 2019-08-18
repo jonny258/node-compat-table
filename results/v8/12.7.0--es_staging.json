@@ -166,6 +166,13 @@
     "pre-strawman›Metadata reflection API›Reflect.deleteMetadata": false,
     "pre-strawman›Metadata reflection API›Reflect.metadata": false
   },
+  "ES2020": {
+    "_successful": 2,
+    "_count": 2,
+    "_percent": 1,
+    "features›String.prototype.matchAll": true,
+    "features›Promise.allSettled": true
+  },
   "ES2019": {
     "_successful": 24,
     "_count": 24,

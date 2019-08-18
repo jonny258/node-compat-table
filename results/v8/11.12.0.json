@@ -166,6 +166,13 @@
     "pre-strawman›Metadata reflection API›Reflect.deleteMetadata": false,
     "pre-strawman›Metadata reflection API›Reflect.metadata": false
   },
+  "ES2020": {
+    "_successful": 0,
+    "_count": 2,
+    "_percent": 0,
+    "features›String.prototype.matchAll": "\"11a2bb\".matchAll is not a function",
+    "features›Promise.allSettled": "Promise.allSettled is not a function"
+  },
   "ES2019": {
     "_successful": 21,
     "_count": 24,
