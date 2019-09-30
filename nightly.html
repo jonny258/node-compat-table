@@ -14476,6 +14476,121 @@ return a === '1a2b'
           <td class="result"></td>
           <td class="result"></td>
         </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2020-features-BigInt"></div><a href="#ES2020-features-BigInt">BigInt</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-BigInt-basic-functionality"></div><a class="anchor" href="#ES2020-features-BigInt-basic-functionality">§</a><a href="https://github.com/tc39/proposal-bigint">basic functionality</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return (1n + 2n) === 3n;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-BigInt-constructor"></div><a class="anchor" href="#ES2020-features-BigInt-constructor">§</a><a href="https://github.com/tc39/proposal-bigint">constructor</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return BigInt(&quot;3&quot;) === 3n;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-BigInt-BigInt-asUintN"></div><a class="anchor" href="#ES2020-features-BigInt-BigInt-asUintN">§</a><a href="https://github.com/tc39/proposal-bigint">BigInt.asUintN</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return typeof BigInt.asUintN === 'function';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-BigInt-BigInt-asIntN"></div><a class="anchor" href="#ES2020-features-BigInt-BigInt-asIntN">§</a><a href="https://github.com/tc39/proposal-bigint">BigInt.asIntN</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return typeof BigInt.asIntN === 'function';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-BigInt-BigInt64Array"></div><a class="anchor" href="#ES2020-features-BigInt-BigInt64Array">§</a><a href="https://github.com/tc39/proposal-bigint">BigInt64Array</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var buffer = new ArrayBuffer(64);
+var view = new BigInt64Array(buffer);
+view[0] = 0x8000000000000000n;
+return view[0] === -0x8000000000000000n;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-BigInt-BigUint64Array"></div><a class="anchor" href="#ES2020-features-BigInt-BigUint64Array">§</a><a href="https://github.com/tc39/proposal-bigint">BigUint64Array</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var buffer = new ArrayBuffer(64);
+var view = new BigUint64Array(buffer);
+view[0] = 0x10000000000000000n;
+return view[0] === 0n;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-BigInt-DataView-prototype-getBigInt64"></div><a class="anchor" href="#ES2020-features-BigInt-DataView-prototype-getBigInt64">§</a><a href="https://github.com/tc39/proposal-bigint">DataView.prototype.getBigInt64</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var buffer = new ArrayBuffer(64);
+var view = new DataView(buffer);
+view.setBigInt64(0, 1n);
+return view.getBigInt64(0) === 1n;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-BigInt-DataView-prototype-getBigUint64"></div><a class="anchor" href="#ES2020-features-BigInt-DataView-prototype-getBigUint64">§</a><a href="https://github.com/tc39/proposal-bigint">DataView.prototype.getBigUint64</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var buffer = new ArrayBuffer(64);
+var view = new DataView(buffer);
+view.setBigUint64(0, 1n);
+return view.getBigUint64(0) === 1n;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
       </table>
     </article>
     <article id="ESNEXT">
@@ -14800,121 +14915,6 @@ return foo?.baz() === 42 &amp;&amp; bar?.baz() === undefined;</div>}
           </td>
           <td class="result"><div class="Error" title="Invalid or unexpected token">Error</div></td>
           <td class="result"></td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--BigInt"></div><a href="#ESNEXT-candidate--stage-3--BigInt">BigInt</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-basic-functionality"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--BigInt-basic-functionality">§</a><a href="https://github.com/tc39/proposal-bigint">basic functionality</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return (1n + 2n) === 3n;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Unexpected identifier after numeric literal">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-constructor"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--BigInt-constructor">§</a><a href="https://github.com/tc39/proposal-bigint">constructor</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return BigInt(&quot;3&quot;) === 3n;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Unexpected identifier after numeric literal">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-BigInt-asIntN"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--BigInt-BigInt-asIntN">§</a><a href="https://github.com/tc39/proposal-bigint">BigInt.asIntN</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return typeof BigInt.asIntN === 'function';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="&#x27;BigInt&#x27; is not defined">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-BigInt-asUintN"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--BigInt-BigInt-asUintN">§</a><a href="https://github.com/tc39/proposal-bigint">BigInt.asUintN</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return typeof BigInt.asUintN === 'function';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="&#x27;BigInt&#x27; is not defined">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-BigInt64Array"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--BigInt-BigInt64Array">§</a><a href="https://github.com/tc39/proposal-bigint">BigInt64Array</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var buffer = new ArrayBuffer(64);
-var view = new BigInt64Array(buffer);
-view[0] = 0x8000000000000000n;
-return view[0] === -0x8000000000000000n;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Unexpected identifier after numeric literal">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-BigUint64Array"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--BigInt-BigUint64Array">§</a><a href="https://github.com/tc39/proposal-bigint">BigUint64Array</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var buffer = new ArrayBuffer(64);
-var view = new BigUint64Array(buffer);
-view[0] = 0x10000000000000000n;
-return view[0] === 0n;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Unexpected identifier after numeric literal">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-DataView-prototype-getBigInt64"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--BigInt-DataView-prototype-getBigInt64">§</a><a href="https://github.com/tc39/proposal-bigint">DataView.prototype.getBigInt64</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var buffer = new ArrayBuffer(64);
-var view = new DataView(buffer);
-view.setBigInt64(0, 1n);
-return view.getBigInt64(0) === 1n;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="No" title="Test failed">No</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--BigInt-DataView-prototype-getBigUint64"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--BigInt-DataView-prototype-getBigUint64">§</a><a href="https://github.com/tc39/proposal-bigint">DataView.prototype.getBigUint64</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var buffer = new ArrayBuffer(64);
-var view = new DataView(buffer);
-view.setBigUint64(0, 1n);
-return view.getBigUint64(0) === 1n;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="No" title="Test failed">No</div></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="3">

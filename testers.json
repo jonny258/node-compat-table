@@ -3209,6 +3209,38 @@
       "spec": "https://github.com/tc39/String.prototype.matchAll",
       "code": "var iterator = '11a2bb'.matchAll(/(\\d)(\\D)/g);\nif(iterator[Symbol.iterator]() !== iterator)return false;\nvar a = '', b = '', c = '', step;\nwhile(!(step = iterator.next()).done){\n  a += step.value[0];\n  b += step.value[1];\n  c += step.value[2];\n}\nreturn a === '1a2b'\n  && b === '12'\n  && c === 'ab';"
     },
+    "features›BigInt›basic functionality": {
+      "spec": "https://github.com/tc39/proposal-bigint",
+      "code": "return (1n + 2n) === 3n;"
+    },
+    "features›BigInt›constructor": {
+      "spec": "https://github.com/tc39/proposal-bigint",
+      "code": "return BigInt(\"3\") === 3n;"
+    },
+    "features›BigInt›BigInt.asUintN": {
+      "spec": "https://github.com/tc39/proposal-bigint",
+      "code": "return typeof BigInt.asUintN === 'function';"
+    },
+    "features›BigInt›BigInt.asIntN": {
+      "spec": "https://github.com/tc39/proposal-bigint",
+      "code": "return typeof BigInt.asIntN === 'function';"
+    },
+    "features›BigInt›BigInt64Array": {
+      "spec": "https://github.com/tc39/proposal-bigint",
+      "code": "var buffer = new ArrayBuffer(64);\nvar view = new BigInt64Array(buffer);\nview[0] = 0x8000000000000000n;\nreturn view[0] === -0x8000000000000000n;"
+    },
+    "features›BigInt›BigUint64Array": {
+      "spec": "https://github.com/tc39/proposal-bigint",
+      "code": "var buffer = new ArrayBuffer(64);\nvar view = new BigUint64Array(buffer);\nview[0] = 0x10000000000000000n;\nreturn view[0] === 0n;"
+    },
+    "features›BigInt›DataView.prototype.getBigInt64": {
+      "spec": "https://github.com/tc39/proposal-bigint",
+      "code": "var buffer = new ArrayBuffer(64);\nvar view = new DataView(buffer);\nview.setBigInt64(0, 1n);\nreturn view.getBigInt64(0) === 1n;"
+    },
+    "features›BigInt›DataView.prototype.getBigUint64": {
+      "spec": "https://github.com/tc39/proposal-bigint",
+      "code": "var buffer = new ArrayBuffer(64);\nvar view = new DataView(buffer);\nview.setBigUint64(0, 1n);\nreturn view.getBigUint64(0) === 1n;"
+    },
     "features›Promise.allSettled": {
       "spec": "https://github.com/tc39/proposal-promise-allSettled",
       "code": "Promise.allSettled([\n  Promise.resolve(1),\n  Promise.reject(2),\n  Promise.resolve(3)\n]).then(it => {\n  if (\n    it.length === 3 &&\n    it[0].status === 'fulfilled' && it[0].value === 1 &&\n    it[1].status === 'rejected' && it[1].reason === 2 &&\n    it[2].status === 'fulfilled' && it[2].value === 3\n  ) asyncTestPassed();\n});"
@@ -3278,38 +3310,6 @@
     "candidate (stage 3)›numeric separators": {
       "spec": "https://github.com/tc39/proposal-numeric-separator",
       "code": "return 1_000_000.000_001 === 1000000.000001 &&\n  0b1010_0001_1000_0101 === 0b1010000110000101;"
-    },
-    "candidate (stage 3)›BigInt›basic functionality": {
-      "spec": "https://github.com/tc39/proposal-bigint",
-      "code": "return (1n + 2n) === 3n;"
-    },
-    "candidate (stage 3)›BigInt›constructor": {
-      "spec": "https://github.com/tc39/proposal-bigint",
-      "code": "return BigInt(\"3\") === 3n;"
-    },
-    "candidate (stage 3)›BigInt›BigInt.asIntN": {
-      "spec": "https://github.com/tc39/proposal-bigint",
-      "code": "return typeof BigInt.asIntN === 'function';"
-    },
-    "candidate (stage 3)›BigInt›BigInt.asUintN": {
-      "spec": "https://github.com/tc39/proposal-bigint",
-      "code": "return typeof BigInt.asUintN === 'function';"
-    },
-    "candidate (stage 3)›BigInt›BigInt64Array": {
-      "spec": "https://github.com/tc39/proposal-bigint",
-      "code": "var buffer = new ArrayBuffer(64);\nvar view = new BigInt64Array(buffer);\nview[0] = 0x8000000000000000n;\nreturn view[0] === -0x8000000000000000n;"
-    },
-    "candidate (stage 3)›BigInt›BigUint64Array": {
-      "spec": "https://github.com/tc39/proposal-bigint",
-      "code": "var buffer = new ArrayBuffer(64);\nvar view = new BigUint64Array(buffer);\nview[0] = 0x10000000000000000n;\nreturn view[0] === 0n;"
-    },
-    "candidate (stage 3)›BigInt›DataView.prototype.getBigInt64": {
-      "spec": "https://github.com/tc39/proposal-bigint",
-      "code": "var buffer = new ArrayBuffer(64);\nvar view = new DataView(buffer);\nview.setBigInt64(0, 1n);\nreturn view.getBigInt64(0) === 1n;"
-    },
-    "candidate (stage 3)›BigInt›DataView.prototype.getBigUint64": {
-      "spec": "https://github.com/tc39/proposal-bigint",
-      "code": "var buffer = new ArrayBuffer(64);\nvar view = new DataView(buffer);\nview.setBigUint64(0, 1n);\nreturn view.getBigUint64(0) === 1n;"
     },
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": {
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
