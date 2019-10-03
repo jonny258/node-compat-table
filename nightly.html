@@ -14591,6 +14591,45 @@ return view.getBigUint64(0) === 1n;</div>}
           <td class="result"></td>
           <td class="result"></td>
         </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2020-features-globalThis"></div><a href="#ES2020-features-globalThis">globalThis</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-globalThis--globalThis--global-property-is-global-object"></div><a class="anchor" href="#ES2020-features-globalThis--globalThis--global-property-is-global-object">§</a><a href="https://github.com/tc39/proposal-global">&quot;globalThis&quot; global property is global object</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var actualGlobal = Function('return this')();
+actualGlobal.__system_global_test__ = 42;
+return typeof globalThis === 'object' &amp;&amp; globalThis &amp;&amp; globalThis === actualGlobal &amp;&amp; !globalThis.lacksGlobalThis &amp;&amp; globalThis.__system_global_test__ === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-globalThis--globalThis--global-property-has-correct-property-descriptor"></div><a class="anchor" href="#ES2020-features-globalThis--globalThis--global-property-has-correct-property-descriptor">§</a><a href="https://github.com/tc39/proposal-global">&quot;globalThis&quot; global property has correct property descriptor</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var actualGlobal = Function('return this')();
+if (typeof globalThis !== 'object') { return false; }
+if (!('globalThis' in actualGlobal)) { return false; }
+if (Object.prototype.propertyIsEnumerable.call(actualGlobal, 'globalThis')) { return false; }
+
+var descriptor = Object.getOwnPropertyDescriptor(actualGlobal, 'globalThis');
+return descriptor.value === actualGlobal &amp;&amp; !descriptor.enumerable &amp;&amp; descriptor.configurable &amp;&amp; descriptor.writable;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
       </table>
     </article>
     <article id="ESNEXT">
@@ -14627,45 +14666,6 @@ return view.getBigUint64(0) === 1n;</div>}
             <div class="hash" id="ESNEXT-candidate--stage-3-"></div><a href="#ESNEXT-candidate--stage-3-">candidate (stage 3)</a>
           </h2>
         </caption>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--globalThis"></div><a href="#ESNEXT-candidate--stage-3--globalThis">globalThis</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--globalThis--globalThis--global-property-is-global-object"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--globalThis--globalThis--global-property-is-global-object">§</a><a href="https://github.com/tc39/proposal-global">&quot;globalThis&quot; global property is global object</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var actualGlobal = Function('return this')();
-actualGlobal.__system_global_test__ = 42;
-return typeof globalThis === 'object' &amp;&amp; globalThis &amp;&amp; globalThis === actualGlobal &amp;&amp; !globalThis.lacksGlobalThis &amp;&amp; globalThis.__system_global_test__ === 42;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="No" title="Test failed">No</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--globalThis--globalThis--global-property-has-correct-property-descriptor"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--globalThis--globalThis--global-property-has-correct-property-descriptor">§</a><a href="https://github.com/tc39/proposal-global">&quot;globalThis&quot; global property has correct property descriptor</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var actualGlobal = Function('return this')();
-if (typeof globalThis !== 'object') { return false; }
-if (!('globalThis' in actualGlobal)) { return false; }
-if (Object.prototype.propertyIsEnumerable.call(actualGlobal, 'globalThis')) { return false; }
-
-var descriptor = Object.getOwnPropertyDescriptor(actualGlobal, 'globalThis');
-return descriptor.value === actualGlobal &amp;&amp; !descriptor.enumerable &amp;&amp; descriptor.configurable &amp;&amp; descriptor.writable;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="No" title="Test failed">No</div></td>
-        </tr>
         <tr>
           <td class="feature sub" colspan="3">
             <h3>

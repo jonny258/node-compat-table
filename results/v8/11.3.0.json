@@ -3,10 +3,8 @@
   "_engine": "v8 7.0.276.38-node.11",
   "ESNEXT": {
     "_successful": 2,
-    "_count": 152,
-    "_percent": 0.013157894736842105,
-    "candidate (stage 3)›globalThis›\"globalThis\" global property is global object": false,
-    "candidate (stage 3)›globalThis›\"globalThis\" global property has correct property descriptor": false,
+    "_count": 150,
+    "_percent": 0.013333333333333334,
     "candidate (stage 3)›WeakReferences›WeakRef minimal support": "WeakRef is not defined",
     "candidate (stage 3)›WeakReferences›Finalizers minimal support": "FinalizationGroup is not defined",
     "candidate (stage 3)›instance class fields›public instance class fields": "Unexpected token =",
@@ -160,8 +158,8 @@
   },
   "ES2020": {
     "_successful": 8,
-    "_count": 10,
-    "_percent": 0.8,
+    "_count": 12,
+    "_percent": 0.6666666666666666,
     "features›String.prototype.matchAll": "\"11a2bb\".matchAll is not a function",
     "features›BigInt›basic functionality": true,
     "features›BigInt›constructor": true,
@@ -171,7 +169,9 @@
     "features›BigInt›BigUint64Array": true,
     "features›BigInt›DataView.prototype.getBigInt64": true,
     "features›BigInt›DataView.prototype.getBigUint64": true,
-    "features›Promise.allSettled": "Promise.allSettled is not a function"
+    "features›Promise.allSettled": "Promise.allSettled is not a function",
+    "features›globalThis›\"globalThis\" global property is global object": false,
+    "features›globalThis›\"globalThis\" global property has correct property descriptor": false
   },
   "ES2019": {
     "_successful": 21,

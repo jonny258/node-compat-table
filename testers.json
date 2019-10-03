@@ -3244,17 +3244,17 @@
     "features›Promise.allSettled": {
       "spec": "https://github.com/tc39/proposal-promise-allSettled",
       "code": "Promise.allSettled([\n  Promise.resolve(1),\n  Promise.reject(2),\n  Promise.resolve(3)\n]).then(it => {\n  if (\n    it.length === 3 &&\n    it[0].status === 'fulfilled' && it[0].value === 1 &&\n    it[1].status === 'rejected' && it[1].reason === 2 &&\n    it[2].status === 'fulfilled' && it[2].value === 3\n  ) asyncTestPassed();\n});"
-    }
-  },
-  "ESNEXT": {
-    "candidate (stage 3)›globalThis›\"globalThis\" global property is global object": {
+    },
+    "features›globalThis›\"globalThis\" global property is global object": {
       "spec": "https://github.com/tc39/proposal-global",
       "code": "var actualGlobal = Function('return this')();\nactualGlobal.__system_global_test__ = 42;\nreturn typeof globalThis === 'object' && globalThis && globalThis === actualGlobal && !globalThis.lacksGlobalThis && globalThis.__system_global_test__ === 42;"
     },
-    "candidate (stage 3)›globalThis›\"globalThis\" global property has correct property descriptor": {
+    "features›globalThis›\"globalThis\" global property has correct property descriptor": {
       "spec": "https://github.com/tc39/proposal-global",
       "code": "var actualGlobal = Function('return this')();\nif (typeof globalThis !== 'object') { return false; }\nif (!('globalThis' in actualGlobal)) { return false; }\nif (Object.prototype.propertyIsEnumerable.call(actualGlobal, 'globalThis')) { return false; }\n\nvar descriptor = Object.getOwnPropertyDescriptor(actualGlobal, 'globalThis');\nreturn descriptor.value === actualGlobal && !descriptor.enumerable && descriptor.configurable && descriptor.writable;"
-    },
+    }
+  },
+  "ESNEXT": {
     "candidate (stage 3)›WeakReferences›WeakRef minimal support": {
       "spec": "https://github.com/tc39/proposal-weakrefs",
       "code": "var O = {};\nvar weakref = new WeakRef(O);\nreturn weakref.deref() === O;"
