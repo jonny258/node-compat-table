@@ -3311,6 +3311,10 @@
       "spec": "https://github.com/tc39/proposal-numeric-separator",
       "code": "return 1_000_000.000_001 === 1000000.000001 &&\n  0b1010_0001_1000_0101 === 0b1010000110000101;"
     },
+    "candidate (stage 3)›String.prototype.replaceAll": {
+      "spec": "https://github.com/tc39/proposal-string-replace-all",
+      "code": "return 'q=query+string+parameters'.replaceAll('+', ' ') === 'q=query string parameters';"
+    },
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": {
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
       "code": "var re = /\\w/;\nre.exec('x');\nreturn RegExp.lastMatch === 'x';"
@@ -3346,10 +3350,6 @@
     "draft (stage 2)›throw expressions›conditionals": {
       "spec": "https://github.com/tc39/proposal-throw-expressions",
       "code": "true ? 42 : throw 21;\ntry {\n  false ? 42 : throw 21;\n} catch (e) {\n  return e === 21;\n}"
-    },
-    "draft (stage 2)›String.prototype.replaceAll": {
-      "spec": "https://github.com/tc39/proposal-string-replace-all",
-      "code": "return 'q=query+string+parameters'.replaceAll('+', ' ') === 'q=query string parameters';"
     },
     "draft (stage 2)›Set methods›Set.prototype.intersection": {
       "spec": "https://github.com/tc39/proposal-set-methods",
