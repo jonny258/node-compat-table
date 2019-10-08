@@ -14929,6 +14929,24 @@ return foo?.baz() === 42 &amp;&amp; bar?.baz() === undefined;</div>}
           <td class="result"></td>
         </tr>
         <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3---Promise-any"></div><a class="anchor" href="#ESNEXT-candidate--stage-3---Promise-any">§</a><a href="https://github.com/tc39/proposal-promise-any">Promise.any</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">Promise.any([
+  Promise.resolve(1),
+  Promise.reject(2),
+  Promise.resolve(3)
+]).then(it =&gt; {
+  if (it === 1) asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
           <td class="feature sub" colspan="3">
             <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--Legacy-RegExp-features-in-JavaScript"></div><a href="#ESNEXT-candidate--stage-3--Legacy-RegExp-features-in-JavaScript">Legacy RegExp features in JavaScript</a>
@@ -15010,24 +15028,6 @@ return result === 'tromple';</div>}
           </td>
           <td class="result"></td>
           <td class="result"><div class="No" title="Test failed">No</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-draft--stage-2---Promise-any"></div><a class="anchor" href="#ESNEXT-draft--stage-2---Promise-any">§</a><a href="https://github.com/tc39/proposal-promise-any">Promise.any</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">Promise.any([
-  Promise.resolve(1),
-  Promise.reject(2),
-  Promise.resolve(3)
-]).then(it =&gt; {
-  if (it === 1) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="3">
