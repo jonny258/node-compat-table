@@ -196,9 +196,10 @@
   },
   "ES2020": {
     "_successful": 8,
-    "_count": 12,
-    "_percent": 0.6666666666666666,
-    "features›String.prototype.matchAll": "\"11a2bb\".matchAll is not a function",
+    "_count": 13,
+    "_percent": 0.6153846153846154,
+    "features›String.prototype.matchAll›basic functionality": "\"11a2bb\".matchAll is not a function",
+    "features›String.prototype.matchAll›throws on non-global regex": false,
     "features›BigInt›basic functionality": true,
     "features›BigInt›constructor": true,
     "features›BigInt›BigInt.asUintN": true,

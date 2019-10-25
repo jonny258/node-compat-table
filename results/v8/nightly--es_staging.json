@@ -1,6 +1,6 @@
 {
-  "_version": "14.0.0-nightly20191024a228e22533--es_staging",
-  "_engine": "v8 7.8.279.17-node.14",
+  "_version": "14.0.0-nightly2019102571bcd05232--es_staging",
+  "_engine": "v8 7.8.279.17-node.15",
   "ESNEXT": {
     "_successful": 10,
     "_count": 188,
@@ -196,9 +196,10 @@
   },
   "ES2020": {
     "_successful": 12,
-    "_count": 12,
-    "_percent": 1,
-    "features›String.prototype.matchAll": true,
+    "_count": 13,
+    "_percent": 0.9230769230769231,
+    "features›String.prototype.matchAll›basic functionality": true,
+    "features›String.prototype.matchAll›throws on non-global regex": false,
     "features›BigInt›basic functionality": true,
     "features›BigInt›constructor": true,
     "features›BigInt›BigInt.asUintN": true,

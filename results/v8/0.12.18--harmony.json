@@ -196,9 +196,10 @@
   },
   "ES2020": {
     "_successful": 0,
-    "_count": 12,
+    "_count": 13,
     "_percent": 0,
-    "features›String.prototype.matchAll": "undefined is not a function",
+    "features›String.prototype.matchAll›basic functionality": "undefined is not a function",
+    "features›String.prototype.matchAll›throws on non-global regex": false,
     "features›BigInt›basic functionality": "Unexpected token ILLEGAL",
     "features›BigInt›constructor": "Unexpected token ILLEGAL",
     "features›BigInt›BigInt.asUintN": "BigInt is not defined",

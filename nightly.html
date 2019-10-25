@@ -14427,13 +14427,13 @@ return eval('({ /\x2A before \x2A/' + str + '/\x2A after \x2A/ }.f)') + '' === s
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
-              <div class="hash" id="ES2020-features-"></div><a href="#ES2020-features-"></a>
+              <div class="hash" id="ES2020-features-String-prototype-matchAll"></div><a href="#ES2020-features-String-prototype-matchAll">String.prototype.matchAll</a>
             </h3>
           </td>
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ES2020-features--String-prototype-matchAll"></div><a class="anchor" href="#ES2020-features--String-prototype-matchAll">§</a><a href="https://github.com/tc39/String.prototype.matchAll">String.prototype.matchAll</a>
+            <div class="hash" id="ES2020-features-String-prototype-matchAll-basic-functionality"></div><a class="anchor" href="#ES2020-features-String-prototype-matchAll-basic-functionality">§</a><a href="https://github.com/tc39/String.prototype.matchAll">basic functionality</a>
             <div class="info">?
               <div class="fn">function(){
                 <div class="code">var iterator = '11a2bb'.matchAll(/(\d)(\D)/g);
@@ -14455,21 +14455,15 @@ return a === '1a2b'
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ES2020-features--Promise-allSettled"></div><a class="anchor" href="#ES2020-features--Promise-allSettled">§</a><a href="https://github.com/tc39/proposal-promise-allSettled">Promise.allSettled</a>
+            <div class="hash" id="ES2020-features-String-prototype-matchAll-throws-on-non-global-regex"></div><a class="anchor" href="#ES2020-features-String-prototype-matchAll-throws-on-non-global-regex">§</a><a href="https://github.com/tc39/String.prototype.matchAll">throws on non-global regex</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">Promise.allSettled([
-  Promise.resolve(1),
-  Promise.reject(2),
-  Promise.resolve(3)
-]).then(it =&gt; {
-  if (
-    it.length === 3 &amp;&amp;
-    it[0].status === 'fulfilled' &amp;&amp; it[0].value === 1 &amp;&amp;
-    it[1].status === 'rejected' &amp;&amp; it[1].reason === 2 &amp;&amp;
-    it[2].status === 'fulfilled' &amp;&amp; it[2].value === 3
-  ) asyncTestPassed();
-});</div>}
+                <div class="code">if (typeof String.prototype.matchAll !== 'function') return false;
+try {
+  '11a2bb'.matchAll(/(\d)(\D)/);
+} catch (e) {
+  return true;
+}</div>}
               </div>
             </div>
           </td>
@@ -14585,6 +14579,36 @@ return view.getBigInt64(0) === 1n;</div>}
 var view = new DataView(buffer);
 view.setBigUint64(0, 1n);
 return view.getBigUint64(0) === 1n;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2020-features-"></div><a href="#ES2020-features-"></a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features--Promise-allSettled"></div><a class="anchor" href="#ES2020-features--Promise-allSettled">§</a><a href="https://github.com/tc39/proposal-promise-allSettled">Promise.allSettled</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">Promise.allSettled([
+  Promise.resolve(1),
+  Promise.reject(2),
+  Promise.resolve(3)
+]).then(it =&gt; {
+  if (
+    it.length === 3 &amp;&amp;
+    it[0].status === 'fulfilled' &amp;&amp; it[0].value === 1 &amp;&amp;
+    it[1].status === 'rejected' &amp;&amp; it[1].reason === 2 &amp;&amp;
+    it[2].status === 'fulfilled' &amp;&amp; it[2].value === 3
+  ) asyncTestPassed();
+});</div>}
               </div>
             </div>
           </td>

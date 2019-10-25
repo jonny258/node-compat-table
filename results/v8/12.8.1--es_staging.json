@@ -196,9 +196,10 @@
   },
   "ES2020": {
     "_successful": 12,
-    "_count": 12,
-    "_percent": 1,
-    "features›String.prototype.matchAll": true,
+    "_count": 13,
+    "_percent": 0.9230769230769231,
+    "features›String.prototype.matchAll›basic functionality": true,
+    "features›String.prototype.matchAll›throws on non-global regex": false,
     "features›BigInt›basic functionality": true,
     "features›BigInt›constructor": true,
     "features›BigInt›BigInt.asUintN": true,

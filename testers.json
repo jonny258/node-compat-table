@@ -3205,9 +3205,13 @@
     }
   },
   "ES2020": {
-    "features›String.prototype.matchAll": {
+    "features›String.prototype.matchAll›basic functionality": {
       "spec": "https://github.com/tc39/String.prototype.matchAll",
       "code": "var iterator = '11a2bb'.matchAll(/(\\d)(\\D)/g);\nif(iterator[Symbol.iterator]() !== iterator)return false;\nvar a = '', b = '', c = '', step;\nwhile(!(step = iterator.next()).done){\n  a += step.value[0];\n  b += step.value[1];\n  c += step.value[2];\n}\nreturn a === '1a2b'\n  && b === '12'\n  && c === 'ab';"
+    },
+    "features›String.prototype.matchAll›throws on non-global regex": {
+      "spec": "https://github.com/tc39/String.prototype.matchAll",
+      "code": "if (typeof String.prototype.matchAll !== 'function') return false;\ntry {\n  '11a2bb'.matchAll(/(\\d)(\\D)/);\n} catch (e) {\n  return true;\n}"
     },
     "features›BigInt›basic functionality": {
       "spec": "https://github.com/tc39/proposal-bigint",
