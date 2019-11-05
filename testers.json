@@ -3584,8 +3584,8 @@
       "code": "return typeof Reflect.Realm.immutableRoot === 'function'\n  && typeof Reflect.Realm.prototype.spawn === 'function';"
     },
     "proposal (stage 1)›Math.signbit": {
-      "spec": "http://jfbastien.github.io/papers/Math.signbit.html",
-      "code": "return Math.signbit(-0) === false\n  && Math.signbit(0) === true\n  && Math.signbit(-42) === false\n  && Math.signbit(42) === true;"
+      "spec": "https://github.com/tc39/proposal-Math.signbit",
+      "code": "return Math.signbit(NaN) === false\n  && Math.signbit(-0) === true\n  && Math.signbit(0) === false\n  && Math.signbit(-42) === true\n  && Math.signbit(42) === false;"
     },
     "proposal (stage 1)›Math extensions proposal›Math.clamp": {
       "spec": "https://github.com/rwaldron/proposal-math-extensions",

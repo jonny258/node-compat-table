@@ -15939,13 +15939,14 @@ toArray(async function*() { yield * [1, 2, 3] }().take(2)).then(it =&gt; {
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-proposal--stage-1---Math-signbit"></div><a class="anchor" href="#ESNEXT-proposal--stage-1---Math-signbit">§</a><a href="http://jfbastien.github.io/papers/Math.signbit.html">Math.signbit</a>
+            <div class="hash" id="ESNEXT-proposal--stage-1---Math-signbit"></div><a class="anchor" href="#ESNEXT-proposal--stage-1---Math-signbit">§</a><a href="https://github.com/tc39/proposal-Math.signbit">Math.signbit</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return Math.signbit(-0) === false
-  &amp;&amp; Math.signbit(0) === true
-  &amp;&amp; Math.signbit(-42) === false
-  &amp;&amp; Math.signbit(42) === true;</div>}
+                <div class="code">return Math.signbit(NaN) === false
+  &amp;&amp; Math.signbit(-0) === true
+  &amp;&amp; Math.signbit(0) === false
+  &amp;&amp; Math.signbit(-42) === true
+  &amp;&amp; Math.signbit(42) === false;</div>}
               </div>
             </div>
           </td>
