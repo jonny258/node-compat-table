@@ -3309,7 +3309,7 @@
     },
     "candidate (stage 3)›nullish coalescing operator (??)": {
       "spec": "https://github.com/tc39/proposal-nullish-coalescing",
-      "code": "return null ?? 42 === 42 &&\n  undefined ?? 42 === 42 &&\n  false ?? 42 === false &&\n  '' ?? 42 === '' &&\n  0 ?? 42 === 0;"
+      "code": "return (null ?? 42) === 42 &&\n  (undefined ?? 42) === 42 &&\n  (false ?? 42) === false &&\n  ('' ?? 42) === '' &&\n  (0 ?? 42) === 0 &&\n  isNaN(NaN ?? 42);"
     },
     "candidate (stage 3)›numeric separators": {
       "spec": "https://github.com/tc39/proposal-numeric-separator",

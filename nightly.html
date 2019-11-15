@@ -14916,11 +14916,12 @@ return foo?.baz() === 42 &amp;&amp; bar?.baz() === undefined;</div>}
             <div class="hash" id="ESNEXT-candidate--stage-3---nullish-coalescing-operator-----"></div><a class="anchor" href="#ESNEXT-candidate--stage-3---nullish-coalescing-operator-----">§</a><a href="https://github.com/tc39/proposal-nullish-coalescing">nullish coalescing operator (??)</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return null ?? 42 === 42 &amp;&amp;
-  undefined ?? 42 === 42 &amp;&amp;
-  false ?? 42 === false &amp;&amp;
-  '' ?? 42 === '' &amp;&amp;
-  0 ?? 42 === 0;</div>}
+                <div class="code">return (null ?? 42) === 42 &amp;&amp;
+  (undefined ?? 42) === 42 &amp;&amp;
+  (false ?? 42) === false &amp;&amp;
+  ('' ?? 42) === '' &amp;&amp;
+  (0 ?? 42) === 0 &amp;&amp;
+  isNaN(NaN ?? 42);</div>}
               </div>
             </div>
           </td>

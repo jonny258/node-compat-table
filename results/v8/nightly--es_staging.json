@@ -1,10 +1,10 @@
 {
-  "_version": "14.0.0-nightly20191114ed401236f6--es_staging",
+  "_version": "14.0.0-nightly20191115c71b89eb06--es_staging",
   "_engine": "v8 7.9.317.20-node.20",
   "ESNEXT": {
-    "_successful": 13,
+    "_successful": 14,
     "_count": 188,
-    "_percent": 0.06914893617021277,
+    "_percent": 0.07446808510638298,
     "candidate (stage 3)›WeakReferences›WeakRef minimal support": "WeakRef is not defined",
     "candidate (stage 3)›WeakReferences›Finalizers minimal support": "FinalizationGroup is not defined",
     "candidate (stage 3)›instance class fields›public instance class fields": true,
@@ -17,7 +17,7 @@
     "candidate (stage 3)›optional chaining operator (?.)›optional property access": true,
     "candidate (stage 3)›optional chaining operator (?.)›optional bracket access": true,
     "candidate (stage 3)›optional chaining operator (?.)›optional method call": true,
-    "candidate (stage 3)›nullish coalescing operator (??)": "Unexpected token '&&'",
+    "candidate (stage 3)›nullish coalescing operator (??)": true,
     "candidate (stage 3)›numeric separators": true,
     "candidate (stage 3)›String.prototype.replaceAll": "\"q=query+string+parameters\".replaceAll is not a function",
     "candidate (stage 3)›Promise.any": "Promise.any is not a function",
