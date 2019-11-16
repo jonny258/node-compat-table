@@ -13184,23 +13184,6 @@ p.then(function(result) {
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ES2017-misc--Proxy--ownKeys--handler--duplicate-keys-for-non-extensible-targets--ES-2017-semantics-"></div><a class="anchor" href="#ES2017-misc--Proxy--ownKeys--handler--duplicate-keys-for-non-extensible-targets--ES-2017-semantics-">§</a><a href="https://github.com/tc39/ecma262/pull/594">Proxy &quot;ownKeys&quot; handler, duplicate keys for non-extensible targets (ES 2017 semantics)</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var P = new Proxy(Object.preventExtensions(Object.defineProperty({a:1}, &quot;b&quot;, {value:1})), {
-ownKeys: function() {
-return ['a','a','b','b'];
-}
-});
-return Object.getOwnPropertyNames(P) + '' === &quot;a,a,b,b&quot;;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Yes" title="Test passed">Yes</div></td>
-          <td class="result"><div class="Yes" title="Test passed">Yes</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
             <div class="hash" id="ES2017-misc--RegExp--u--flag--case-folding"></div><a class="anchor" href="#ES2017-misc--RegExp--u--flag--case-folding">§</a><a href="https://github.com/tc39/ecma262/pull/525">RegExp &quot;u&quot; flag, case folding</a>
             <div class="info">?
               <div class="fn">function(){
@@ -13942,6 +13925,28 @@ asyncIterable[Symbol.asyncIterator] = function(){
               <div class="hash" id="ES2018-misc-"></div><a href="#ES2018-misc-"></a>
             </h3>
           </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2018-misc--Proxy--ownKeys--handler--duplicate-keys-for-non-extensible-targets"></div><a class="anchor" href="#ES2018-misc--Proxy--ownKeys--handler--duplicate-keys-for-non-extensible-targets">§</a><a href="https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots-ownpropertykeys">Proxy &quot;ownKeys&quot; handler, duplicate keys for non-extensible targets</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var p = new Proxy({}, {
+  ownKeys() {
+    return [&quot;a&quot;, &quot;a&quot;];
+  }
+});
+try {
+  Object.keys(p);
+} catch (e) {
+   return e instanceof TypeError
+}
+return false;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
         </tr>
         <tr>
           <td class="feature subsub">

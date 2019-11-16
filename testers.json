@@ -2959,10 +2959,6 @@
     "features›shared memory and atomics›Atomics.xor": {
       "code": "return typeof Atomics.xor == 'function';"
     },
-    "misc›Proxy \"ownKeys\" handler, duplicate keys for non-extensible targets (ES 2017 semantics)": {
-      "spec": "https://github.com/tc39/ecma262/pull/594",
-      "code": "var P = new Proxy(Object.preventExtensions(Object.defineProperty({a:1}, \"b\", {value:1})), {\nownKeys: function() {\nreturn ['a','a','b','b'];\n}\n});\nreturn Object.getOwnPropertyNames(P) + '' === \"a,a,b,b\";"
-    },
     "misc›RegExp \"u\" flag, case folding": {
       "spec": "https://github.com/tc39/ecma262/pull/525",
       "code": "return \"ſ\".match(/\\w/iu) && !\"ſ\".match(/\\W/iu)\n&& \"\\u212a\".match(/\\w/iu) && !\"\\u212a\".match(/\\W/iu)\n&& \"\\u212a\".match(/.\\b/iu) && \"ſ\".match(/.\\b/iu)\n&& !\"\\u212a\".match(/.\\B/iu) && !\"ſ\".match(/.\\B/iu);"
@@ -3100,6 +3096,10 @@
     "features›Asynchronous Iterators›for-await-of loops": {
       "spec": "https://github.com/tc39/proposal-async-iteration",
       "code": "var asyncIterable = {};\nasyncIterable[Symbol.asyncIterator] = function(){\n  var i = 0;\n  return {\n    next: function(){\n      switch(++i){\n        case 1: return Promise.resolve({done: false, value: 'a'});\n        case 2: return Promise.resolve({done: false, value: 'b'});\n      } return Promise.resolve({done: true});\n    }\n  };\n};\n\n(async function(){\n  var result = '';\n  for await(var value of asyncIterable)result += value;\n  if(result === 'ab')asyncTestPassed();\n})();"
+    },
+    "misc›Proxy \"ownKeys\" handler, duplicate keys for non-extensible targets": {
+      "spec": "https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots-ownpropertykeys",
+      "code": "var p = new Proxy({}, {\n  ownKeys() {\n    return [\"a\", \"a\"];\n  }\n});\ntry {\n  Object.keys(p);\n} catch (e) {\n   return e instanceof TypeError\n}\nreturn false;"
     },
     "misc›template literal revision": {
       "spec": "https://github.com/tc39/proposal-template-literal-revision",

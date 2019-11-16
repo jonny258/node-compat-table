@@ -1,5 +1,5 @@
 {
-  "_version": "14.0.0-nightly20191115c71b89eb06",
+  "_version": "14.0.0-nightly20191116f61882bce4",
   "_engine": "v8 7.9.317.20-node.20",
   "ESNEXT": {
     "_successful": 10,
@@ -242,8 +242,8 @@
     "misc›Well-formed JSON.stringify": true
   },
   "ES2018": {
-    "_successful": 12,
-    "_count": 12,
+    "_successful": 13,
+    "_count": 13,
     "_percent": 1,
     "features›object rest/spread properties›object rest properties": true,
     "features›object rest/spread properties›object spread properties": true,
@@ -256,12 +256,13 @@
     "features›RegExp Unicode Property Escapes": true,
     "features›Asynchronous Iterators›async generators": true,
     "features›Asynchronous Iterators›for-await-of loops": true,
+    "misc›Proxy \"ownKeys\" handler, duplicate keys for non-extensible targets": true,
     "misc›template literal revision": true
   },
   "ES2017": {
     "_successful": 63,
-    "_count": 65,
-    "_percent": 0.9692307692307692,
+    "_count": 64,
+    "_percent": 0.984375,
     "features›Object static methods›Object.values": true,
     "features›Object static methods›Object.entries": true,
     "features›Object static methods›Object.getOwnPropertyDescriptors": true,
@@ -303,7 +304,6 @@
     "features›shared memory and atomics›Atomics.store": true,
     "features›shared memory and atomics›Atomics.sub": true,
     "features›shared memory and atomics›Atomics.xor": true,
-    "misc›Proxy \"ownKeys\" handler, duplicate keys for non-extensible targets (ES 2017 semantics)": "'ownKeys' on proxy: trap returned duplicate entries",
     "misc›RegExp \"u\" flag, case folding": true,
     "misc›arguments.caller removed": true,
     "annex b›Object.prototype getter/setter methods›__defineGetter__": true,
