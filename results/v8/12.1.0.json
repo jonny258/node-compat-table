@@ -3,8 +3,8 @@
   "_engine": "v8 7.4.288.21-node.16",
   "ESNEXT": {
     "_successful": 9,
-    "_count": 188,
-    "_percent": 0.047872340425531915,
+    "_count": 184,
+    "_percent": 0.04891304347826087,
     "candidate (stage 3)›WeakReferences›WeakRef minimal support": "WeakRef is not defined",
     "candidate (stage 3)›WeakReferences›Finalizers minimal support": "FinalizationGroup is not defined",
     "candidate (stage 3)›instance class fields›public instance class fields": true,
@@ -14,10 +14,6 @@
     "candidate (stage 3)›static class fields›public static class fields": true,
     "candidate (stage 3)›static class fields›private static class fields": true,
     "candidate (stage 3)›static class fields›computed static class fields": true,
-    "candidate (stage 3)›optional chaining operator (?.)›optional property access": "Unexpected token .",
-    "candidate (stage 3)›optional chaining operator (?.)›optional bracket access": "Unexpected token .",
-    "candidate (stage 3)›optional chaining operator (?.)›optional method call": "Unexpected token .",
-    "candidate (stage 3)›nullish coalescing operator (??)": "Unexpected token ?",
     "candidate (stage 3)›numeric separators": "Invalid or unexpected token",
     "candidate (stage 3)›String.prototype.replaceAll": "\"q=query+string+parameters\".replaceAll is not a function",
     "candidate (stage 3)›Promise.any": "Promise.any is not a function",
@@ -196,8 +192,8 @@
   },
   "ES2020": {
     "_successful": 11,
-    "_count": 13,
-    "_percent": 0.8461538461538461,
+    "_count": 17,
+    "_percent": 0.6470588235294118,
     "features›String.prototype.matchAll›basic functionality": true,
     "features›String.prototype.matchAll›throws on non-global regex": false,
     "features›BigInt›basic functionality": true,
@@ -210,7 +206,11 @@
     "features›BigInt›DataView.prototype.getBigUint64": true,
     "features›Promise.allSettled": "Promise.allSettled is not a function",
     "features›globalThis›\"globalThis\" global property is global object": true,
-    "features›globalThis›\"globalThis\" global property has correct property descriptor": true
+    "features›globalThis›\"globalThis\" global property has correct property descriptor": true,
+    "features›optional chaining operator (?.)›optional property access": "Unexpected token .",
+    "features›optional chaining operator (?.)›optional bracket access": "Unexpected token .",
+    "features›optional chaining operator (?.)›optional method call": "Unexpected token .",
+    "features›nullish coalescing operator (??)": "Unexpected token ?"
   },
   "ES2019": {
     "_successful": 24,

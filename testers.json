@@ -3256,6 +3256,22 @@
     "features›globalThis›\"globalThis\" global property has correct property descriptor": {
       "spec": "https://github.com/tc39/proposal-global",
       "code": "var actualGlobal = Function('return this')();\nif (typeof globalThis !== 'object') { return false; }\nif (!('globalThis' in actualGlobal)) { return false; }\nif (Object.prototype.propertyIsEnumerable.call(actualGlobal, 'globalThis')) { return false; }\n\nvar descriptor = Object.getOwnPropertyDescriptor(actualGlobal, 'globalThis');\nreturn descriptor.value === actualGlobal && !descriptor.enumerable && descriptor.configurable && descriptor.writable;"
+    },
+    "features›optional chaining operator (?.)›optional property access": {
+      "spec": "https://github.com/tc39/proposal-optional-chaining",
+      "code": "var foo = { baz: 42 };\nvar bar = null;\nreturn foo?.baz === 42 && bar?.baz === undefined;"
+    },
+    "features›optional chaining operator (?.)›optional bracket access": {
+      "spec": "https://github.com/tc39/proposal-optional-chaining",
+      "code": "var foo = { baz: 42 };\nvar bar = null;\nreturn foo?.['baz'] === 42 && bar?.['baz'] === undefined;"
+    },
+    "features›optional chaining operator (?.)›optional method call": {
+      "spec": "https://github.com/tc39/proposal-optional-chaining",
+      "code": "var foo = { baz: function () { return 42; } };\nvar bar = null;\nreturn foo?.baz() === 42 && bar?.baz() === undefined;"
+    },
+    "features›nullish coalescing operator (??)": {
+      "spec": "https://github.com/tc39/proposal-nullish-coalescing",
+      "code": "return (null ?? 42) === 42 &&\n  (undefined ?? 42) === 42 &&\n  (false ?? 42) === false &&\n  ('' ?? 42) === '' &&\n  (0 ?? 42) === 0 &&\n  isNaN(NaN ?? 42);"
     }
   },
   "ESNEXT": {
@@ -3294,22 +3310,6 @@
     "candidate (stage 3)›static class fields›computed static class fields": {
       "spec": "https://github.com/tc39/proposal-static-class-features/",
       "code": "class C {\n  static ['x'] = 42;\n}\nreturn C.x === 42;"
-    },
-    "candidate (stage 3)›optional chaining operator (?.)›optional property access": {
-      "spec": "https://github.com/tc39/proposal-optional-chaining",
-      "code": "var foo = { baz: 42 };\nvar bar = null;\nreturn foo?.baz === 42 && bar?.baz === undefined;"
-    },
-    "candidate (stage 3)›optional chaining operator (?.)›optional bracket access": {
-      "spec": "https://github.com/tc39/proposal-optional-chaining",
-      "code": "var foo = { baz: 42 };\nvar bar = null;\nreturn foo?.['baz'] === 42 && bar?.['baz'] === undefined;"
-    },
-    "candidate (stage 3)›optional chaining operator (?.)›optional method call": {
-      "spec": "https://github.com/tc39/proposal-optional-chaining",
-      "code": "var foo = { baz: function () { return 42; } };\nvar bar = null;\nreturn foo?.baz() === 42 && bar?.baz() === undefined;"
-    },
-    "candidate (stage 3)›nullish coalescing operator (??)": {
-      "spec": "https://github.com/tc39/proposal-nullish-coalescing",
-      "code": "return (null ?? 42) === 42 &&\n  (undefined ?? 42) === 42 &&\n  (false ?? 42) === false &&\n  ('' ?? 42) === '' &&\n  (0 ?? 42) === 0 &&\n  isNaN(NaN ?? 42);"
     },
     "candidate (stage 3)›numeric separators": {
       "spec": "https://github.com/tc39/proposal-numeric-separator",

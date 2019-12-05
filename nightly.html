@@ -14621,6 +14621,23 @@ return view.getBigUint64(0) === 1n;</div>}
           <td class="result"></td>
         </tr>
         <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features--nullish-coalescing-operator-----"></div><a class="anchor" href="#ES2020-features--nullish-coalescing-operator-----">§</a><a href="https://github.com/tc39/proposal-nullish-coalescing">nullish coalescing operator (??)</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return (null ?? 42) === 42 &amp;&amp;
+  (undefined ?? 42) === 42 &amp;&amp;
+  (false ?? 42) === false &amp;&amp;
+  ('' ?? 42) === '' &amp;&amp;
+  (0 ?? 42) === 0 &amp;&amp;
+  isNaN(NaN ?? 42);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
           <td class="feature sub" colspan="3">
             <h3>
               <div class="hash" id="ES2020-features-globalThis"></div><a href="#ES2020-features-globalThis">globalThis</a>
@@ -14653,6 +14670,55 @@ if (Object.prototype.propertyIsEnumerable.call(actualGlobal, 'globalThis')) { re
 
 var descriptor = Object.getOwnPropertyDescriptor(actualGlobal, 'globalThis');
 return descriptor.value === actualGlobal &amp;&amp; !descriptor.enumerable &amp;&amp; descriptor.configurable &amp;&amp; descriptor.writable;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2020-features-optional-chaining-operator-----"></div><a href="#ES2020-features-optional-chaining-operator-----">optional chaining operator (?.)</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-optional-chaining-operator------optional-property-access"></div><a class="anchor" href="#ES2020-features-optional-chaining-operator------optional-property-access">§</a><a href="https://github.com/tc39/proposal-optional-chaining">optional property access</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var foo = { baz: 42 };
+var bar = null;
+return foo?.baz === 42 &amp;&amp; bar?.baz === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-optional-chaining-operator------optional-bracket-access"></div><a class="anchor" href="#ES2020-features-optional-chaining-operator------optional-bracket-access">§</a><a href="https://github.com/tc39/proposal-optional-chaining">optional bracket access</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var foo = { baz: 42 };
+var bar = null;
+return foo?.['baz'] === 42 &amp;&amp; bar?.['baz'] === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-optional-chaining-operator------optional-method-call"></div><a class="anchor" href="#ES2020-features-optional-chaining-operator------optional-method-call">§</a><a href="https://github.com/tc39/proposal-optional-chaining">optional method call</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var foo = { baz: function () { return 42; } };
+var bar = null;
+return foo?.baz() === 42 &amp;&amp; bar?.baz() === undefined;</div>}
               </div>
             </div>
           </td>
@@ -14863,75 +14929,9 @@ return C.x === 42;</div>}
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--optional-chaining-operator-----"></div><a href="#ESNEXT-candidate--stage-3--optional-chaining-operator-----">optional chaining operator (?.)</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--optional-chaining-operator------optional-property-access"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--optional-chaining-operator------optional-property-access">§</a><a href="https://github.com/tc39/proposal-optional-chaining">optional property access</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var foo = { baz: 42 };
-var bar = null;
-return foo?.baz === 42 &amp;&amp; bar?.baz === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--optional-chaining-operator------optional-bracket-access"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--optional-chaining-operator------optional-bracket-access">§</a><a href="https://github.com/tc39/proposal-optional-chaining">optional bracket access</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var foo = { baz: 42 };
-var bar = null;
-return foo?.['baz'] === 42 &amp;&amp; bar?.['baz'] === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--optional-chaining-operator------optional-method-call"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--optional-chaining-operator------optional-method-call">§</a><a href="https://github.com/tc39/proposal-optional-chaining">optional method call</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var foo = { baz: function () { return 42; } };
-var bar = null;
-return foo?.baz() === 42 &amp;&amp; bar?.baz() === undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--"></div><a href="#ESNEXT-candidate--stage-3--"></a>
             </h3>
           </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3---nullish-coalescing-operator-----"></div><a class="anchor" href="#ESNEXT-candidate--stage-3---nullish-coalescing-operator-----">§</a><a href="https://github.com/tc39/proposal-nullish-coalescing">nullish coalescing operator (??)</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return (null ?? 42) === 42 &amp;&amp;
-  (undefined ?? 42) === 42 &amp;&amp;
-  (false ?? 42) === false &amp;&amp;
-  ('' ?? 42) === '' &amp;&amp;
-  (0 ?? 42) === 0 &amp;&amp;
-  isNaN(NaN ?? 42);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
         </tr>
         <tr>
           <td class="feature subsub">

@@ -2,9 +2,9 @@
   "_version": "13.2.0--harmony",
   "_engine": "v8 7.9.317.23-node.20",
   "ESNEXT": {
-    "_successful": 14,
-    "_count": 188,
-    "_percent": 0.07446808510638298,
+    "_successful": 10,
+    "_count": 184,
+    "_percent": 0.05434782608695652,
     "candidate (stage 3)›WeakReferences›WeakRef minimal support": "WeakRef is not defined",
     "candidate (stage 3)›WeakReferences›Finalizers minimal support": "FinalizationGroup is not defined",
     "candidate (stage 3)›instance class fields›public instance class fields": true,
@@ -14,10 +14,6 @@
     "candidate (stage 3)›static class fields›public static class fields": true,
     "candidate (stage 3)›static class fields›private static class fields": true,
     "candidate (stage 3)›static class fields›computed static class fields": true,
-    "candidate (stage 3)›optional chaining operator (?.)›optional property access": true,
-    "candidate (stage 3)›optional chaining operator (?.)›optional bracket access": true,
-    "candidate (stage 3)›optional chaining operator (?.)›optional method call": true,
-    "candidate (stage 3)›nullish coalescing operator (??)": true,
     "candidate (stage 3)›numeric separators": true,
     "candidate (stage 3)›String.prototype.replaceAll": "\"q=query+string+parameters\".replaceAll is not a function",
     "candidate (stage 3)›Promise.any": "Promise.any is not a function",
@@ -195,9 +191,9 @@
     "pre-strawman›Metadata reflection API›Reflect.metadata": false
   },
   "ES2020": {
-    "_successful": 12,
-    "_count": 13,
-    "_percent": 0.9230769230769231,
+    "_successful": 16,
+    "_count": 17,
+    "_percent": 0.9411764705882353,
     "features›String.prototype.matchAll›basic functionality": true,
     "features›String.prototype.matchAll›throws on non-global regex": false,
     "features›BigInt›basic functionality": true,
@@ -210,7 +206,11 @@
     "features›BigInt›DataView.prototype.getBigUint64": true,
     "features›Promise.allSettled": true,
     "features›globalThis›\"globalThis\" global property is global object": true,
-    "features›globalThis›\"globalThis\" global property has correct property descriptor": true
+    "features›globalThis›\"globalThis\" global property has correct property descriptor": true,
+    "features›optional chaining operator (?.)›optional property access": true,
+    "features›optional chaining operator (?.)›optional bracket access": true,
+    "features›optional chaining operator (?.)›optional method call": true,
+    "features›nullish coalescing operator (??)": true
   },
   "ES2019": {
     "_successful": 24,
