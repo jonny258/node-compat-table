@@ -1,6 +1,6 @@
 {
-  "_version": "14.0.0-nightly20191218ea86f8c902--es_staging",
-  "_engine": "v8 7.9.317.25-node.23",
+  "_version": "12.14.0--harmony",
+  "_engine": "v8 7.7.299.13-node.16",
   "ESNEXT": {
     "_successful": 10,
     "_count": 184,
@@ -191,9 +191,9 @@
     "pre-strawman›Metadata reflection API›Reflect.metadata": false
   },
   "ES2020": {
-    "_successful": 16,
+    "_successful": 12,
     "_count": 17,
-    "_percent": 0.9411764705882353,
+    "_percent": 0.7058823529411765,
     "features›String.prototype.matchAll›basic functionality": true,
     "features›String.prototype.matchAll›throws on non-global regex": false,
     "features›BigInt›basic functionality": true,
@@ -207,10 +207,10 @@
     "features›Promise.allSettled": true,
     "features›globalThis›\"globalThis\" global property is global object": true,
     "features›globalThis›\"globalThis\" global property has correct property descriptor": true,
-    "features›optional chaining operator (?.)›optional property access": true,
-    "features›optional chaining operator (?.)›optional bracket access": true,
-    "features›optional chaining operator (?.)›optional method call": true,
-    "features›nullish coalescing operator (??)": true
+    "features›optional chaining operator (?.)›optional property access": "Unexpected token '.'",
+    "features›optional chaining operator (?.)›optional bracket access": "Unexpected token '.'",
+    "features›optional chaining operator (?.)›optional method call": "Unexpected token '.'",
+    "features›nullish coalescing operator (??)": "Unexpected token '?'"
   },
   "ES2019": {
     "_successful": 24,
