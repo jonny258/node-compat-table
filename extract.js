@@ -14,14 +14,23 @@ tests.forEach(function (test) {
   }
 
   var name = [category, test.name]
+  var info = {
+    spec: test.spec
+  }
 
   if (test.subtests) {
     test.subtests.forEach(function (subtest) {
       name[2] = subtest.name
-      testers[name.join('›').replace(/<[^>]+>/g, '')] = getScript(subtest.exec)
+      testers[name.join('›').replace(/<[^>]+>/g, '')] = {
+        ...info,
+        code: getScript(subtest.exec)
+      }
     })
   } else {
-    testers[name.join('›').replace(/<[^>]+>/g, '')] = getScript(test.exec)
+    testers[name.join('›').replace(/<[^>]+>/g, '')] = {
+      ...info,
+      code: getScript(test.exec)
+    }
   }
 
   function getScript (fn) {
