@@ -8,7 +8,7 @@
 # 5) Run this script!
 
 rhinoJar=~/src/rhino/buildGradle/libs/rhino-1.7.11-SNAPSHOT.jar
-rhinoVersion=master
+rhinoVersion=1.7.11
 
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es6.js > data-es6.js
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es2016plus.js > data-es2016plus.js
