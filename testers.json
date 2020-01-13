@@ -3891,6 +3891,18 @@
       "spec": "https://github.com/tc39/proposal-number-fromstring",
       "code": "return BigInt.fromString('42') === 42n;"
     },
+    "proposal (stage 1)›Object iteration›Object.iterateKeys": {
+      "spec": "https://github.com/tc39/proposal-object-iteration",
+      "code": "const object = { a: 1, b: 2, c: 3 };\nconst iterator = Object.iterateKeys(object);\nif (typeof iterator[Symbol.iterator] !== 'function' || typeof iterator.next !== 'function') return false;\ndelete object.b;\nreturn [...iterator].join() === 'a,c';"
+    },
+    "proposal (stage 1)›Object iteration›Object.iterateValues": {
+      "spec": "https://github.com/tc39/proposal-object-iteration",
+      "code": "const object = { a: 1, b: 2, c: 3 };\nconst iterator = Object.iterateValues(object);\nif (typeof iterator[Symbol.iterator] !== 'function' || typeof iterator.next !== 'function') return false;\ndelete object.b;\nreturn [...iterator].join() === '1,3';"
+    },
+    "proposal (stage 1)›Object iteration›Object.iterateEntries": {
+      "spec": "https://github.com/tc39/proposal-object-iteration",
+      "code": "const object = { a: 1, b: 2, c: 3 };\nconst iterator = Object.iterateEntries(object);\nif (typeof iterator[Symbol.iterator] !== 'function' || typeof iterator.next !== 'function') return false;\ndelete object.b;\nreturn [...iterator].join() === 'a,1,c,3';"
+    },
     "strawman (stage 0)›bind (::) operator›binary form": {
       "spec": "https://github.com/zenparsing/es-function-bind",
       "code": "function foo() { this.garply += \"foo\"; return this; }\nvar obj = { garply: \"bar\" };\nreturn typeof obj::foo === \"function\" && obj::foo().garply === \"barfoo\";"

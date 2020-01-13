@@ -5,7 +5,7 @@ var global = {};
 
 // This function is needed to run the tests and was extracted from:
 // https://github.com/kangax/compat-table/blob/gh-pages/node.js
-global.__createIterableObject = function (arr, methods) {
+function __createIterableObject (arr, methods) {
   methods = methods || {}
   if (typeof Symbol !== 'function' || !Symbol.iterator) {
     return {}
@@ -28,6 +28,8 @@ global.__createIterableObject = function (arr, methods) {
   return iterable
 }
 
+global.__createIterableObject = __createIterableObject;
+
 var output = {
   _version: 'UNKNOWN',
   _engine: 'Rhino',
@@ -44,7 +46,7 @@ function next (ver) {
     _percent: 0
   }
   Object.keys(testers[ver]).forEach(function (name) {
-    var script = testers[ver][name]
+    var script = testers[ver][name].code
     results[name] = false // make SURE it makes it to the output
 
     run(name, script, function (result) {
