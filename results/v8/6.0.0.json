@@ -350,9 +350,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": true
   },
   "ES2015": {
-    "_successful": 631,
-    "_count": 689,
-    "_percent": 0.9158200290275762,
+    "_successful": 632,
+    "_count": 690,
+    "_percent": 0.9159420289855073,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": true,
@@ -483,7 +483,8 @@
     "syntax›destructuring, parameters›defaults": true,
     "syntax›destructuring, parameters›defaults, separate scope": true,
     "syntax›destructuring, parameters›defaults, new Function() support": true,
-    "syntax›destructuring, parameters›defaults, arrow function": true,
+    "syntax›destructuring, parameters›aliased defaults, arrow function": true,
+    "syntax›destructuring, parameters›shorthand defaults, arrow function": true,
     "syntax›Unicode code point escapes›in strings": true,
     "syntax›Unicode code point escapes›in identifiers": true,
     "syntax›new.target›in constructors": true,

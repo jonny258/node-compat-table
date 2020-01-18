@@ -520,7 +520,11 @@
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
       "code": "return new Function(\"{a = 1, b = 0, c = 3, x:d = 0, y:e = 5}\",\n  \"return a === 1 && b === 2 && c === 3 && d === 4 && e === 5;\"\n)({b:2, c:undefined, x:4});"
     },
-    "syntax›destructuring, parameters›defaults, arrow function": {
+    "syntax›destructuring, parameters›aliased defaults, arrow function": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
+      "code": "return ((a, {b: x = 0, c: y = 3}) => {\n  return a === 1 && x === 2 && y === 3;\n})(1, {b: 2});"
+    },
+    "syntax›destructuring, parameters›shorthand defaults, arrow function": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
       "code": "return ((a, {b = 0, c = 3}) => {\n  return a === 1 && b === 2 && c === 3;\n})(1, {b: 2});"
     },
