@@ -350,9 +350,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": "Proxy is not defined"
   },
   "ES2015": {
-    "_successful": 325,
-    "_count": 690,
-    "_percent": 0.47101449275362317,
+    "_successful": 326,
+    "_count": 692,
+    "_percent": 0.47109826589595377,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": "Unexpected token =",
@@ -514,6 +514,7 @@
     "bindings›let›for loop statement scope": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
     "bindings›let›temporal dead zone": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
     "bindings›let›for/for-in loop iteration scope": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
+    "bindings›let›for-in loop binding shadowing parameter": false,
     "bindings›let›basic support (strict mode)": true,
     "bindings›let›is block-scoped (strict mode)": true,
     "bindings›let›scope shadow resolution (strict mode)": true,
@@ -521,6 +522,7 @@
     "bindings›let›for loop statement scope (strict mode)": true,
     "bindings›let›temporal dead zone (strict mode)": true,
     "bindings›let›for/for-in loop iteration scope (strict mode)": true,
+    "bindings›let›for-in loop binding shadowing parameter (strict mode)": true,
     "bindings›block-level function declaration": true,
     "functions›arrow functions›0 parameters": true,
     "functions›arrow functions›1 parameter, no brackets": true,

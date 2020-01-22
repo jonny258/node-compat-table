@@ -644,6 +644,10 @@
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-let-and-const-declarations",
       "code": "let scopes = [];\nfor(let i = 0; i < 2; i++) {\n  scopes.push(function(){ return i; });\n}\nlet passed = (scopes[0]() === 0 && scopes[1]() === 1);\n\nscopes = [];\nfor(let i in { a:1, b:1 }) {\n  scopes.push(function(){ return i; });\n}\npassed &= (scopes[0]() === \"a\" && scopes[1]() === \"b\");\nreturn passed;"
     },
+    "bindings›let›for-in loop binding shadowing parameter": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-let-and-const-declarations",
+      "code": "try {\n  Function(\"function f(e) { for (let e in {}) e }\");\n  return true;\n} catch(e) {\n  return false;\n}"
+    },
     "bindings›let›basic support (strict mode)": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-let-and-const-declarations",
       "code": "'use strict';\nlet foo = 123;\nreturn (foo === 123);"
@@ -671,6 +675,10 @@
     "bindings›let›for/for-in loop iteration scope (strict mode)": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-let-and-const-declarations",
       "code": "'use strict';\nlet scopes = [];\nfor(let i = 0; i < 2; i++) {\n  scopes.push(function(){ return i; });\n}\nlet passed = (scopes[0]() === 0 && scopes[1]() === 1);\n\nscopes = [];\nfor(let i in { a:1, b:1 }) {\n  scopes.push(function(){ return i; });\n}\npassed &= (scopes[0]() === \"a\" && scopes[1]() === \"b\");\nreturn passed;"
+    },
+    "bindings›let›for-in loop binding shadowing parameter (strict mode)": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-let-and-const-declarations",
+      "code": "try {\n  Function(\"'use strict'; function f(e) { for (let e in {}) e }\");\n  return true;\n} catch(e) {\n  return false;\n}"
     },
     "bindings›block-level function declaration": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-functiondeclarationinstantiation",
@@ -2266,19 +2274,19 @@
     },
     "misc›prototype of bound functions›basic functions": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boundfunctioncreate",
-      "code": "function correctProtoBound(proto) {\n  var f = function(){};\n  if (Object.setPrototypeOf) {\n    Object.setPrototypeOf(f, proto);\n  }\n  else {\n    f.__proto__ = proto;\n  }\n  var boundF = Function.prototype.bind.call(f, null);\n  return Object.getPrototypeOf(boundF) === proto;\n}\nreturn correctProtoBound(Function.prototype)\n  && correctProtoBound({})\n  && correctProtoBound(null);"
+      "code": "function correctProtoBound(proto) {\n  var f = function(){};\n  if (Object.setPrototypeOf) {\n    Object.setPrototypeOf(f, proto);\n  } else {\n    f.__proto__ = proto;\n  }\n  var boundF = Function.prototype.bind.call(f, null);\n  return Object.getPrototypeOf(boundF) === proto;\n}\nreturn correctProtoBound(Function.prototype)\n  && correctProtoBound({})\n  && correctProtoBound(null);"
     },
     "misc›prototype of bound functions›generator functions": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boundfunctioncreate",
-      "code": "function correctProtoBound(proto) {\n  var f = function*(){};\n  if (Object.setPrototypeOf) {\n    Object.setPrototypeOf(f, proto);\n  }\n  else {\n    f.__proto__ = proto;\n  }\n  var boundF = Function.prototype.bind.call(f, null);\n  return Object.getPrototypeOf(boundF) === proto;\n}\nreturn correctProtoBound(Function.prototype)\n  && correctProtoBound({})\n  && correctProtoBound(null);"
+      "code": "function correctProtoBound(proto) {\n  var f = function*(){};\n  if (Object.setPrototypeOf) {\n    Object.setPrototypeOf(f, proto);\n  } else {\n    f.__proto__ = proto;\n  }\n  var boundF = Function.prototype.bind.call(f, null);\n  return Object.getPrototypeOf(boundF) === proto;\n}\nreturn correctProtoBound(Function.prototype)\n  && correctProtoBound({})\n  && correctProtoBound(null);"
     },
     "misc›prototype of bound functions›arrow functions": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boundfunctioncreate",
-      "code": "function correctProtoBound(proto) {\n  var f = ()=>5;\n  if (Object.setPrototypeOf) {\n    Object.setPrototypeOf(f, proto);\n  }\n  else {\n    f.__proto__ = proto;\n  }\n  var boundF = Function.prototype.bind.call(f, null);\n  return Object.getPrototypeOf(boundF) === proto;\n}\nreturn correctProtoBound(Function.prototype)\n  && correctProtoBound({})\n  && correctProtoBound(null);"
+      "code": "function correctProtoBound(proto) {\n  var f = ()=>5;\n  if (Object.setPrototypeOf) {\n    Object.setPrototypeOf(f, proto);\n  } else {\n    f.__proto__ = proto;\n  }\n  var boundF = Function.prototype.bind.call(f, null);\n  return Object.getPrototypeOf(boundF) === proto;\n}\nreturn correctProtoBound(Function.prototype)\n  && correctProtoBound({})\n  && correctProtoBound(null);"
     },
     "misc›prototype of bound functions›classes": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boundfunctioncreate",
-      "code": "function correctProtoBound(proto) {\n  class C {}\n  if (Object.setPrototypeOf) {\n    Object.setPrototypeOf(C, proto);\n  }\n  else {\n    C.__proto__ = proto;\n  }\n  var boundF = Function.prototype.bind.call(C, null);\n  return Object.getPrototypeOf(boundF) === proto;\n}\nreturn correctProtoBound(Function.prototype)\n  && correctProtoBound({})\n  && correctProtoBound(null);"
+      "code": "function correctProtoBound(proto) {\n  class C {}\n  if (Object.setPrototypeOf) {\n    Object.setPrototypeOf(C, proto);\n  } else {\n    C.__proto__ = proto;\n  }\n  var boundF = Function.prototype.bind.call(C, null);\n  return Object.getPrototypeOf(boundF) === proto;\n}\nreturn correctProtoBound(Function.prototype)\n  && correctProtoBound({})\n  && correctProtoBound(null);"
     },
     "misc›prototype of bound functions›subclasses": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boundfunctioncreate",
