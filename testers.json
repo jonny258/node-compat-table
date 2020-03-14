@@ -3348,7 +3348,7 @@
       "code": "for (var i = 1; i < 10; i++) {\n  if (!(('$' + i) in RegExp)) return false;\n}\nreturn true;"
     },
     "draft (stage 2)›Generator function.sent Meta Property": {
-      "spec": "https://github.com/allenwb/ESideas/blob/master/Generator%20metaproperty.md",
+      "spec": "https://github.com/tc39/proposal-function.sent",
       "code": "var result;\nfunction* generator() {\n  result = function.sent;\n}\nvar iter = generator();\niter.next('tromple');\nreturn result === 'tromple';"
     },
     "draft (stage 2)›Class and Property Decorators›class decorators": {
