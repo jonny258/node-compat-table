@@ -146,7 +146,7 @@
     },
     "syntax›for..of loops›with sparse arrays": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-for-in-and-for-of-statements",
-      "code": "var arr = [,,];\nvar count = 0;\nfor (var item of arr)\n  count += (item === undefined);\nreturn count === 2;"
+      "code": "var arr = [,,];\nvar count = 0;\nfor (var item of arr)\n  count += (item === void undefined);\nreturn count === 2;"
     },
     "syntax›for..of loops›with strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-for-in-and-for-of-statements",
@@ -246,15 +246,15 @@
     },
     "syntax›destructuring, declarations›with arrays": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var [a, , [b], c] = [5, null, [6]];\nreturn a === 5 && b === 6 && c === undefined;"
+      "code": "var [a, , [b], c] = [5, null, [6]];\nreturn a === 5 && b === 6 && c === void undefined;"
     },
     "syntax›destructuring, declarations›with sparse arrays": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var [a, , b] = [,,,];\nreturn a === undefined && b === undefined;"
+      "code": "var [a, , b] = [,,,];\nreturn a === void undefined && b === void undefined;"
     },
     "syntax›destructuring, declarations›with strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var [a, b, c] = \"ab\";\nreturn a === \"a\" && b === \"b\" && c === undefined;"
+      "code": "var [a, b, c] = \"ab\";\nreturn a === \"a\" && b === \"b\" && c === void undefined;"
     },
     "syntax›destructuring, declarations›with astral plane strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -262,15 +262,15 @@
     },
     "syntax›destructuring, declarations›with generator instances": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var [a, b, c] = (function*(){ yield 1; yield 2; }());\nreturn a === 1 && b === 2 && c === undefined;"
+      "code": "var [a, b, c] = (function*(){ yield 1; yield 2; }());\nreturn a === 1 && b === 2 && c === void undefined;"
     },
     "syntax›destructuring, declarations›with generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var [a, b, c] = global.__createIterableObject([1, 2]);\nreturn a === 1 && b === 2 && c === undefined;"
+      "code": "var [a, b, c] = global.__createIterableObject([1, 2]);\nreturn a === 1 && b === 2 && c === void undefined;"
     },
     "syntax›destructuring, declarations›with instances of generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var [a, b, c] = Object.create(global.__createIterableObject([1, 2]));\nreturn a === 1 && b === 2 && c === undefined;"
+      "code": "var [a, b, c] = Object.create(global.__createIterableObject([1, 2]));\nreturn a === 1 && b === 2 && c === void undefined;"
     },
     "syntax›destructuring, declarations›iterator closing": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -282,7 +282,7 @@
     },
     "syntax›destructuring, declarations›with objects": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var {c, x:d, e} = {c:7, x:8};\nreturn c === 7 && d === 8 && e === undefined;"
+      "code": "var {c, x:d, e} = {c:7, x:8};\nreturn c === 7 && d === 8 && e === void undefined;"
     },
     "syntax›destructuring, declarations›object destructuring with primitives": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -294,7 +294,7 @@
     },
     "syntax›destructuring, declarations›throws on null and undefined": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "try {\n  var {a} = null;\n  return false;\n} catch(e) {\n  if (!(e instanceof TypeError))\n    return false;\n}\ntry {\n  var {b} = undefined;\n  return false;\n} catch(e) {\n  if (!(e instanceof TypeError))\n    return false;\n}\nreturn true;"
+      "code": "try {\n  var {a} = null;\n  return false;\n} catch(e) {\n  if (!(e instanceof TypeError))\n    return false;\n}\ntry {\n  var {b} = void undefined;\n  return false;\n} catch(e) {\n  if (!(e instanceof TypeError))\n    return false;\n}\nreturn true;"
     },
     "syntax›destructuring, declarations›computed properties": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -306,7 +306,7 @@
     },
     "syntax›destructuring, declarations›nested": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var [e, {x:f, g}] = [9, {x:10}];\nvar {h, x:[i]} = {h:11, x:[12]};\nreturn e === 9 && f === 10 && g === undefined\n  && h === 11 && i === 12;"
+      "code": "var [e, {x:f, g}] = [9, {x:10}];\nvar {h, x:[i]} = {h:11, x:[12]};\nreturn e === 9 && f === 10 && g === void undefined\n  && h === 11 && i === 12;"
     },
     "syntax›destructuring, declarations›in for-in loop heads": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -334,15 +334,15 @@
     },
     "syntax›destructuring, assignment›with arrays": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var a,b,c;\n[a, , [b], c] = [5, null, [6]];\nreturn a === 5 && b === 6 && c === undefined;"
+      "code": "var a,b,c;\n[a, , [b], c] = [5, null, [6]];\nreturn a === 5 && b === 6 && c === void undefined;"
     },
     "syntax›destructuring, assignment›with sparse arrays": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var a, b;\n[a, , b] = [,,,];\nreturn a === undefined && b === undefined;"
+      "code": "var a, b;\n[a, , b] = [,,,];\nreturn a === void undefined && b === void undefined;"
     },
     "syntax›destructuring, assignment›with strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var a,b,c;\n[a, b, c] = \"ab\";\nreturn a === \"a\" && b === \"b\" && c === undefined;"
+      "code": "var a,b,c;\n[a, b, c] = \"ab\";\nreturn a === \"a\" && b === \"b\" && c === void undefined;"
     },
     "syntax›destructuring, assignment›with astral plane strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -350,15 +350,15 @@
     },
     "syntax›destructuring, assignment›with generator instances": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var a,b,c;\n[a, b, c] = (function*(){ yield 1; yield 2; }());\nreturn a === 1 && b === 2 && c === undefined;"
+      "code": "var a,b,c;\n[a, b, c] = (function*(){ yield 1; yield 2; }());\nreturn a === 1 && b === 2 && c === void undefined;"
     },
     "syntax›destructuring, assignment›with generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var a,b,c;\n[a, b, c] = global.__createIterableObject([1, 2]);\nreturn a === 1 && b === 2 && c === undefined;"
+      "code": "var a,b,c;\n[a, b, c] = global.__createIterableObject([1, 2]);\nreturn a === 1 && b === 2 && c === void undefined;"
     },
     "syntax›destructuring, assignment›with instances of generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var a,b,c;\n[a, b, c] = Object.create(global.__createIterableObject([1, 2]));\nreturn a === 1 && b === 2 && c === undefined;"
+      "code": "var a,b,c;\n[a, b, c] = Object.create(global.__createIterableObject([1, 2]));\nreturn a === 1 && b === 2 && c === void undefined;"
     },
     "syntax›destructuring, assignment›iterator closing": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -378,7 +378,7 @@
     },
     "syntax›destructuring, assignment›with objects": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var c,d,e;\n({c, x:d, e} = {c:7, x:8});\nreturn c === 7 && d === 8 && e === undefined;"
+      "code": "var c,d,e;\n({c, x:d, e} = {c:7, x:8});\nreturn c === 7 && d === 8 && e === void undefined;"
     },
     "syntax›destructuring, assignment›object destructuring with primitives": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -402,7 +402,7 @@
     },
     "syntax›destructuring, assignment›throws on null and undefined": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var a,b;\ntry {\n  ({a} = null);\n  return false;\n} catch(e) {\n  if (!(e instanceof TypeError))\n    return false;\n}\ntry {\n  ({b} = undefined);\n  return false;\n} catch(e) {\n  if (!(e instanceof TypeError))\n    return false;\n}\nreturn true;"
+      "code": "var a,b;\ntry {\n  ({a} = null);\n  return false;\n} catch(e) {\n  if (!(e instanceof TypeError))\n    return false;\n}\ntry {\n  ({b} = void undefined);\n  return false;\n} catch(e) {\n  if (!(e instanceof TypeError))\n    return false;\n}\nreturn true;"
     },
     "syntax›destructuring, assignment›computed properties": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -410,7 +410,7 @@
     },
     "syntax›destructuring, assignment›nested": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "var e,f,g,h,i;\n[e, {x:f, g}] = [9, {x:10}];\n({h, x:[i]} = {h:11, x:[12]});\nreturn e === 9 && f === 10 && g === undefined\n  && h === 11 && i === 12;"
+      "code": "var e,f,g,h,i;\n[e, {x:f, g}] = [9, {x:10}];\n({h, x:[i]} = {h:11, x:[12]});\nreturn e === 9 && f === 10 && g === void undefined\n  && h === 11 && i === 12;"
     },
     "syntax›destructuring, assignment›rest": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -430,15 +430,15 @@
     },
     "syntax›destructuring, parameters›with arrays": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "return function([a, , [b], c]) {\n  return a === 5 && b === 6 && c === undefined;\n}([5, null, [6]]);"
+      "code": "return function([a, , [b], c]) {\n  return a === 5 && b === 6 && c === void undefined;\n}([5, null, [6]]);"
     },
     "syntax›destructuring, parameters›with sparse arrays": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "return function([a, , b]) {\n  return a === undefined && b === undefined;\n}([,,,]);"
+      "code": "return function([a, , b]) {\n  return a === void undefined && b === void undefined;\n}([,,,]);"
     },
     "syntax›destructuring, parameters›with strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "return function([a, b, c]) {\n  return a === \"a\" && b === \"b\" && c === undefined;\n}(\"ab\");"
+      "code": "return function([a, b, c]) {\n  return a === \"a\" && b === \"b\" && c === void undefined;\n}(\"ab\");"
     },
     "syntax›destructuring, parameters›with astral plane strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -446,15 +446,15 @@
     },
     "syntax›destructuring, parameters›with generator instances": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "return function([a, b, c]) {\n  return a === 1 && b === 2 && c === undefined;\n}(function*(){ yield 1; yield 2; }());"
+      "code": "return function([a, b, c]) {\n  return a === 1 && b === 2 && c === void undefined;\n}(function*(){ yield 1; yield 2; }());"
     },
     "syntax›destructuring, parameters›with generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "return function([a, b, c]) {\n  return a === 1 && b === 2 && c === undefined;\n}(global.__createIterableObject([1, 2]));"
+      "code": "return function([a, b, c]) {\n  return a === 1 && b === 2 && c === void undefined;\n}(global.__createIterableObject([1, 2]));"
     },
     "syntax›destructuring, parameters›with instances of generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "return function([a, b, c]) {\n  return a === 1 && b === 2 && c === undefined;\n}(Object.create(global.__createIterableObject([1, 2])));"
+      "code": "return function([a, b, c]) {\n  return a === 1 && b === 2 && c === void undefined;\n}(Object.create(global.__createIterableObject([1, 2])));"
     },
     "syntax›destructuring, parameters›iterator closing": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -466,7 +466,7 @@
     },
     "syntax›destructuring, parameters›with objects": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "return function({c, x:d, e}) {\n  return c === 7 && d === 8 && e === undefined;\n}({c:7, x:8});"
+      "code": "return function({c, x:d, e}) {\n  return c === 7 && d === 8 && e === void undefined;\n}({c:7, x:8});"
     },
     "syntax›destructuring, parameters›object destructuring with primitives": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -486,7 +486,7 @@
     },
     "syntax›destructuring, parameters›nested": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "return function([e, {x:f, g}], {h, x:[i]}) {\n  return e === 9 && f === 10 && g === undefined\n    && h === 11 && i === 12;\n}([9, {x:10}],{h:11, x:[12]});"
+      "code": "return function([e, {x:f, g}], {h, x:[i]}) {\n  return e === 9 && f === 10 && g === void undefined\n    && h === 11 && i === 12;\n}([9, {x:10}],{h:11, x:[12]});"
     },
     "syntax›destructuring, parameters›'arguments' interaction": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -494,7 +494,7 @@
     },
     "syntax›destructuring, parameters›new Function() support": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "return new Function(\"{a, x:b, y:e}\",\"[c, d]\",\n  \"return a === 1 && b === 2 && c === 3 && \"\n  + \"d === 4 && e === undefined;\"\n)({a:1, x:2}, [3, 4]);"
+      "code": "return new Function(\"{a, x:b, y:e}\",\"[c, d]\",\n  \"return a === 1 && b === 2 && c === 3 && \"\n  + \"d === 4 && e === void undefined;\"\n)({a:1, x:2}, [3, 4]);"
     },
     "syntax›destructuring, parameters›in parameters, function 'length' property": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
@@ -530,7 +530,7 @@
     },
     "syntax›Unicode code point escapes›in strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-literals-string-literals",
-      "code": "return '\\u{1d306}' == '\\ud834\\udf06';"
+      "code": "return '\\u{1d306}' === '\\ud834\\udf06';"
     },
     "syntax›Unicode code point escapes›in identifiers": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-literals-string-literals",
@@ -538,7 +538,7 @@
     },
     "syntax›new.target›in constructors": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-built-in-function-objects",
-      "code": "var passed = false;\nnew function f() {\n  passed = (new.target === f);\n}();\n(function() {\n  passed &= (new.target === undefined);\n}());\nreturn passed;"
+      "code": "var passed = false;\nnew function f() {\n  passed = (new.target === f);\n}();\n(function() {\n  passed &= (new.target === void undefined);\n}());\nreturn passed;"
     },
     "syntax›new.target›assignment is an early error": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-built-in-function-objects",
@@ -734,7 +734,7 @@
     },
     "functions›arrow functions›lexical \"new.target\" binding": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions",
-      "code": "function C() {\n  return x => new.target;\n}\nreturn new C()() === C && C()() === undefined;"
+      "code": "function C() {\n  return x => new.target;\n}\nreturn new C()() === C && C()() === void undefined;"
     },
     "functions›class›class statement": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-class-definitions",
@@ -798,7 +798,7 @@
     },
     "functions›class›class name is lexically scoped": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-class-definitions",
-      "code": "class C {\n  method() { return typeof C === \"function\"; }\n}\nvar M = C.prototype.method;\nC = undefined;\nreturn C === undefined && M();"
+      "code": "class C {\n  method() { return typeof C === \"function\"; }\n}\nvar M = C.prototype.method;\nC = void undefined;\nreturn C === void undefined && M();"
     },
     "functions›class›computed names, temporal dead zone": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-class-definitions",
@@ -810,7 +810,7 @@
     },
     "functions›class›implicit strict mode": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-class-definitions",
-      "code": "class C {\n  static method() { return this === undefined; }\n}\nreturn (0,C.method)();"
+      "code": "class C {\n  static method() { return this === void undefined; }\n}\nreturn (0,C.method)();"
     },
     "functions›class›constructor requires new": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-class-definitions",
@@ -866,15 +866,15 @@
     },
     "functions›generators›basic functionality": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "function * generator(){\n  yield 5; yield 6;\n};\nvar iterator = generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "function * generator(){\n  yield 5; yield 6;\n};\nvar iterator = generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›generator function expressions": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var generator = function * (){\n  yield 5; yield 6;\n};\nvar iterator = generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var generator = function * (){\n  yield 5; yield 6;\n};\nvar iterator = generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›correct \"this\" binding": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "function * generator(){\n  yield this.x; yield this.y;\n};\nvar iterator = { g: generator, x: 5, y: 6 }.g();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "function * generator(){\n  yield this.x; yield this.y;\n};\nvar iterator = { g: generator, x: 5, y: 6 }.g();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›can't use \"this\" with new": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
@@ -894,7 +894,7 @@
     },
     "functions›generators›%GeneratorPrototype%.constructor": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "function * g (){}\nvar iterator = new g.constructor(\"a\",\"b\",\"c\",\"yield a; yield b; yield c;\")(5,6,7);\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 7 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\n\npassed &= g.constructor === (function*(){}).constructor;\nreturn passed;"
+      "code": "function * g (){}\nvar iterator = new g.constructor(\"a\",\"b\",\"c\",\"yield a; yield b; yield c;\")(5,6,7);\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 7 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\n\npassed &= g.constructor === (function*(){}).constructor;\nreturn passed;"
     },
     "functions›generators›%GeneratorPrototype%.throw": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
@@ -902,7 +902,7 @@
     },
     "functions›generators›%GeneratorPrototype%.return": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "function * generator(){\n  yield 5; yield 6;\n};\nvar iterator = generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.return(\"quxquux\");\npassed    &= item.value === \"quxquux\" && item.done === true;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "function * generator(){\n  yield 5; yield 6;\n};\nvar iterator = generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.return(\"quxquux\");\npassed &= item.value === \"quxquux\" && item.done === true;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›yield operator precedence": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
@@ -910,31 +910,31 @@
     },
     "functions›generators›yield *, arrays": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var iterator = (function * generator() {\n  yield * [5, 6];\n}());\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var iterator = (function * generator() {\n  yield * [5, 6];\n}());\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›yield *, sparse arrays": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var iterator = (function * generator() {\n  yield * [,,];\n}());\nvar item = iterator.next();\nvar passed = item.value === undefined && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var iterator = (function * generator() {\n  yield * [,,];\n}());\nvar item = iterator.next();\nvar passed = item.value === void undefined && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›yield *, strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var iterator = (function * generator() {\n  yield * \"56\";\n}());\nvar item = iterator.next();\nvar passed = item.value === \"5\" && item.done === false;\nitem = iterator.next();\npassed    &= item.value === \"6\" && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var iterator = (function * generator() {\n  yield * \"56\";\n}());\nvar item = iterator.next();\nvar passed = item.value === \"5\" && item.done === false;\nitem = iterator.next();\npassed &= item.value === \"6\" && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›yield *, astral plane strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var iterator = (function * generator() {\n  yield * \"𠮷𠮶\";\n}());\nvar item = iterator.next();\nvar passed = item.value === \"𠮷\" && item.done === false;\nitem = iterator.next();\npassed    &= item.value === \"𠮶\" && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var iterator = (function * generator() {\n  yield * \"𠮷𠮶\";\n}());\nvar item = iterator.next();\nvar passed = item.value === \"𠮷\" && item.done === false;\nitem = iterator.next();\npassed &= item.value === \"𠮶\" && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›yield *, generator instances": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var iterator = (function * generator() {\n  yield * (function*(){ yield 5; yield 6; yield 7; }());\n}());\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 7 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var iterator = (function * generator() {\n  yield * (function*(){ yield 5; yield 6; yield 7; }());\n}());\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 7 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›yield *, generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var iterator = (function * generator() {\n  yield * global.__createIterableObject([5, 6, 7]);\n}());\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 7 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var iterator = (function * generator() {\n  yield * global.__createIterableObject([5, 6, 7]);\n}());\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 7 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›yield *, instances of iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var iterator = (function * generator() {\n  yield * Object.create(__createIterableObject([5, 6, 7]));\n}());\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 7 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var iterator = (function * generator() {\n  yield * Object.create(__createIterableObject([5, 6, 7]));\n}());\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 7 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›yield * on non-iterables is a runtime error": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
@@ -950,23 +950,23 @@
     },
     "functions›generators›shorthand generator methods": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var o = {\n  * generator() {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var o = {\n  * generator() {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›string-keyed shorthand generator methods": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var o = {\n  * \"foo bar\"() {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o[\"foo bar\"]();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var o = {\n  * \"foo bar\"() {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o[\"foo bar\"]();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›computed shorthand generators": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var garply = \"generator\";\nvar o = {\n  * [garply] () {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var garply = \"generator\";\nvar o = {\n  * [garply] () {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›shorthand generator methods, classes": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "class C {\n  * generator() {\n    yield 5; yield 6;\n  }\n};\nvar iterator = new C().generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "class C {\n  * generator() {\n    yield 5; yield 6;\n  }\n};\nvar iterator = new C().generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›computed shorthand generators, classes": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var garply = \"generator\";\nclass C {\n  * [garply] () {\n    yield 5; yield 6;\n  }\n}\nvar iterator = new C().generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed    &= item.value === undefined && item.done === true;\nreturn passed;"
+      "code": "var garply = \"generator\";\nclass C {\n  * [garply] () {\n    yield 5; yield 6;\n  }\n}\nvar iterator = new C().generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›shorthand generators can't be constructors": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
@@ -1186,7 +1186,7 @@
     },
     "built-ins›Map›-0 key converts to +0": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-map-objects",
-      "code": "var map = new Map();\nmap.set(-0, \"foo\");\nvar k;\nmap.forEach(function (value, key) {\n  k = 1 / key;\n});\nreturn k === Infinity && map.get(+0) == \"foo\";"
+      "code": "var map = new Map();\nmap.set(-0, \"foo\");\nvar k;\nmap.forEach(function (value, key) {\n  k = 1 / key;\n});\nreturn k === Infinity && map.get(+0) === \"foo\";"
     },
     "built-ins›Map›Map.prototype.size": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-map-objects",
@@ -1350,7 +1350,7 @@
     },
     "built-ins›WeakMap›.has, .get and .delete methods accept primitives": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-weakmap-objects",
-      "code": "var m = new WeakMap;\nreturn m.has(1) === false\n  && m.get(1) === undefined\n  && m.delete(1) === false;"
+      "code": "var m = new WeakMap;\nreturn m.has(1) === false\n  && m.get(1) === void undefined\n  && m.delete(1) === false;"
     },
     "built-ins›WeakMap›WeakMap.prototype isn't an instance": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-weakmap-objects",
@@ -1666,7 +1666,7 @@
     },
     "built-ins›Symbol›symbols inherit from Symbol.prototype": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-symbol-constructor",
-      "code": "var symbol = Symbol();\nvar passed = symbol.foo === undefined;\nSymbol.prototype.foo = 2;\npassed &= symbol.foo === 2;\ndelete Symbol.prototype.foo;\nreturn passed;"
+      "code": "var symbol = Symbol();\nvar passed = symbol.foo === void undefined;\nSymbol.prototype.foo = 2;\npassed &= symbol.foo === 2;\ndelete Symbol.prototype.foo;\nreturn passed;"
     },
     "built-ins›Symbol›cannot coerce to string or number": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-symbol-constructor",
@@ -1682,11 +1682,11 @@
     },
     "built-ins›Symbol›Object(symbol)": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-symbol-constructor",
-      "code": "var symbol = Symbol();\nvar symbolObject = Object(symbol);\n\nreturn typeof symbolObject === \"object\" &&\n  symbolObject instanceof Symbol &&\n  symbolObject == symbol &&\n  symbolObject !== symbol &&\n  symbolObject.valueOf() === symbol;"
+      "code": "var symbol = Symbol();\nvar symbolObject = Object(symbol);\n\nreturn typeof symbolObject === \"object\" &&\n  symbolObject instanceof Symbol &&\n  symbolObject === symbol &&\n  symbolObject !== symbol &&\n  symbolObject.valueOf() === symbol;"
     },
     "built-ins›Symbol›JSON.stringify ignores symbol primitives": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-symbol-constructor",
-      "code": "var object = { foo: Symbol() };\nobject[Symbol()] = 1;\nvar array = [Symbol()];\nreturn JSON.stringify(object) === '{}' && JSON.stringify(array) === '[null]' && JSON.stringify(Symbol()) === undefined;"
+      "code": "var object = { foo: Symbol() };\nobject[Symbol()] = 1;\nvar array = [Symbol()];\nreturn JSON.stringify(object) === '{}' && JSON.stringify(array) === '[null]' && JSON.stringify(Symbol()) === void undefined;"
     },
     "built-ins›Symbol›JSON.stringify ignores symbol objects": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-symbol-constructor",
@@ -1778,7 +1778,7 @@
     },
     "built-ins›well-known symbols›Symbol.toPrimitive": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols",
-      "code": "var a = {}, b = {}, c = {};\nvar passed = 0;\na[Symbol.toPrimitive] = function(hint) { passed += hint === \"number\";  return 0; };\nb[Symbol.toPrimitive] = function(hint) { passed += hint === \"string\";  return 0; };\nc[Symbol.toPrimitive] = function(hint) { passed += hint === \"default\"; return 0; };\n\na >= 0;\nb in {};\nc == 0;\nreturn passed === 3;"
+      "code": "var a = {}, b = {}, c = {};\nvar passed = 0;\na[Symbol.toPrimitive] = function(hint) { passed += hint === \"number\";  return 0; };\nb[Symbol.toPrimitive] = function(hint) { passed += hint === \"string\";  return 0; };\nc[Symbol.toPrimitive] = function(hint) { passed += hint === \"default\"; return 0; };\n\na >= 0;\nb in {};\nc === 0;\nreturn passed === 3;"
     },
     "built-ins›well-known symbols›Symbol.toStringTag": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols",
@@ -2250,7 +2250,7 @@
     },
     "subclassing›miscellaneous subclassables›Boolean is subclassable": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boolean-constructor",
-      "code": "class C extends Boolean {}\nvar c = new C(true);\nreturn c instanceof Boolean\n  && c instanceof C\n  && c == true;"
+      "code": "class C extends Boolean {}\nvar c = new C(true);\nreturn c instanceof Boolean\n  && c instanceof C\n  && c === true;"
     },
     "subclassing›miscellaneous subclassables›Number is subclassable": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boolean-constructor",
@@ -2382,7 +2382,7 @@
     },
     "misc›Proxy, internal 'get' calls›Array.prototype.concat": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-proxy-object-internal-methods-and-internal-slots",
-      "code": "// Array.prototype.concat -> Get -> [[Get]]\nvar get = [];\nvar arr = [1];\narr.constructor = undefined;\nvar p = new Proxy(arr, { get: function(o, k) { get.push(k); return o[k]; }});\nArray.prototype.concat.call(p,p);\nreturn get[0] === \"constructor\"\n  && get[1] === Symbol.isConcatSpreadable\n  && get[2] === \"length\"\n  && get[3] === \"0\"\n  && get[4] === get[1] && get[5] === get[2] && get[6] === get[3]\n  && get.length === 7;"
+      "code": "// Array.prototype.concat -> Get -> [[Get]]\nvar get = [];\nvar arr = [1];\narr.constructor = void undefined;\nvar p = new Proxy(arr, { get: function(o, k) { get.push(k); return o[k]; }});\nArray.prototype.concat.call(p,p);\nreturn get[0] === \"constructor\"\n  && get[1] === Symbol.isConcatSpreadable\n  && get[2] === \"length\"\n  && get[3] === \"0\"\n  && get[4] === get[1] && get[5] === get[2] && get[6] === get[3]\n  && get.length === 7;"
     },
     "misc›Proxy, internal 'get' calls›Array.prototype iteration methods": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-proxy-object-internal-methods-and-internal-slots",
@@ -2546,7 +2546,7 @@
     },
     "misc›Object static methods accept primitives›Object.getOwnPropertyDescriptor": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-the-object-constructor",
-      "code": "return Object.getOwnPropertyDescriptor('a', 'foo') === undefined;"
+      "code": "return Object.getOwnPropertyDescriptor('a', 'foo') === void undefined;"
     },
     "misc›Object static methods accept primitives›Object.getOwnPropertyNames": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-the-object-constructor",
@@ -2622,7 +2622,7 @@
     },
     "misc›miscellaneous›duplicate property names in strict mode": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-additions-and-changes-that-introduce-incompatibilities-with-prior-editions",
-      "code": "'use strict';\nreturn this === undefined && ({ a:1, a:1 }).a === 1;"
+      "code": "'use strict';\nreturn this === void undefined && ({ a:1, a:1 }).a === 1;"
     },
     "misc›miscellaneous›no semicolon needed after do-while": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-additions-and-changes-that-introduce-incompatibilities-with-prior-editions",
@@ -2914,7 +2914,7 @@
     },
     "features›async functions›async function prototype, Symbol.toStringTag": {
       "spec": "https://tc39.github.io/ecma262/#sec-async-function-definitions",
-      "code": "return Object.getPrototypeOf(async function (){})[Symbol.toStringTag] == \"AsyncFunction\";"
+      "code": "return Object.getPrototypeOf(async function (){})[Symbol.toStringTag] === \"AsyncFunction\";"
     },
     "features›async functions›async function constructor": {
       "spec": "https://tc39.github.io/ecma262/#sec-async-function-definitions",
@@ -2936,40 +2936,40 @@
       "code": "return SharedArrayBuffer.prototype[Symbol.toStringTag] === 'SharedArrayBuffer';"
     },
     "features›shared memory and atomics›Atomics.add": {
-      "code": "return typeof Atomics.add == 'function';"
+      "code": "return typeof Atomics.add === 'function';"
     },
     "features›shared memory and atomics›Atomics.and": {
-      "code": "return typeof Atomics.and == 'function';"
+      "code": "return typeof Atomics.and === 'function';"
     },
     "features›shared memory and atomics›Atomics.compareExchange": {
-      "code": "return typeof Atomics.compareExchange == 'function';"
+      "code": "return typeof Atomics.compareExchange === 'function';"
     },
     "features›shared memory and atomics›Atomics.exchange": {
-      "code": "return typeof Atomics.exchange == 'function';"
+      "code": "return typeof Atomics.exchange === 'function';"
     },
     "features›shared memory and atomics›Atomics.wait": {
-      "code": "return typeof Atomics.wait == 'function';"
+      "code": "return typeof Atomics.wait === 'function';"
     },
     "features›shared memory and atomics›Atomics.wake": {
-      "code": "return typeof Atomics.wake == 'function';"
+      "code": "return typeof Atomics.wake === 'function';"
     },
     "features›shared memory and atomics›Atomics.isLockFree": {
-      "code": "return typeof Atomics.isLockFree == 'function';"
+      "code": "return typeof Atomics.isLockFree === 'function';"
     },
     "features›shared memory and atomics›Atomics.load": {
-      "code": "return typeof Atomics.load == 'function';"
+      "code": "return typeof Atomics.load === 'function';"
     },
     "features›shared memory and atomics›Atomics.or": {
-      "code": "return typeof Atomics.or == 'function';"
+      "code": "return typeof Atomics.or === 'function';"
     },
     "features›shared memory and atomics›Atomics.store": {
-      "code": "return typeof Atomics.store == 'function';"
+      "code": "return typeof Atomics.store === 'function';"
     },
     "features›shared memory and atomics›Atomics.sub": {
-      "code": "return typeof Atomics.sub == 'function';"
+      "code": "return typeof Atomics.sub === 'function';"
     },
     "features›shared memory and atomics›Atomics.xor": {
-      "code": "return typeof Atomics.xor == 'function';"
+      "code": "return typeof Atomics.xor === 'function';"
     },
     "misc›RegExp \"u\" flag, case folding": {
       "spec": "https://github.com/tc39/ecma262/pull/525",
@@ -3005,15 +3005,15 @@
     },
     "annex b›Object.prototype getter/setter methods›__lookupGetter__": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
-      "code": "var obj = {\nget foo() { return \"bar\"},\nqux: 1\n};\nvar foo = Object.prototype.__lookupGetter__.call(obj, \"foo\");\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupGetter__.call(obj, \"qux\") === undefined\n&& Object.prototype.__lookupGetter__.call(obj, \"baz\") === undefined;"
+      "code": "var obj = {\nget foo() { return \"bar\"},\nqux: 1\n};\nvar foo = Object.prototype.__lookupGetter__.call(obj, \"foo\");\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupGetter__.call(obj, \"qux\") === void undefined\n&& Object.prototype.__lookupGetter__.call(obj, \"baz\") === void undefined;"
     },
     "annex b›Object.prototype getter/setter methods›__lookupGetter__, prototype chain": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
-      "code": "var obj = {\nget foo() { return \"bar\"},\nqux: 1\n};\nvar foo = Object.prototype.__lookupGetter__.call(Object.create(obj), \"foo\");\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupGetter__.call(obj, \"qux\") === undefined\n&& Object.prototype.__lookupGetter__.call(obj, \"baz\") === undefined;"
+      "code": "var obj = {\nget foo() { return \"bar\"},\nqux: 1\n};\nvar foo = Object.prototype.__lookupGetter__.call(Object.create(obj), \"foo\");\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupGetter__.call(obj, \"qux\") === void undefined\n&& Object.prototype.__lookupGetter__.call(obj, \"baz\") === void undefined;"
     },
     "annex b›Object.prototype getter/setter methods›__lookupGetter__, symbols": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
-      "code": "var sym = Symbol();\nvar sym2 = Symbol();\nvar obj = {};\nObject.defineProperty(obj, sym, { get: function() { return \"bar\"; }});\nObject.defineProperty(obj, sym2, { value: 1 });\nvar foo = Object.prototype.__lookupGetter__.call(obj, sym);\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupGetter__.call(obj, sym2) === undefined\n&& Object.prototype.__lookupGetter__.call(obj, Symbol()) === undefined;"
+      "code": "var sym = Symbol();\nvar sym2 = Symbol();\nvar obj = {};\nObject.defineProperty(obj, sym, { get: function() { return \"bar\"; }});\nObject.defineProperty(obj, sym2, { value: 1 });\nvar foo = Object.prototype.__lookupGetter__.call(obj, sym);\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupGetter__.call(obj, sym2) === void undefined\n&& Object.prototype.__lookupGetter__.call(obj, Symbol()) === void undefined;"
     },
     "annex b›Object.prototype getter/setter methods›__lookupGetter__, ToObject(this)": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
@@ -3021,19 +3021,19 @@
     },
     "annex b›Object.prototype getter/setter methods›__lookupGetter__, data properties can shadow accessors": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
-      "code": "var a = { };\nvar b = Object.create(a);\nb.foo = 1;\na.__defineGetter__(\"foo\", function () {})\nreturn b.__lookupGetter__(\"foo\") === undefined"
+      "code": "var a = { };\nvar b = Object.create(a);\nb.foo = 1;\na.__defineGetter__(\"foo\", function () {})\nreturn b.__lookupGetter__(\"foo\") === void undefined"
     },
     "annex b›Object.prototype getter/setter methods›__lookupSetter__": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
-      "code": "var obj = {\nset foo(baz) { return \"bar\"; },\nqux: 1\n};\nvar foo = Object.prototype.__lookupSetter__.call(obj, \"foo\");\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupSetter__.call(obj, \"qux\") === undefined\n&& Object.prototype.__lookupSetter__.call(obj, \"baz\") === undefined;"
+      "code": "var obj = {\nset foo(baz) { return \"bar\"; },\nqux: 1\n};\nvar foo = Object.prototype.__lookupSetter__.call(obj, \"foo\");\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupSetter__.call(obj, \"qux\") === void undefined\n&& Object.prototype.__lookupSetter__.call(obj, \"baz\") === void undefined;"
     },
     "annex b›Object.prototype getter/setter methods›__lookupSetter__, prototype chain": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
-      "code": "var obj = {\nset foo(baz) { return \"bar\"; },\nqux: 1\n};\nvar foo = Object.prototype.__lookupSetter__.call(Object.create(obj), \"foo\");\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupSetter__.call(obj, \"qux\") === undefined\n&& Object.prototype.__lookupSetter__.call(obj, \"baz\") === undefined;"
+      "code": "var obj = {\nset foo(baz) { return \"bar\"; },\nqux: 1\n};\nvar foo = Object.prototype.__lookupSetter__.call(Object.create(obj), \"foo\");\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupSetter__.call(obj, \"qux\") === void undefined\n&& Object.prototype.__lookupSetter__.call(obj, \"baz\") === void undefined;"
     },
     "annex b›Object.prototype getter/setter methods›__lookupSetter__, symbols": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
-      "code": "var sym = Symbol();\nvar sym2 = Symbol();\nvar obj = {};\nObject.defineProperty(obj, sym, { set: function(baz) { return \"bar\"; }});\nObject.defineProperty(obj, sym2, { value: 1 });\nvar foo = Object.prototype.__lookupSetter__.call(obj, sym);\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupSetter__.call(obj, sym2) === undefined\n&& Object.prototype.__lookupSetter__.call(obj, Symbol()) === undefined;"
+      "code": "var sym = Symbol();\nvar sym2 = Symbol();\nvar obj = {};\nObject.defineProperty(obj, sym, { set: function(baz) { return \"bar\"; }});\nObject.defineProperty(obj, sym2, { value: 1 });\nvar foo = Object.prototype.__lookupSetter__.call(obj, sym);\nreturn foo() === \"bar\"\n&& Object.prototype.__lookupSetter__.call(obj, sym2) === void undefined\n&& Object.prototype.__lookupSetter__.call(obj, Symbol()) === void undefined;"
     },
     "annex b›Object.prototype getter/setter methods›__lookupSetter__, ToObject(this)": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
@@ -3041,7 +3041,7 @@
     },
     "annex b›Object.prototype getter/setter methods›__lookupSetter__, data properties can shadow accessors": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
-      "code": "var a = { };\nvar b = Object.create(a);\nb.foo = 1;\na.__defineSetter__(\"foo\", function () {})\nreturn b.__lookupSetter__(\"foo\") === undefined"
+      "code": "var a = { };\nvar b = Object.create(a);\nb.foo = 1;\na.__defineSetter__(\"foo\", function () {})\nreturn b.__lookupSetter__(\"foo\") === void undefined"
     },
     "annex b›Proxy internal calls, getter/setter methods›__defineGetter__": {
       "spec": "https://tc39.github.io/ecma262/#sec-object.prototype.__defineGetter__",
@@ -3067,7 +3067,7 @@
   "ES2018": {
     "features›object rest/spread properties›object rest properties": {
       "spec": "https://github.com/tc39/proposal-object-rest-spread",
-      "code": "var {a, ...rest} = {a: 1, b: 2, c: 3};\nreturn a === 1 && rest.a === undefined && rest.b === 2 && rest.c === 3;"
+      "code": "var {a, ...rest} = {a: 1, b: 2, c: 3};\nreturn a === 1 && rest.a === void undefined && rest.b === 2 && rest.c === 3;"
     },
     "features›object rest/spread properties›object spread properties": {
       "spec": "https://github.com/tc39/proposal-object-rest-spread",
@@ -3173,7 +3173,7 @@
     },
     "misc›Symbol.prototype.description›undefined description": {
       "spec": "https://github.com/tc39/proposal-Symbol-description",
-      "code": "return Symbol.prototype.hasOwnProperty('description')\n  && Symbol().description === undefined;"
+      "code": "return Symbol.prototype.hasOwnProperty('description')\n  && Symbol().description === void undefined;"
     },
     "misc›Function.prototype.toString revision›functions created with the Function constructor": {
       "spec": "https://github.com/tc39/Function-prototype-toString-revision",
@@ -3271,19 +3271,19 @@
     },
     "features›optional chaining operator (?.)›optional property access": {
       "spec": "https://github.com/tc39/proposal-optional-chaining",
-      "code": "var foo = { baz: 42 };\nvar bar = null;\nreturn foo?.baz === 42 && bar?.baz === undefined;"
+      "code": "var foo = { baz: 42 };\nvar bar = null;\nreturn foo?.baz === 42 && bar?.baz === void undefined;"
     },
     "features›optional chaining operator (?.)›optional bracket access": {
       "spec": "https://github.com/tc39/proposal-optional-chaining",
-      "code": "var foo = { baz: 42 };\nvar bar = null;\nreturn foo?.['baz'] === 42 && bar?.['baz'] === undefined;"
+      "code": "var foo = { baz: 42 };\nvar bar = null;\nreturn foo?.['baz'] === 42 && bar?.['baz'] === void undefined;"
     },
     "features›optional chaining operator (?.)›optional method call": {
       "spec": "https://github.com/tc39/proposal-optional-chaining",
-      "code": "var foo = { baz: function () { return this.value; }, value: 42 };\nvar bar = null;\nreturn foo?.baz() === 42 && bar?.baz() === undefined;"
+      "code": "var foo = { baz: function () { return this.value; }, value: 42 };\nvar bar = null;\nreturn foo?.baz() === 42 && bar?.baz() === void undefined;"
     },
     "features›optional chaining operator (?.)›optional function call": {
       "spec": "https://github.com/tc39/proposal-optional-chaining",
-      "code": "var foo = { baz: function () { return 42; } };\nvar bar = {};\nfunction baz() { return 42; };\nvar n;\nreturn foo.baz?.() === 42 && bar.baz?.() === undefined && baz?.() === 42 && n?.() === undefined;"
+      "code": "var foo = { baz: function () { return 42; } };\nvar bar = {};\nfunction baz() { return 42; };\nvar n;\nreturn foo.baz?.() === 42 && bar.baz?.() === void undefined && baz?.() === 42 && n?.() === void undefined;"
     },
     "features›nullish coalescing operator (??)": {
       "spec": "https://github.com/tc39/proposal-nullish-coalescing",
@@ -3805,7 +3805,7 @@
     },
     "proposal (stage 1)›Collections methods›Map.prototype.every": {
       "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Map([[1, 4], [2, 5], [3, 6]]).every(it => typeof it == 'number');"
+      "code": "return new Map([[1, 4], [2, 5], [3, 6]]).every(it => typeof it === 'number');"
     },
     "proposal (stage 1)›Collections methods›Map.prototype.filter": {
       "spec": "https://github.com/tc39/proposal-collection-methods",
@@ -3825,7 +3825,7 @@
     },
     "proposal (stage 1)›Collections methods›Map.prototype.keyOf": {
       "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Map([[1, 2], [2, NaN]]).keyOf(2) === 1\n  && new Map([[1, 2], [2, NaN]]).keyOf(NaN) === undefined;"
+      "code": "return new Map([[1, 2], [2, NaN]]).keyOf(2) === 1\n  && new Map([[1, 2], [2, NaN]]).keyOf(NaN) === void undefined;"
     },
     "proposal (stage 1)›Collections methods›Map.prototype.mapKeys": {
       "spec": "https://github.com/tc39/proposal-collection-methods",
@@ -3961,7 +3961,7 @@
     },
     "strawman (stage 0)›zones›Zone": {
       "spec": "https://github.com/domenic/zones",
-      "code": "return typeof Zone == 'function';"
+      "code": "return typeof Zone === 'function';"
     },
     "strawman (stage 0)›zones›Zone.current": {
       "spec": "https://github.com/domenic/zones",
@@ -3977,15 +3977,15 @@
     },
     "strawman (stage 0)›zones›Zone.prototype.fork": {
       "spec": "https://github.com/domenic/zones",
-      "code": "return typeof Zone.prototype.fork == 'function';"
+      "code": "return typeof Zone.prototype.fork === 'function';"
     },
     "strawman (stage 0)›zones›Zone.prototype.run": {
       "spec": "https://github.com/domenic/zones",
-      "code": "return typeof Zone.prototype.run == 'function';"
+      "code": "return typeof Zone.prototype.run === 'function';"
     },
     "strawman (stage 0)›zones›Zone.prototype.wrap": {
       "spec": "https://github.com/domenic/zones",
-      "code": "return typeof Zone.prototype.wrap == 'function';"
+      "code": "return typeof Zone.prototype.wrap === 'function';"
     },
     "strawman (stage 0)›syntactic tail calls›direct recursion": {
       "spec": "https://github.com/tc39/proposal-ptc-syntax",
@@ -4005,39 +4005,39 @@
     },
     "pre-strawman›Metadata reflection API›Reflect.defineMetadata": {
       "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.defineMetadata == 'function';"
+      "code": "return typeof Reflect.defineMetadata === 'function';"
     },
     "pre-strawman›Metadata reflection API›Reflect.hasMetadata": {
       "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.hasMetadata == 'function';"
+      "code": "return typeof Reflect.hasMetadata === 'function';"
     },
     "pre-strawman›Metadata reflection API›Reflect.hasOwnMetadata": {
       "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.hasOwnMetadata == 'function';"
+      "code": "return typeof Reflect.hasOwnMetadata === 'function';"
     },
     "pre-strawman›Metadata reflection API›Reflect.getMetadata": {
       "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.getMetadata == 'function';"
+      "code": "return typeof Reflect.getMetadata === 'function';"
     },
     "pre-strawman›Metadata reflection API›Reflect.getOwnMetadata": {
       "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.getOwnMetadata == 'function';"
+      "code": "return typeof Reflect.getOwnMetadata === 'function';"
     },
     "pre-strawman›Metadata reflection API›Reflect.getMetadataKeys": {
       "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.getMetadataKeys == 'function';"
+      "code": "return typeof Reflect.getMetadataKeys === 'function';"
     },
     "pre-strawman›Metadata reflection API›Reflect.getOwnMetadataKeys": {
       "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.getOwnMetadataKeys == 'function';"
+      "code": "return typeof Reflect.getOwnMetadataKeys === 'function';"
     },
     "pre-strawman›Metadata reflection API›Reflect.deleteMetadata": {
       "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.deleteMetadata == 'function';"
+      "code": "return typeof Reflect.deleteMetadata === 'function';"
     },
     "pre-strawman›Metadata reflection API›Reflect.metadata": {
       "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.metadata == 'function';"
+      "code": "return typeof Reflect.metadata === 'function';"
     }
   }
 }

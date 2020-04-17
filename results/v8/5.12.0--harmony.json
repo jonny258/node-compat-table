@@ -351,9 +351,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": "Proxy is not defined"
   },
   "ES2015": {
-    "_successful": 398,
+    "_successful": 397,
     "_count": 692,
-    "_percent": 0.5751445086705202,
+    "_percent": 0.5736994219653179,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": "Unexpected token =",
@@ -916,7 +916,7 @@
     "subclassing›Promise is subclassable›correct prototype chain": true,
     "subclassing›Promise is subclassable›Promise.all": true,
     "subclassing›Promise is subclassable›Promise.race": true,
-    "subclassing›miscellaneous subclassables›Boolean is subclassable": true,
+    "subclassing›miscellaneous subclassables›Boolean is subclassable": false,
     "subclassing›miscellaneous subclassables›Number is subclassable": true,
     "subclassing›miscellaneous subclassables›String is subclassable": false,
     "subclassing›miscellaneous subclassables›Error is subclassable": true,
