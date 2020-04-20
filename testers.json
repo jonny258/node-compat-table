@@ -3997,7 +3997,7 @@
     },
     "strawman (stage 0)›method parameter decorators": {
       "spec": "https://docs.google.com/document/d/1Qpkqf_8NzAwfD8LdnqPjXAQ2wwh8BBUGynhn-ZlCWT0",
-      "code": "var target, key, index;\nfunction decorator(_target, _key, _index){\n  target = _target;\n  key    = _key;\n  index  = _index;\n}\nclass C {\n  method(@decorator foo){ }\n}\nreturn target === C.prototype\n  && key === 'method'\n  && index === 0;"
+      "code": "var target, key, index;\nfunction decorator(_target, _key, _index){\n  target = _target;\n  key = _key;\n  index = _index;\n}\nclass C {\n  method(@decorator foo){ }\n}\nreturn target === C.prototype\n  && key === 'method'\n  && index === 0;"
     },
     "strawman (stage 0)›function expression decorators": {
       "spec": "https://docs.google.com/document/d/1ikxIP5-RVYq6d_f8lAvf3pKC00W78ueyp-xIZ6q67uU/edit?pref=2&pli=1#",
