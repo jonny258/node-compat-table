@@ -3161,7 +3161,7 @@
     },
     "misc›optional catch binding›yield": {
       "spec": "https://github.com/tc39/proposal-optional-catch-binding",
-      "code": "function *foo() {\n  try {\n    yield;\n    throw new Error();\n  }\n  catch {\n    return true;\n  }\n}\n\nvar it = foo();\nit.next();\nreturn it.next().value;"
+      "code": "function *foo() {\n  try {\n    yield;\n  }\n  catch {\n    return true;\n  }\n}\n\nvar it = foo();\nit.next();\nreturn it.throw().value;"
     },
     "misc›Symbol.prototype.description›basic": {
       "spec": "https://github.com/tc39/proposal-Symbol-description",
