@@ -3399,6 +3399,10 @@
       "spec": "https://github.com/tc39/proposal-logical-assignment/",
       "code": "let i = 1;\nvar obj = { get x() { return 1 }, set x(n) { i++; } };\nobj.x ??= 2;\nreturn i === 1;"
     },
+    "candidate (stage 3)›Hashbang Grammar": {
+      "spec": "https://github.com/tc39/proposal-hashbang/",
+      "code": "try {\n  return !eval('#!/wash/your/hands');\n} catch (e) {\n  return false\n}"
+    },
     "draft (stage 2)›Generator function.sent Meta Property": {
       "spec": "https://github.com/tc39/proposal-function.sent",
       "code": "var result;\nfunction* generator() {\n  result = function.sent;\n}\nvar iter = generator();\niter.next('tromple');\nreturn result === 'tromple';"
