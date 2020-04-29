@@ -3311,6 +3311,10 @@
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  #x = 42;\n  x(){\n    return this.#x;\n  }\n}\nreturn new C().x() === 42;"
     },
+    "candidate (stage 3)›instance class fields›optional private instance class fields access": {
+      "spec": "https://github.com/tc39/proposal-class-fields",
+      "code": "class C {\n  #x = 42;\n  x(o = this){\n    return o?.#x;\n  }\n}\nreturn new C().x() === 42 && new C().x(null) === void 0;"
+    },
     "candidate (stage 3)›instance class fields›computed instance class fields": {
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  ['x'] = 42;\n}\nreturn new C().x === 42;"
