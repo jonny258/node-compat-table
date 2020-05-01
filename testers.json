@@ -1682,7 +1682,7 @@
     },
     "built-ins›Symbol›Object(symbol)": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-symbol-constructor",
-      "code": "var symbol = Symbol();\nvar symbolObject = Object(symbol);\n\nreturn typeof symbolObject === \"object\" &&\n  symbolObject instanceof Symbol &&\n  symbolObject === symbol &&\n  symbolObject !== symbol &&\n  symbolObject.valueOf() === symbol;"
+      "code": "var symbol = Symbol();\nvar symbolObject = Object(symbol);\n\nreturn typeof symbolObject === \"object\" &&\n  symbolObject instanceof Symbol &&\n  symbolObject == symbol && // eslint-disable-line eqeqeq\n  symbolObject !== symbol &&\n  symbolObject.valueOf() === symbol;"
     },
     "built-ins›Symbol›JSON.stringify ignores symbol primitives": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-symbol-constructor",
@@ -1778,7 +1778,7 @@
     },
     "built-ins›well-known symbols›Symbol.toPrimitive": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols",
-      "code": "var a = {}, b = {}, c = {};\nvar passed = 0;\na[Symbol.toPrimitive] = function(hint) { passed += hint === \"number\";  return 0; };\nb[Symbol.toPrimitive] = function(hint) { passed += hint === \"string\";  return 0; };\nc[Symbol.toPrimitive] = function(hint) { passed += hint === \"default\"; return 0; };\n\na >= 0;\nb in {};\nc === 0;\nreturn passed === 3;"
+      "code": "var a = {}, b = {}, c = {};\nvar passed = 0;\na[Symbol.toPrimitive] = function(hint) { passed += hint === \"number\";  return 0; };\nb[Symbol.toPrimitive] = function(hint) { passed += hint === \"string\";  return 0; };\nc[Symbol.toPrimitive] = function(hint) { passed += hint === \"default\"; return 0; };\n\na >= 0;\nb in {};\nc == 0; // eslint-disable-line eqeqeq\nreturn passed === 3;"
     },
     "built-ins›well-known symbols›Symbol.toStringTag": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols",
@@ -2250,7 +2250,7 @@
     },
     "subclassing›miscellaneous subclassables›Boolean is subclassable": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boolean-constructor",
-      "code": "class C extends Boolean {}\nvar c = new C(true);\nreturn c instanceof Boolean\n  && c instanceof C\n  && c === true;"
+      "code": "class C extends Boolean {}\nvar c = new C(true);\nreturn c instanceof Boolean\n  && c instanceof C\n  && c == true; // eslint-disable-line eqeqeq"
     },
     "subclassing›miscellaneous subclassables›Number is subclassable": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boolean-constructor",
@@ -3314,6 +3314,10 @@
     "candidate (stage 3)›instance class fields›optional private instance class fields access": {
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  #x = 42;\n  x(o = this){\n    return o?.#x;\n  }\n}\nreturn new C().x() === 42 && new C().x(null) === void 0;"
+    },
+    "candidate (stage 3)›instance class fields›optional deep private instance class fields access": {
+      "spec": "https://github.com/tc39/proposal-class-fields",
+      "code": "class C {\n  #x = 42;\n  x(o = {p: this}){\n    return o?.p.#x;\n  }\n}\nreturn new C().x() === 42 && new C().x(null) === void 0;"
     },
     "candidate (stage 3)›instance class fields›computed instance class fields": {
       "spec": "https://github.com/tc39/proposal-class-fields",
