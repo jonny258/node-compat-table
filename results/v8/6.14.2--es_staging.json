@@ -367,9 +367,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": true
   },
   "ES2015": {
-    "_successful": 688,
-    "_count": 692,
-    "_percent": 0.9942196531791907,
+    "_successful": 690,
+    "_count": 694,
+    "_percent": 0.9942363112391931,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": true,
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": true,
     "syntax›default function parameters›basic functionality": true,
@@ -504,6 +504,8 @@
     "syntax›destructuring, parameters›shorthand defaults, arrow function": true,
     "syntax›Unicode code point escapes›in strings": true,
     "syntax›Unicode code point escapes›in identifiers": true,
+    "syntax›Unicode code point escapes›in property key definitions": true,
+    "syntax›Unicode code point escapes›in property key accesses": true,
     "syntax›new.target›in constructors": true,
     "syntax›new.target›assignment is an early error": true,
     "bindings›const›basic support": true,

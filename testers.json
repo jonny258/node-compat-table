@@ -534,7 +534,15 @@
     },
     "syntax›Unicode code point escapes›in identifiers": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-literals-string-literals",
-      "code": "var \\u{102C0} = { \\u{102C0} : 2 };\nreturn \\u{102C0}['\\ud800\\udec0'] === 2;"
+      "code": "var \\u{102C0} = 2;\nreturn \\u{102C0} === 2;"
+    },
+    "syntax›Unicode code point escapes›in property key definitions": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-literals-string-literals",
+      "code": "var o = { \\u{102C0} : 2 };\nreturn o['\\ud800\\udec0'] === 2;"
+    },
+    "syntax›Unicode code point escapes›in property key accesses": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-literals-string-literals",
+      "code": "var o = { '\\ud800\\udec0' : 2 };\nreturn o.\\u{102C0} === 2;"
     },
     "syntax›new.target›in constructors": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-built-in-function-objects",

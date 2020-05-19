@@ -367,9 +367,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": "Proxy is not defined"
   },
   "ES2015": {
-    "_successful": 398,
-    "_count": 692,
-    "_percent": 0.5751445086705202,
+    "_successful": 400,
+    "_count": 694,
+    "_percent": 0.5763688760806917,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": "Unexpected token =",
@@ -504,6 +504,8 @@
     "syntax›destructuring, parameters›shorthand defaults, arrow function": "Unexpected token {",
     "syntax›Unicode code point escapes›in strings": true,
     "syntax›Unicode code point escapes›in identifiers": true,
+    "syntax›Unicode code point escapes›in property key definitions": true,
+    "syntax›Unicode code point escapes›in property key accesses": true,
     "syntax›new.target›in constructors": true,
     "syntax›new.target›assignment is an early error": true,
     "bindings›const›basic support": true,
