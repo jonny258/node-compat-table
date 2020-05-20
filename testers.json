@@ -3303,9 +3303,9 @@
       "spec": "https://github.com/tc39/proposal-weakrefs",
       "code": "var O = {};\nvar weakref = new WeakRef(O);\nreturn weakref.deref() === O;"
     },
-    "candidate (stage 3)›WeakReferences›Finalizers minimal support": {
+    "candidate (stage 3)›WeakReferences›FinalizationRegistry minimal support": {
       "spec": "https://github.com/tc39/proposal-weakrefs",
-      "code": "var fg = new FinalizationGroup(function() {});\nreturn Object.getPrototypeOf(fg) === FinalizationGroup.prototype;"
+      "code": "var fr = new FinalizationRegistry(function() {});\nreturn Object.getPrototypeOf(fr) === FinalizationRegistry.prototype;"
     },
     "candidate (stage 3)›instance class fields›public instance class fields": {
       "spec": "https://github.com/tc39/proposal-class-fields",
@@ -3990,126 +3990,6 @@
     "proposal (stage 1)›Object iteration›Object.iterateEntries": {
       "spec": "https://github.com/tc39/proposal-object-iteration",
       "code": "const object = { a: 1, b: 2, c: 3 };\nconst iterator = Object.iterateEntries(object);\nif (typeof iterator[Symbol.iterator] !== 'function' || typeof iterator.next !== 'function') return false;\ndelete object.b;\nreturn [...iterator].join() === 'a,1,c,3';"
-    },
-    "strawman (stage 0)›bind (::) operator›binary form": {
-      "spec": "https://github.com/zenparsing/es-function-bind",
-      "code": "function foo() { this.garply += \"foo\"; return this; }\nvar obj = { garply: \"bar\" };\nreturn typeof obj::foo === \"function\" && obj::foo().garply === \"barfoo\";"
-    },
-    "strawman (stage 0)›bind (::) operator›unary form": {
-      "spec": "https://github.com/zenparsing/es-function-bind",
-      "code": "var obj = { garply: \"bar\", foo: function() { this.garply += \"foo\"; return this; } };\nreturn typeof ::obj.foo === \"function\" && ::obj.foo().garply === \"barfoo\";"
-    },
-    "strawman (stage 0)›String.prototype.at": {
-      "spec": "https://github.com/mathiasbynens/String.prototype.at",
-      "code": "return 'a𠮷b'.at(1) === '𠮷';"
-    },
-    "strawman (stage 0)›additional meta properties›function.callee": {
-      "spec": "https://github.com/allenwb/ESideas/blob/master/ES7MetaProps.md",
-      "code": "var f = _ => function.callee === f;\nreturn f();"
-    },
-    "strawman (stage 0)›additional meta properties›function.count": {
-      "spec": "https://github.com/allenwb/ESideas/blob/master/ES7MetaProps.md",
-      "code": "return (_ => function.count)(1, 2, 3) === 3;"
-    },
-    "strawman (stage 0)›additional meta properties›function.arguments": {
-      "spec": "https://github.com/allenwb/ESideas/blob/master/ES7MetaProps.md",
-      "code": "var arr =  (_ => function.arguments)(1, 2, 3);\nreturn Array.isArray(arr)\n  && arr.length === 3\n  && arr[0] === 1\n  && arr[1] === 2\n  && arr[2] === 3;"
-    },
-    "strawman (stage 0)›method parameter decorators": {
-      "spec": "https://docs.google.com/document/d/1Qpkqf_8NzAwfD8LdnqPjXAQ2wwh8BBUGynhn-ZlCWT0",
-      "code": "var target, key, index;\nfunction decorator(_target, _key, _index){\n  target = _target;\n  key = _key;\n  index = _index;\n}\nclass C {\n  method(@decorator foo){ }\n}\nreturn target === C.prototype\n  && key === 'method'\n  && index === 0;"
-    },
-    "strawman (stage 0)›function expression decorators": {
-      "spec": "https://docs.google.com/document/d/1ikxIP5-RVYq6d_f8lAvf3pKC00W78ueyp-xIZ6q67uU/edit?pref=2&pli=1#",
-      "code": "function inverse(f){\n  return function(){\n    return !f.apply(this, arguments);\n  };\n}\nreturn (@inverse function(it){\n  return it % 2;\n})(2);"
-    },
-    "strawman (stage 0)›Reflect.isCallable / Reflect.isConstructor›Reflect.isCallable": {
-      "spec": "https://github.com/caitp/TC39-Proposals/blob/master/tc39-reflect-isconstructor-iscallable.md",
-      "code": "return Reflect.isCallable(function(){})\n  && Reflect.isCallable(_ => _)\n  && !Reflect.isCallable(class {});"
-    },
-    "strawman (stage 0)›Reflect.isCallable / Reflect.isConstructor›Reflect.isConstructor": {
-      "spec": "https://github.com/caitp/TC39-Proposals/blob/master/tc39-reflect-isconstructor-iscallable.md",
-      "code": "return Reflect.isConstructor(function(){})\n  && !Reflect.isConstructor(_ => _)\n  && Reflect.isConstructor(class {});"
-    },
-    "strawman (stage 0)›zones›Zone": {
-      "spec": "https://github.com/domenic/zones",
-      "code": "return typeof Zone === 'function';"
-    },
-    "strawman (stage 0)›zones›Zone.current": {
-      "spec": "https://github.com/domenic/zones",
-      "code": "return 'current' in Zone;"
-    },
-    "strawman (stage 0)›zones›Zone.prototype.name": {
-      "spec": "https://github.com/domenic/zones",
-      "code": "return 'name' in Zone.prototype;"
-    },
-    "strawman (stage 0)›zones›Zone.prototype.parent": {
-      "spec": "https://github.com/domenic/zones",
-      "code": "return 'parent' in Zone.prototype;"
-    },
-    "strawman (stage 0)›zones›Zone.prototype.fork": {
-      "spec": "https://github.com/domenic/zones",
-      "code": "return typeof Zone.prototype.fork === 'function';"
-    },
-    "strawman (stage 0)›zones›Zone.prototype.run": {
-      "spec": "https://github.com/domenic/zones",
-      "code": "return typeof Zone.prototype.run === 'function';"
-    },
-    "strawman (stage 0)›zones›Zone.prototype.wrap": {
-      "spec": "https://github.com/domenic/zones",
-      "code": "return typeof Zone.prototype.wrap === 'function';"
-    },
-    "strawman (stage 0)›syntactic tail calls›direct recursion": {
-      "spec": "https://github.com/tc39/proposal-ptc-syntax",
-      "code": "\"use strict\";\nreturn (function f(n){\n  if (n <= 0) {\n    return  \"foo\";\n  }\n  return continue f(n - 1);\n}(1e6)) === \"foo\";"
-    },
-    "strawman (stage 0)›syntactic tail calls›mutual recursion": {
-      "spec": "https://github.com/tc39/proposal-ptc-syntax",
-      "code": "\"use strict\";\nfunction f(n){\n  if (n <= 0) {\n    return  \"foo\";\n  }\n  return continue g(n - 1);\n}\nfunction g(n){\n  if (n <= 0) {\n    return  \"bar\";\n  }\n  return continue f(n - 1);\n}\nreturn f(1e6) === \"foo\" && f(1e6+1) === \"bar\";"
-    },
-    "strawman (stage 0)›object shorthand improvements›object initializers": {
-      "spec": "https://github.com/rbuckton/proposal-shorthand-improvements",
-      "code": "var foo = { bar: 42, baz: 33 };\nvar fuz = { foo.bar, foo['baz'] };\nreturn fuz.bar === 42 && fuz.baz === 33;"
-    },
-    "strawman (stage 0)›object shorthand improvements›destructuring assignments": {
-      "spec": "https://github.com/rbuckton/proposal-shorthand-improvements",
-      "code": "var foo = { bar: 42, baz: 33 };\nvar fuz = {};\n({ fuz.bar, fuz['baz'] } = foo);\nreturn fuz.bar === 42 && fuz.baz === 33;"
-    },
-    "pre-strawman›Metadata reflection API›Reflect.defineMetadata": {
-      "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.defineMetadata === 'function';"
-    },
-    "pre-strawman›Metadata reflection API›Reflect.hasMetadata": {
-      "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.hasMetadata === 'function';"
-    },
-    "pre-strawman›Metadata reflection API›Reflect.hasOwnMetadata": {
-      "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.hasOwnMetadata === 'function';"
-    },
-    "pre-strawman›Metadata reflection API›Reflect.getMetadata": {
-      "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.getMetadata === 'function';"
-    },
-    "pre-strawman›Metadata reflection API›Reflect.getOwnMetadata": {
-      "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.getOwnMetadata === 'function';"
-    },
-    "pre-strawman›Metadata reflection API›Reflect.getMetadataKeys": {
-      "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.getMetadataKeys === 'function';"
-    },
-    "pre-strawman›Metadata reflection API›Reflect.getOwnMetadataKeys": {
-      "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.getOwnMetadataKeys === 'function';"
-    },
-    "pre-strawman›Metadata reflection API›Reflect.deleteMetadata": {
-      "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.deleteMetadata === 'function';"
-    },
-    "pre-strawman›Metadata reflection API›Reflect.metadata": {
-      "spec": "https://github.com/rbuckton/ReflectDecorators",
-      "code": "return typeof Reflect.metadata === 'function';"
     }
   }
 }
