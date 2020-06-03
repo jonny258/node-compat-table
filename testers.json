@@ -3363,10 +3363,6 @@
       "spec": "https://github.com/tc39/proposal-numeric-separator",
       "code": "return 1_000_000.000_001 === 1000000.000001 &&\n  0b1010_0001_1000_0101 === 0b1010000110000101;"
     },
-    "candidate (stage 3)›String.prototype.replaceAll": {
-      "spec": "https://github.com/tc39/proposal-string-replace-all",
-      "code": "return 'q=query+string+parameters'.replaceAll('+', ' ') === 'q=query string parameters';"
-    },
     "candidate (stage 3)›Promise.any": {
       "spec": "https://github.com/tc39/proposal-promise-any",
       "code": "Promise.any([\n  Promise.resolve(1),\n  Promise.reject(2),\n  Promise.resolve(3)\n]).then(it => {\n  if (it === 1) asyncTestPassed();\n});"

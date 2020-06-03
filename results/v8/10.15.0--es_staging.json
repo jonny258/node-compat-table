@@ -3,8 +3,8 @@
   "_engine": "v8 6.8.275.32-node.45",
   "ESNEXT": {
     "_successful": 7,
-    "_count": 173,
-    "_percent": 0.04046242774566474,
+    "_count": 172,
+    "_percent": 0.040697674418604654,
     "candidate (stage 3)›WeakReferences›WeakRef minimal support": "WeakRef is not defined",
     "candidate (stage 3)›WeakReferences›FinalizationRegistry minimal support": "FinalizationRegistry is not defined",
     "candidate (stage 3)›instance class fields›public instance class fields": true,
@@ -21,7 +21,6 @@
     "candidate (stage 3)›private class methods›private accessor properties": "Unexpected identifier",
     "candidate (stage 3)›private class methods›private static accessor properties": "Unexpected identifier",
     "candidate (stage 3)›numeric separators": true,
-    "candidate (stage 3)›String.prototype.replaceAll": "\"q=query+string+parameters\".replaceAll is not a function",
     "candidate (stage 3)›Promise.any": "Promise.any is not a function",
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": true,
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp.$1-$9": true,
