@@ -15,10 +15,12 @@ html
     link(rel="stylesheet", href="style.css")
 body
   if (flaggable)
-    input#flagged(type='checkbox', checked='checked')
+    input#flagged(type='checkbox')
     label(for='flagged') requires&nbsp;
       a(href='https://nodejs.org/en/docs/es6/', target="_blank") harmony
       | &nbsp;flag ⚐
+    input#showInfoCode(type='checkbox')
+    label(for='showInfoCode') show code examples
   #credits
     | Created by&nbsp;
     a(href='https://github.com/williamkapke', target="_blank") William Kapke
@@ -87,7 +89,14 @@ body
                 each nodeVersion in Object.keys(headers)
                   - classes = requiresFlag(nodeVersion, esVersion, obj3.path)? 'flag' : ''
                   td.result(class=classes) !{results(nodeVersion, esVersion, obj3.path)}
-
+              if obj3.code
+                tr.codeExample
+                  td
+                  td(colspan=Object.keys(headers).length)
+                    .fn
+                      | function(){
+                      .code=obj3.code
+                      | }
 
   +article('ES2015')
   +article('ES2016')
