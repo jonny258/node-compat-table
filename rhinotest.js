@@ -66,13 +66,20 @@ function next (ver) {
 next(versions.pop());
 
 function run (name, script, cb) {
-  // Work around a regexp bug in older Rhinos
-  if (/incomplete patterns and quantifiers/.test(name)) {
-	return cb(false);
+  // The variable "supportVersion" should have been set in "rhinoall.sh" to tell us
+  // approximately what version of Rhino we're using. This is necessary because the
+  // tests below don't just fail, but cause Rhino to crash in older versions.
+
+  if (supportVersion <= 10 && /__define[GS]etter__.+ToObject/.test(name)) {
+	  return cb(false);
   }
-  // Work around an exception bug in recent versions of Rhino
-  if (/__define[GS]etter__.+ToObject/.test(name)) {
-	return cb(false);
+
+  if (supportVersion <= 7 && /trailing commas in function syntax/.test(name)) {
+    return cb(false);
+  }
+
+  if (supportVersion <= 7 && /incomplete patterns and quantifiers/.test(name)) {
+	  return cb(false);
   }
 
   // kangax's Promise tests reply on a asyncTestPassed function.
@@ -93,7 +100,7 @@ function runAsync (script, cb) {
     var fn = new Function('asyncTestPassed', script)
 
     fn(function () {
-	  // TODO eventually do this async
+	  // TODO eventually do this async. We don't have that today.
 	  cb(true);
     })
   } catch (e) {

@@ -14,8 +14,13 @@ const engine = 'rhino';
 const headers = require('./rhinoversions');
 
 Object.keys(headers).forEach((version) => {
-  results.flagged[version] = require(`./rhino-results/${version}-es6.json`)
-  results.unflagged[version] = require(`./rhino-results/${version}.json`)
+  if (headers[version].flagged) {
+    results.flagged[version] = require(`./rhino-results/${version}-es6.json`)
+    results.unflagged[version] = require(`./rhino-results/${version}.json`)
+  } else {
+    results.flagged[version] = require(`./rhino-results/${version}.json`)
+    results.unflagged[version] = results.flagged[version]
+  }
 
   //convert to the actual headers view model
   headers[version] = {
