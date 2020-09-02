@@ -3299,14 +3299,6 @@
     }
   },
   "ESNEXT": {
-    "candidate (stage 3)›WeakReferences›WeakRef minimal support": {
-      "spec": "https://github.com/tc39/proposal-weakrefs",
-      "code": "var O = {};\nvar weakref = new WeakRef(O);\nreturn weakref.deref() === O;"
-    },
-    "candidate (stage 3)›WeakReferences›FinalizationRegistry minimal support": {
-      "spec": "https://github.com/tc39/proposal-weakrefs",
-      "code": "var fr = new FinalizationRegistry(function() {});\nreturn Object.getPrototypeOf(fr) === FinalizationRegistry.prototype;"
-    },
     "candidate (stage 3)›instance class fields›public instance class fields": {
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  x = 'x';\n}\nreturn new C().x === 'x';"
@@ -3359,14 +3351,6 @@
       "spec": "https://github.com/tc39/proposal-private-methods",
       "code": "var y = false;\nclass C {\n  static get #x() { return 42; }\n  static set #x(x) { y = x; }\n  x() {\n    C.#x = true;\n    return C.#x;\n  }\n}\nreturn new C().x() === 42 && y;"
     },
-    "candidate (stage 3)›numeric separators": {
-      "spec": "https://github.com/tc39/proposal-numeric-separator",
-      "code": "return 1_000_000.000_001 === 1000000.000001 &&\n  0b1010_0001_1000_0101 === 0b1010000110000101;"
-    },
-    "candidate (stage 3)›Promise.any": {
-      "spec": "https://github.com/tc39/proposal-promise-any",
-      "code": "Promise.any([\n  Promise.resolve(1),\n  Promise.reject(2),\n  Promise.resolve(3)\n]).then(it => {\n  if (it === 1) asyncTestPassed();\n});"
-    },
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": {
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
       "code": "var re = /\\w/;\nre.exec('x');\nreturn RegExp.lastMatch === 'x';"
@@ -3374,42 +3358,6 @@
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp.$1-$9": {
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
       "code": "for (var i = 1; i < 10; i++) {\n  if (!(('$' + i) in RegExp)) return false;\n}\nreturn true;"
-    },
-    "candidate (stage 3)›Logical Assignment›||= basic support": {
-      "spec": "https://github.com/tc39/proposal-logical-assignment/",
-      "code": "let a;\nlet b = 0;\nlet c = 1;\na ||= 2;\nb ||= 2;\nc ||= 2;\nreturn a === 2 && b === 2 && c === 1;"
-    },
-    "candidate (stage 3)›Logical Assignment›||= short-circuiting behaviour": {
-      "spec": "https://github.com/tc39/proposal-logical-assignment/",
-      "code": "let a = 1;\nlet i = 1;\na ||= ++i;\nreturn a === 1 && i === 1;"
-    },
-    "candidate (stage 3)›Logical Assignment›||= setter not unecessarily invoked": {
-      "spec": "https://github.com/tc39/proposal-logical-assignment/",
-      "code": "let i = 1;\nvar obj = { get x() { return 1 }, set x(n) { i++; } };\nobj.x ||= 2;\nreturn i === 1;"
-    },
-    "candidate (stage 3)›Logical Assignment›&&= basic support": {
-      "spec": "https://github.com/tc39/proposal-logical-assignment/",
-      "code": "let a;\nlet b = 0;\nlet c = 1;\na &&= 2;\nb &&= 2;\nc &&= 2;\nreturn typeof a === 'undefined' && b === 0 && c === 2;"
-    },
-    "candidate (stage 3)›Logical Assignment›&&= short-circuiting behaviour": {
-      "spec": "https://github.com/tc39/proposal-logical-assignment/",
-      "code": "let a;\nlet i = 1;\na &&= ++i;\nreturn typeof a === 'undefined' && i === 1;"
-    },
-    "candidate (stage 3)›Logical Assignment›&&= setter not unecessarily invoked": {
-      "spec": "https://github.com/tc39/proposal-logical-assignment/",
-      "code": "let i = 1;\nvar obj = { get x() { return }, set x(n) { i++; } };\nobj.x &&= 2;\nreturn i === 1;"
-    },
-    "candidate (stage 3)›Logical Assignment›??= basic support": {
-      "spec": "https://github.com/tc39/proposal-logical-assignment/",
-      "code": "let a;\nlet b = 0;\nlet c = 1;\na ??= 2;\nb ??= 2;\nc ??= 2;\nreturn a === 2 && b === 0 && c === 1;"
-    },
-    "candidate (stage 3)›Logical Assignment›??= short-circuiting behaviour": {
-      "spec": "https://github.com/tc39/proposal-logical-assignment/",
-      "code": "let a = 1;\nlet i = 1;\na ??= ++i;\nreturn a === 1 && i === 1;"
-    },
-    "candidate (stage 3)›Logical Assignment›??= setter not unecessarily invoked": {
-      "spec": "https://github.com/tc39/proposal-logical-assignment/",
-      "code": "let i = 1;\nvar obj = { get x() { return 1 }, set x(n) { i++; } };\nobj.x ??= 2;\nreturn i === 1;"
     },
     "candidate (stage 3)›Hashbang Grammar": {
       "spec": "https://github.com/tc39/proposal-hashbang/",
@@ -3630,6 +3578,18 @@
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return AsyncIterator.prototype[Symbol.toStringTag] === 'AsyncIterator';"
+    },
+    "draft (stage 2)›`.item` method›Array.prototype.item": {
+      "spec": "https://github.com/tc39/proposal-item-method/",
+      "code": "var arr = [1, 2, 3];\nreturn arr.item(0) === 1\n  && arr.item(-3) === 1\n  && arr.item(1) === 2\n  && arr.item(-2) === 2\n  && arr.item(2) === 3\n  && arr.item(-1) === 3\n  && arr.item(3) === undefined\n  && arr.item(-4) === undefined;"
+    },
+    "draft (stage 2)›`.item` method›String.prototype.item": {
+      "spec": "https://github.com/tc39/proposal-item-method/",
+      "code": "var str = 'abc';\nreturn str.item(0) === 'a'\n  && str.item(-3) === 'a'\n  && str.item(1) === 'b'\n  && str.item(-2) === 'b'\n  && str.item(2) === 'c'\n  && str.item(-1) === 'c'\n  && str.item(3) === undefined\n  && str.item(-4) === undefined;"
+    },
+    "draft (stage 2)›`.item` method›%TypedArray%.prototype.item": {
+      "spec": "https://github.com/tc39/proposal-item-method/",
+      "code": "return [\n  'Int8Array',\n  'Uint8Array',\n  'Uint8ClampedArray',\n  'Int16Array',\n  'Uint16Array',\n  'Int32Array',\n  'Uint32Array',\n  'Float32Array',\n  'Float64Array',\n  'BigInt64Array',\n  'BigUint64Array'\n].every(function (TypedArray) {\n  var Constructor = globalThis[TypedArray];\n  if (typeof Constructor !== 'function') {\n    return true;\n  }\n  var arr = new Constructor([1, 2, 3]);\n  return arr.item(0) === 1\n    && arr.item(-3) === 1\n    && arr.item(1) === 2\n    && arr.item(-2) === 2\n    && arr.item(2) === 3\n    && arr.item(-1) === 3\n    && arr.item(3) === undefined\n    && arr.item(-4) === undefined;\n});"
     },
     "proposal (stage 1)›do expressions": {
       "spec": "https://github.com/tc39/proposal-do-expressions",

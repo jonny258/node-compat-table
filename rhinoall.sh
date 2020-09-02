@@ -54,7 +54,7 @@ fetchAndRunUrl 1.7.10 10 https://repo1.maven.org/maven2/org/mozilla/rhino/1.7.10
 fetchAndRunUrl 1.7.11 11 https://repo1.maven.org/maven2/org/mozilla/rhino/1.7.11/rhino-1.7.11.jar
 fetchAndRunUrl 1.7.12 12 https://repo1.maven.org/maven2/org/mozilla/rhino/1.7.12/rhino-1.7.12.jar
 
-runTests 1.7.13 13 ~/src/rhino/buildGradle/libs/rhino-1.7.13-SNAPSHOT.jar
+runTests 1.7.13 13 ~/src/rhino/buildGradle/libs/rhino-1.7.13.jar
 
 rm -f tmptest.$$
 

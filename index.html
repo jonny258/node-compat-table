@@ -89,7 +89,7 @@
                       <td></td>
                     </tr>
                   </table>
-                </div><sub class="flagged">37% complete</sub><sub class="unflagged">14% complete</sub>
+                </div><sub class="flagged">38% complete</sub><sub class="unflagged">14% complete</sub>
               </th>
             </tr>
           </table>
@@ -5928,8 +5928,8 @@ return true;</div>}
               </div>
             </div>
           </td>
-          <td class="result"><div class="Error unflagged " title="org.mozilla.javascript.Undefined@1e9e725a is not a function, it is undefined.">Error</div><div class="Error flagged " title="org.mozilla.javascript.Undefined@1e9e725a is not a function, it is undefined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="org.mozilla.javascript.Undefined@3c0a50da is not a function, it is undefined.">Error</div><div class="Error flagged " title="org.mozilla.javascript.Undefined@3c0a50da is not a function, it is undefined.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="org.mozilla.javascript.Undefined@16267862 is not a function, it is undefined.">Error</div><div class="Error flagged " title="org.mozilla.javascript.Undefined@16267862 is not a function, it is undefined.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="org.mozilla.javascript.Undefined@6166e06f is not a function, it is undefined.">Error</div><div class="Error flagged " title="org.mozilla.javascript.Undefined@6166e06f is not a function, it is undefined.">Error</div></td>
           <td class="result"><div class="Error unflagged " title="org.mozilla.javascript.Undefined@0 is not a function, it is undefined.">Error</div><div class="Error flagged " title="org.mozilla.javascript.Undefined@0 is not a function, it is undefined.">Error</div></td>
           <td class="result"><div class="Error unflagged " title="org.mozilla.javascript.Undefined@0 is not a function, it is undefined.">Error</div><div class="Error flagged " title="org.mozilla.javascript.Undefined@0 is not a function, it is undefined.">Error</div></td>
           <td class="result"><div class="Error unflagged " title="org.mozilla.javascript.Undefined@0 is not a function, it is undefined.">Error</div><div class="Error flagged " title="org.mozilla.javascript.Undefined@0 is not a function, it is undefined.">Error</div></td>
@@ -11204,7 +11204,7 @@ return proto2.hasOwnProperty(Symbol.iterator) &amp;&amp;
           <td class="result"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="No flagged " title="Test failed">No</div></td>
           <td class="result"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="No flagged " title="Test failed">No</div></td>
           <td class="result"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="No flagged " title="Test failed">No</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result flag"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="Yes flagged required" title="Yes, but requires VERSION_ES6 flag">Flag</div></td>
         </tr>
         <tr>
           <td class="feature subsub">
@@ -11255,7 +11255,7 @@ return proto2.hasOwnProperty(Symbol.iterator) &amp;&amp;
           <td class="result"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="No flagged " title="Test failed">No</div></td>
           <td class="result"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="No flagged " title="Test failed">No</div></td>
           <td class="result"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="No flagged " title="Test failed">No</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result flag"><div class="Error unflagged " title="&quot;Symbol&quot; is not defined.">Error</div><div class="Yes flagged required" title="Yes, but requires VERSION_ES6 flag">Flag</div></td>
         </tr>
         <tr>
           <td class="feature subsub">
@@ -15415,7 +15415,7 @@ return !({ __proto__(){} } instanceof Function);</div>}
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
           <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result flag"><div class="No unflagged " title="Test failed">No</div><div class="Yes flagged required" title="Yes, but requires VERSION_ES6 flag">Flag</div></td>
         </tr>
         <tr>
           <td class="feature sub" colspan="8">
@@ -18363,50 +18363,6 @@ return tag`\01\1\xg\xAg\u0\u0g\u00g\u000g\u{g\u{0\u{110000}${0}\0`;</div>}
         <tr>
           <td class="feature sub" colspan="8">
             <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--WeakReferences"></div><a href="#ESNEXT-candidate--stage-3--WeakReferences">WeakReferences</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--WeakReferences-WeakRef-minimal-support"></div><a href="#ESNEXT-candidate--stage-3--WeakReferences-WeakRef-minimal-support">WeakRef minimal support</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var O = {};
-var weakref = new WeakRef(O);
-return weakref.deref() === O;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="&quot;WeakRef&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;WeakRef&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;WeakRef&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;WeakRef&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;WeakRef&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;WeakRef&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;WeakRef&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;WeakRef&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;WeakRef&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;WeakRef&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;WeakRef&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;WeakRef&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;WeakRef&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;WeakRef&quot; is not defined.">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--WeakReferences-FinalizationRegistry-minimal-support"></div><a href="#ESNEXT-candidate--stage-3--WeakReferences-FinalizationRegistry-minimal-support">FinalizationRegistry minimal support</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var fr = new FinalizationRegistry(function() {});
-return Object.getPrototypeOf(fr) === FinalizationRegistry.prototype;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;FinalizationRegistry&quot; is not defined.">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="8">
-            <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields"></div><a href="#ESNEXT-candidate--stage-3--instance-class-fields">instance class fields</a>
             </h3>
           </td>
@@ -18724,75 +18680,6 @@ return new C().x() === 42 &amp;&amp; y;</div>}
         <tr>
           <td class="feature sub" colspan="8">
             <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--"></div><a href="#ESNEXT-candidate--stage-3--"></a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3---numeric-separators"></div><a href="#ESNEXT-candidate--stage-3---numeric-separators">numeric separators</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return 1_000_000.000_001 === 1000000.000001 &amp;&amp;
-  0b1010_0001_1000_0101 === 0b1010000110000101;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3---Promise-any"></div><a href="#ESNEXT-candidate--stage-3---Promise-any">Promise.any</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">Promise.any([
-  Promise.resolve(1),
-  Promise.reject(2),
-  Promise.resolve(3)
-]).then(it =&gt; {
-  if (it === 1) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="syntax error">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="syntax error">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;Promise&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;Promise&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;Promise&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;Promise&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;Promise&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;Promise&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;Promise&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;Promise&quot; is not defined.">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="&quot;Promise&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;Promise&quot; is not defined.">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3---Hashbang-Grammar"></div><a href="#ESNEXT-candidate--stage-3---Hashbang-Grammar">Hashbang Grammar</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">try {
-  return !eval('#!/wash/your/hands');
-} catch (e) {
-  return false
-}</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="8">
-            <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3--Legacy-RegExp-features-in-JavaScript"></div><a href="#ESNEXT-candidate--stage-3--Legacy-RegExp-features-in-JavaScript">Legacy RegExp features in JavaScript</a>
             </h3>
           </td>
@@ -18839,198 +18726,30 @@ return true;</div>}
         <tr>
           <td class="feature sub" colspan="8">
             <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment">Logical Assignment</a>
+              <div class="hash" id="ESNEXT-candidate--stage-3--"></div><a href="#ESNEXT-candidate--stage-3--"></a>
             </h3>
           </td>
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment-----basic-support"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment-----basic-support">||= basic support</a>
+            <div class="hash" id="ESNEXT-candidate--stage-3---Hashbang-Grammar"></div><a href="#ESNEXT-candidate--stage-3---Hashbang-Grammar">Hashbang Grammar</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">let a;
-let b = 0;
-let c = 1;
-a ||= 2;
-b ||= 2;
-c ||= 2;
-return a === 2 &amp;&amp; b === 2 &amp;&amp; c === 1;</div>}
+                <div class="code">try {
+  return !eval('#!/wash/your/hands');
+} catch (e) {
+  return false
+}</div>}
               </div>
             </div>
           </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment-----short-circuiting-behaviour"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment-----short-circuiting-behaviour">||= short-circuiting behaviour</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let a = 1;
-let i = 1;
-a ||= ++i;
-return a === 1 &amp;&amp; i === 1;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment-----setter-not-unecessarily-invoked"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment-----setter-not-unecessarily-invoked">||= setter not unecessarily invoked</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let i = 1;
-var obj = { get x() { return 1 }, set x(n) { i++; } };
-obj.x ||= 2;
-return i === 1;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment-----basic-support"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment-----basic-support">&amp;&amp;= basic support</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let a;
-let b = 0;
-let c = 1;
-a &amp;&amp;= 2;
-b &amp;&amp;= 2;
-c &amp;&amp;= 2;
-return typeof a === 'undefined' &amp;&amp; b === 0 &amp;&amp; c === 2;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment-----short-circuiting-behaviour"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment-----short-circuiting-behaviour">&amp;&amp;= short-circuiting behaviour</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let a;
-let i = 1;
-a &amp;&amp;= ++i;
-return typeof a === 'undefined' &amp;&amp; i === 1;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment-----setter-not-unecessarily-invoked"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment-----setter-not-unecessarily-invoked">&amp;&amp;= setter not unecessarily invoked</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let i = 1;
-var obj = { get x() { return }, set x(n) { i++; } };
-obj.x &amp;&amp;= 2;
-return i === 1;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment-----basic-support"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment-----basic-support">??= basic support</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let a;
-let b = 0;
-let c = 1;
-a ??= 2;
-b ??= 2;
-c ??= 2;
-return a === 2 &amp;&amp; b === 0 &amp;&amp; c === 1;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment-----short-circuiting-behaviour"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment-----short-circuiting-behaviour">??= short-circuiting behaviour</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let a = 1;
-let i = 1;
-a ??= ++i;
-return a === 1 &amp;&amp; i === 1;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--Logical-Assignment-----setter-not-unecessarily-invoked"></div><a href="#ESNEXT-candidate--stage-3--Logical-Assignment-----setter-not-unecessarily-invoked">??= setter not unecessarily invoked</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let i = 1;
-var obj = { get x() { return 1 }, set x(n) { i++; } };
-obj.x ??= 2;
-return i === 1;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="missing ; before statement">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
-          <td class="result"><div class="Error unflagged " title="missing ; before statement">Error</div><div class="Error flagged " title="syntax error">Error</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
+          <td class="result"><div class="No unflagged " title="Test failed">No</div><div class="No flagged " title="Test failed">No</div></td>
         </tr>
       </table>
       <table class="results">
@@ -20250,6 +19969,106 @@ toArray(async function*() { yield * [1, 2, 3] }().take(2)).then(it =&gt; {
           <td class="result"><div class="Error unflagged " title="&quot;AsyncIterator&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;AsyncIterator&quot; is not defined.">Error</div></td>
           <td class="result"><div class="Error unflagged " title="&quot;AsyncIterator&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;AsyncIterator&quot; is not defined.">Error</div></td>
           <td class="result"><div class="Error unflagged " title="&quot;AsyncIterator&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;AsyncIterator&quot; is not defined.">Error</div></td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="8">
+            <h3>
+              <div class="hash" id="ESNEXT-draft--stage-2----item--method"></div><a href="#ESNEXT-draft--stage-2----item--method">`.item` method</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-draft--stage-2----item--method-Array-prototype-item"></div><a href="#ESNEXT-draft--stage-2----item--method-Array-prototype-item">Array.prototype.item</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var arr = [1, 2, 3];
+return arr.item(0) === 1
+  &amp;&amp; arr.item(-3) === 1
+  &amp;&amp; arr.item(1) === 2
+  &amp;&amp; arr.item(-2) === 2
+  &amp;&amp; arr.item(2) === 3
+  &amp;&amp; arr.item(-1) === 3
+  &amp;&amp; arr.item(3) === undefined
+  &amp;&amp; arr.item(-4) === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object 1,2,3.">Error</div><div class="Error flagged " title="Cannot find function item in object 1,2,3.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object 1,2,3.">Error</div><div class="Error flagged " title="Cannot find function item in object 1,2,3.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object 1,2,3.">Error</div><div class="Error flagged " title="Cannot find function item in object 1,2,3.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object 1,2,3.">Error</div><div class="Error flagged " title="Cannot find function item in object 1,2,3.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object 1,2,3.">Error</div><div class="Error flagged " title="Cannot find function item in object 1,2,3.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object 1,2,3.">Error</div><div class="Error flagged " title="Cannot find function item in object 1,2,3.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object 1,2,3.">Error</div><div class="Error flagged " title="Cannot find function item in object 1,2,3.">Error</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-draft--stage-2----item--method-String-prototype-item"></div><a href="#ESNEXT-draft--stage-2----item--method-String-prototype-item">String.prototype.item</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var str = 'abc';
+return str.item(0) === 'a'
+  &amp;&amp; str.item(-3) === 'a'
+  &amp;&amp; str.item(1) === 'b'
+  &amp;&amp; str.item(-2) === 'b'
+  &amp;&amp; str.item(2) === 'c'
+  &amp;&amp; str.item(-1) === 'c'
+  &amp;&amp; str.item(3) === undefined
+  &amp;&amp; str.item(-4) === undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object abc.">Error</div><div class="Error flagged " title="Cannot find function item in object abc.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object abc.">Error</div><div class="Error flagged " title="Cannot find function item in object abc.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object abc.">Error</div><div class="Error flagged " title="Cannot find function item in object abc.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object abc.">Error</div><div class="Error flagged " title="Cannot find function item in object abc.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object abc.">Error</div><div class="Error flagged " title="Cannot find function item in object abc.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object abc.">Error</div><div class="Error flagged " title="Cannot find function item in object abc.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="Cannot find function item in object abc.">Error</div><div class="Error flagged " title="Cannot find function item in object abc.">Error</div></td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-draft--stage-2----item--method--TypedArray--prototype-item"></div><a href="#ESNEXT-draft--stage-2----item--method--TypedArray--prototype-item">%TypedArray%.prototype.item</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return [
+  'Int8Array',
+  'Uint8Array',
+  'Uint8ClampedArray',
+  'Int16Array',
+  'Uint16Array',
+  'Int32Array',
+  'Uint32Array',
+  'Float32Array',
+  'Float64Array',
+  'BigInt64Array',
+  'BigUint64Array'
+].every(function (TypedArray) {
+  var Constructor = globalThis[TypedArray];
+  if (typeof Constructor !== 'function') {
+    return true;
+  }
+  var arr = new Constructor([1, 2, 3]);
+  return arr.item(0) === 1
+    &amp;&amp; arr.item(-3) === 1
+    &amp;&amp; arr.item(1) === 2
+    &amp;&amp; arr.item(-2) === 2
+    &amp;&amp; arr.item(2) === 3
+    &amp;&amp; arr.item(-1) === 3
+    &amp;&amp; arr.item(3) === undefined
+    &amp;&amp; arr.item(-4) === undefined;
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"><div class="Error unflagged " title="&quot;globalThis&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;globalThis&quot; is not defined.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;globalThis&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;globalThis&quot; is not defined.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;globalThis&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;globalThis&quot; is not defined.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;globalThis&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;globalThis&quot; is not defined.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;globalThis&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;globalThis&quot; is not defined.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;globalThis&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;globalThis&quot; is not defined.">Error</div></td>
+          <td class="result"><div class="Error unflagged " title="&quot;globalThis&quot; is not defined.">Error</div><div class="Error flagged " title="&quot;globalThis&quot; is not defined.">Error</div></td>
         </tr>
       </table>
       <table class="results">
