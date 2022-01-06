@@ -23,7 +23,12 @@ runTests() {
   supportVersion=$2
   jar=$3
   echo "Testing ${version}"
-  echo "supportVersion=${supportVersion}; load('rhinotest.js');" > tmptest.$$
+  if [ ${supportVersion} -gt 13 ]
+  then
+    echo "supportVersion=${supportVersion}; load('rhinotest.js');" > tmptest.$$
+  else
+    echo "supportVersion=${supportVersion}; load('obsoleterhinotest.js');" > tmptest.$$
+  fi
   java -jar ${jar} -version 0 tmptest.$$ > rhino-results/${version}.json
   if [ ${supportVersion} -gt 5 ]
   then
@@ -53,8 +58,9 @@ fetchAndRunUrl 1.7.7.2 7 https://repo1.maven.org/maven2/org/mozilla/rhino/1.7.7.
 fetchAndRunUrl 1.7.10 10 https://repo1.maven.org/maven2/org/mozilla/rhino/1.7.10/rhino-1.7.10.jar
 fetchAndRunUrl 1.7.11 11 https://repo1.maven.org/maven2/org/mozilla/rhino/1.7.11/rhino-1.7.11.jar
 fetchAndRunUrl 1.7.12 12 https://repo1.maven.org/maven2/org/mozilla/rhino/1.7.12/rhino-1.7.12.jar
+fetchAndRunUrl 1.7.13 13 https://repo1.maven.org/maven2/org/mozilla/rhino/1.7.13/rhino-1.7.13.jar
 
-runTests 1.7.13 13 ~/src/rhino/buildGradle/libs/rhino-1.7.13.jar
+runTests 1.7.14 14 ~/src/rhino/buildGradle/libs/rhino-1.7.14.jar
 
 rm -f tmptest.$$
 

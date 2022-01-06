@@ -198,7 +198,7 @@
     },
     "syntax›template literals›toString conversion": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-template-literals",
-      "code": "var a = {\n  toString: function() { return \"foo\"; },\n  valueOf: function() { return \"bar\"; },\n};\nreturn `${a}` === \"foo\";"
+      "code": "var a = {\n  toString: function() { return \"foo\"; },\n  valueOf: function() { return \"bar\"; }\n};\nreturn `${a}` === \"foo\";"
     },
     "syntax›template literals›tagged template literals": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-template-literals",
@@ -527,6 +527,10 @@
     "syntax›destructuring, parameters›shorthand defaults, arrow function": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
       "code": "return ((a, {b = 0, c = 3}) => {\n  return a === 1 && b === 2 && c === 3;\n})(1, {b: 2});"
+    },
+    "syntax›destructuring, parameters›duplicate identifier": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
+      "code": "var d = function d([d]) { return d };\nif (d([true]) !== true) return false;\n\ntry {\n  eval('var f = function f([id, id]) { return id }');\n  return false;\n} catch (e) {\n  return e instanceof SyntaxError;\n}"
     },
     "syntax›Unicode code point escapes›in strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-literals-string-literals",
@@ -958,15 +962,15 @@
     },
     "functions›generators›shorthand generator methods": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var o = {\n  * generator() {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
+      "code": "var o = {\n  * generator() {\n    yield 5; yield 6;\n  }\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›string-keyed shorthand generator methods": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var o = {\n  * \"foo bar\"() {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o[\"foo bar\"]();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
+      "code": "var o = {\n  * \"foo bar\"() {\n    yield 5; yield 6;\n  }\n};\nvar iterator = o[\"foo bar\"]();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›computed shorthand generators": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var garply = \"generator\";\nvar o = {\n  * [garply] () {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
+      "code": "var garply = \"generator\";\nvar o = {\n  * [garply] () {\n    yield 5; yield 6;\n  }\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›shorthand generator methods, classes": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
@@ -1638,19 +1642,19 @@
     },
     "built-ins›Promise›Promise.all": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
-      "code": "var fulfills = Promise.all([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); }),\n]);\nvar rejects = Promise.all([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); }),\n]);\nvar score = 0;\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
+      "code": "var fulfills = Promise.all([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); })\n]);\nvar rejects = Promise.all([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); })\n]);\nvar score = 0;\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
     },
     "built-ins›Promise›Promise.all, generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
-      "code": "var fulfills = Promise.all(global.__createIterableObject([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); }),\n]));\nvar rejects = Promise.all(global.__createIterableObject([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); }),\n]));\nvar score = 0;\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
+      "code": "var fulfills = Promise.all(global.__createIterableObject([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); })\n]));\nvar rejects = Promise.all(global.__createIterableObject([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); })\n]));\nvar score = 0;\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
     },
     "built-ins›Promise›Promise.race": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
-      "code": "var fulfills = Promise.race([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); }),\n]);\nvar rejects = Promise.race([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); }),\n]);\nvar score = 0;\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
+      "code": "var fulfills = Promise.race([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); })\n]);\nvar rejects = Promise.race([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); })\n]);\nvar score = 0;\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
     },
     "built-ins›Promise›Promise.race, generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
-      "code": "var fulfills = Promise.race(global.__createIterableObject([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); }),\n]));\nvar rejects = Promise.race(global.__createIterableObject([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); }),\n]));\nvar score = 0;\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
+      "code": "var fulfills = Promise.race(global.__createIterableObject([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); })\n]));\nvar rejects = Promise.race(global.__createIterableObject([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); })\n]));\nvar score = 0;\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
     },
     "built-ins›Promise›Promise[Symbol.species]": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
@@ -2250,11 +2254,11 @@
     },
     "subclassing›Promise is subclassable›Promise.all": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-function-constructor",
-      "code": "class P extends Promise {}\nvar fulfills = P.all([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); }),\n]);\nvar rejects = P.all([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); }),\n]);\nvar score = +(fulfills instanceof P);\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 3) asyncTestPassed();\n}"
+      "code": "class P extends Promise {}\nvar fulfills = P.all([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); })\n]);\nvar rejects = P.all([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); })\n]);\nvar score = +(fulfills instanceof P);\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 3) asyncTestPassed();\n}"
     },
     "subclassing›Promise is subclassable›Promise.race": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-function-constructor",
-      "code": "class P extends Promise {}\nvar fulfills = P.race([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); }),\n]);\nvar rejects = P.race([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); }),\n]);\nvar score = +(fulfills instanceof P);\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 3) asyncTestPassed();\n}"
+      "code": "class P extends Promise {}\nvar fulfills = P.race([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); })\n]);\nvar rejects = P.race([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); })\n]);\nvar score = +(fulfills instanceof P);\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 3) asyncTestPassed();\n}"
     },
     "subclassing›miscellaneous subclassables›Boolean is subclassable": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boolean-constructor",
@@ -2590,7 +2594,7 @@
     },
     "misc›own property order›Object.keys": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-ordinary-object-internal-methods-and-internal-slots-ownpropertykeys",
-      "code": "var obj = {\n  // Non-negative integer names appear first in value order\n  2: true,\n  0: true,\n  1: true,\n  // Other string names appear in source order\n  ' ': true,\n  // Non-negative integers are sorted above other names\n  9: true,\n  D: true,\n  B: true,\n  // Negative integers are treated as other names\n  '-1': true,\n};\n// Other string names are added in order of creation\nobj.A = true;\n// Non-negative integer names, conversely, ignore order of creation\nobj[3] = true;\n// Having a total of 20+ properties doesn't affect property order\n\"EFGHIJKLMNOPQRSTUVWXYZ\".split('').forEach(function(key){\n  obj[key] = true;\n});\n// Object.defineProperty doesn't affect the above rules\nObject.defineProperty(obj, 'C', { value: true, enumerable: true });\nObject.defineProperty(obj, '4', { value: true, enumerable: true });\n// Deleting and reinserting a property doesn't preserve its position\ndelete obj[2];\nobj[2] = true;\n\nvar forInOrder = '';\nfor(var key in obj)forInOrder += key;\n\nreturn Object.keys(obj).join('') === forInOrder;"
+      "code": "var obj = {\n  // Non-negative integer names appear first in value order\n  2: true,\n  0: true,\n  1: true,\n  // Other string names appear in source order\n  ' ': true,\n  // Non-negative integers are sorted above other names\n  9: true,\n  D: true,\n  B: true,\n  // Negative integers are treated as other names\n  '-1': true\n};\n// Other string names are added in order of creation\nobj.A = true;\n// Non-negative integer names, conversely, ignore order of creation\nobj[3] = true;\n// Having a total of 20+ properties doesn't affect property order\n\"EFGHIJKLMNOPQRSTUVWXYZ\".split('').forEach(function(key){\n  obj[key] = true;\n});\n// Object.defineProperty doesn't affect the above rules\nObject.defineProperty(obj, 'C', { value: true, enumerable: true });\nObject.defineProperty(obj, '4', { value: true, enumerable: true });\n// Deleting and reinserting a property doesn't preserve its position\ndelete obj[2];\nobj[2] = true;\n\nvar forInOrder = '';\nfor(var key in obj)forInOrder += key;\n\nreturn Object.keys(obj).join('') === forInOrder;"
     },
     "misc›own property order›Object.getOwnPropertyNames": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-ordinary-object-internal-methods-and-internal-slots-ownpropertykeys",
@@ -2614,7 +2618,7 @@
     },
     "misc›own property order›Reflect.ownKeys, symbol key order": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-ordinary-object-internal-methods-and-internal-slots-ownpropertykeys",
-      "code": "var sym1 = Symbol(), sym2 = Symbol(), sym3 = Symbol();\nvar obj = {\n  1: true,\n  A: true,\n};\nobj.B = true;\nobj[sym1] = true;\nobj[2] = true;\nobj[sym2] = true;\nObject.defineProperty(obj, 'C', { value: true, enumerable: true });\nObject.defineProperty(obj, sym3,{ value: true, enumerable: true });\nObject.defineProperty(obj, 'D', { value: true, enumerable: true });\n\nvar result = Reflect.ownKeys(obj);\nvar l = result.length;\nreturn result[l-3] === sym1 && result[l-2] === sym2 && result[l-1] === sym3;"
+      "code": "var sym1 = Symbol(), sym2 = Symbol(), sym3 = Symbol();\nvar obj = {\n  1: true,\n  A: true\n};\nobj.B = true;\nobj[sym1] = true;\nobj[2] = true;\nobj[sym2] = true;\nObject.defineProperty(obj, 'C', { value: true, enumerable: true });\nObject.defineProperty(obj, sym3,{ value: true, enumerable: true });\nObject.defineProperty(obj, 'D', { value: true, enumerable: true });\n\nvar result = Reflect.ownKeys(obj);\nvar l = result.length;\nreturn result[l-3] === sym1 && result[l-2] === sym2 && result[l-1] === sym3;"
     },
     "misc›Updated identifier syntax›var ⸯ;": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-names-and-keywords",
@@ -3127,6 +3131,18 @@
     }
   },
   "ES2019": {
+    "features›Symbol.prototype.description›basic": {
+      "spec": "https://github.com/tc39/proposal-Symbol-description",
+      "code": "return Symbol('foo').description === 'foo';"
+    },
+    "features›Symbol.prototype.description›empty description": {
+      "spec": "https://github.com/tc39/proposal-Symbol-description",
+      "code": "return Symbol('').description === '';"
+    },
+    "features›Symbol.prototype.description›undefined description": {
+      "spec": "https://github.com/tc39/proposal-Symbol-description",
+      "code": "return Symbol.prototype.hasOwnProperty('description')\n  && Symbol().description === void undefined;"
+    },
     "features›Object.fromEntries": {
       "spec": "https://github.com/tc39/proposal-object-from-entries",
       "code": "var object = Object.fromEntries(new Map([['foo', 42], ['bar', 23]]));\nreturn object.foo === 42 && object.bar === 23;"
@@ -3170,18 +3186,6 @@
     "misc›optional catch binding›yield": {
       "spec": "https://github.com/tc39/proposal-optional-catch-binding",
       "code": "function *foo() {\n  try {\n    yield;\n  }\n  catch {\n    return true;\n  }\n}\n\nvar it = foo();\nit.next();\nreturn it.throw().value;"
-    },
-    "misc›Symbol.prototype.description›basic": {
-      "spec": "https://github.com/tc39/proposal-Symbol-description",
-      "code": "return Symbol('foo').description === 'foo';"
-    },
-    "misc›Symbol.prototype.description›empty description": {
-      "spec": "https://github.com/tc39/proposal-Symbol-description",
-      "code": "return Symbol('').description === '';"
-    },
-    "misc›Symbol.prototype.description›undefined description": {
-      "spec": "https://github.com/tc39/proposal-Symbol-description",
-      "code": "return Symbol.prototype.hasOwnProperty('description')\n  && Symbol().description === void undefined;"
     },
     "misc›Function.prototype.toString revision›functions created with the Function constructor": {
       "spec": "https://github.com/tc39/Function-prototype-toString-revision",
@@ -3293,659 +3297,251 @@
       "spec": "https://github.com/tc39/proposal-optional-chaining",
       "code": "var foo = { baz: function () { return 42; } };\nvar bar = {};\nfunction baz() { return 42; };\nvar n;\nreturn foo.baz?.() === 42 && bar.baz?.() === void undefined && baz?.() === 42 && n?.() === void undefined;"
     },
+    "features›optional chaining operator (?.)›spread parameters after optional chaining": {
+      "spec": "https://github.com/tc39/proposal-optional-chaining",
+      "code": "var fn = null;\nvar n = null;\nvar o = {};\n\nreturn fn?.(...[], 1) === void undefined && fn?.(...[], ...[]) === void undefined && o.method?.(...[], 1) === void undefined && n?.method(...[], 1) === void undefined;"
+    },
     "features›nullish coalescing operator (??)": {
       "spec": "https://github.com/tc39/proposal-nullish-coalescing",
       "code": "return (null ?? 42) === 42 &&\n  (undefined ?? 42) === 42 &&\n  (false ?? 42) === false &&\n  ('' ?? 42) === '' &&\n  (0 ?? 42) === 0 &&\n  isNaN(NaN ?? 42);"
     }
   },
   "ESNEXT": {
-    "candidate (stage 3)›instance class fields›public instance class fields": {
-      "spec": "https://github.com/tc39/proposal-class-fields",
-      "code": "class C {\n  x = 'x';\n}\nreturn new C().x === 'x';"
-    },
-    "candidate (stage 3)›instance class fields›private instance class fields basic support": {
-      "spec": "https://github.com/tc39/proposal-class-fields",
-      "code": "class C {\n  #x;\n  constructor(x){\n    this.#x = x;\n  }\n  x(){\n    return this.#x;\n  }\n}\nreturn new C(42).x() === 42;"
-    },
-    "candidate (stage 3)›instance class fields›private instance class fields initializers": {
-      "spec": "https://github.com/tc39/proposal-class-fields",
-      "code": "class C {\n  #x = 42;\n  x(){\n    return this.#x;\n  }\n}\nreturn new C().x() === 42;"
-    },
-    "candidate (stage 3)›instance class fields›optional private instance class fields access": {
-      "spec": "https://github.com/tc39/proposal-class-fields",
-      "code": "class C {\n  #x = 42;\n  x(o = this){\n    return o?.#x;\n  }\n}\nreturn new C().x() === 42 && new C().x(null) === void 0;"
-    },
-    "candidate (stage 3)›instance class fields›optional deep private instance class fields access": {
-      "spec": "https://github.com/tc39/proposal-class-fields",
-      "code": "class C {\n  #x = 42;\n  x(o = {p: this}){\n    return o?.p.#x;\n  }\n}\nreturn new C().x() === 42 && new C().x(null) === void 0;"
-    },
-    "candidate (stage 3)›instance class fields›computed instance class fields": {
-      "spec": "https://github.com/tc39/proposal-class-fields",
-      "code": "class C {\n  ['x'] = 42;\n}\nreturn new C().x === 42;"
-    },
-    "candidate (stage 3)›static class fields›public static class fields": {
-      "spec": "https://github.com/tc39/proposal-static-class-features/",
-      "code": "class C {\n  static x = 'x';\n}\nreturn C.x === 'x';"
-    },
-    "candidate (stage 3)›static class fields›private static class fields": {
-      "spec": "https://github.com/tc39/proposal-static-class-features/",
-      "code": "class C {\n  static #x = 42;\n  x(){\n    return C.#x;\n  }\n}\nreturn new C().x() === 42;"
-    },
-    "candidate (stage 3)›static class fields›computed static class fields": {
-      "spec": "https://github.com/tc39/proposal-static-class-features/",
-      "code": "class C {\n  static ['x'] = 42;\n}\nreturn C.x === 42;"
-    },
-    "candidate (stage 3)›private class methods›private instance methods": {
-      "spec": "https://github.com/tc39/proposal-private-methods",
-      "code": "class C {\n  #x() { return 42; }\n  x() {\n    return this.#x();\n  }\n}\nreturn new C().x() === 42;"
-    },
-    "candidate (stage 3)›private class methods›private static methods": {
-      "spec": "https://github.com/tc39/proposal-private-methods",
-      "code": "class C {\n  static #x() { return 42; }\n  x() {\n    return C.#x();\n  }\n}\nreturn new C().x() === 42;"
-    },
-    "candidate (stage 3)›private class methods›private accessor properties": {
-      "spec": "https://github.com/tc39/proposal-private-methods",
-      "code": "var y = false;\nclass C {\n  get #x() { return 42; }\n  set #x(x) { y = x; }\n  x() {\n    this.#x = true;\n    return this.#x;\n  }\n}\nreturn new C().x() === 42 && y;"
-    },
-    "candidate (stage 3)›private class methods›private static accessor properties": {
-      "spec": "https://github.com/tc39/proposal-private-methods",
-      "code": "var y = false;\nclass C {\n  static get #x() { return 42; }\n  static set #x(x) { y = x; }\n  x() {\n    C.#x = true;\n    return C.#x;\n  }\n}\nreturn new C().x() === 42 && y;"
-    },
-    "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": {
-      "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
-      "code": "var re = /\\w/;\nre.exec('x');\nreturn RegExp.lastMatch === 'x';"
-    },
-    "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp.$1-$9": {
-      "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
-      "code": "for (var i = 1; i < 10; i++) {\n  if (!(('$' + i) in RegExp)) return false;\n}\nreturn true;"
-    },
-    "candidate (stage 3)›Hashbang Grammar": {
-      "spec": "https://github.com/tc39/proposal-hashbang/",
-      "code": "try {\n  return !eval('#!/wash/your/hands');\n} catch (e) {\n  return false\n}"
-    },
-    "draft (stage 2)›Generator function.sent Meta Property": {
-      "spec": "https://github.com/tc39/proposal-function.sent",
-      "code": "var result;\nfunction* generator() {\n  result = function.sent;\n}\nvar iter = generator();\niter.next('tromple');\nreturn result === 'tromple';"
-    },
-    "draft (stage 2)›Class and Property Decorators›class decorators": {
-      "spec": "https://github.com/tc39/proposal-decorators",
-      "code": "class A {\n  @nonconf\n  get B() {}\n}\nfunction nonconf(target, name, descriptor) {\n  descriptor.configurable = false;\n  return descriptor;\n}\nreturn Object.getOwnPropertyDescriptor(A.prototype, \"B\").configurable === false;"
-    },
-    "draft (stage 2)›Realms": {
+    "Stage 3›Realms": {
       "spec": "https://github.com/tc39/proposal-realms",
       "code": "return typeof Realm === \"function\"\n  && [\"eval\", \"global\", \"intrinsics\", \"stdlib\", \"directEval\", \"indirectEval\", \"initGlobal\", \"nonEval\"].every(function(key){\n    return key in Realm.prototype;\n  });"
     },
-    "draft (stage 2)›throw expressions›logical": {
+    "Stage 3›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": {
+      "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
+      "code": "var re = /\\w/;\nre.exec('x');\nreturn RegExp.lastMatch === 'x';"
+    },
+    "Stage 3›Legacy RegExp features in JavaScript›RegExp.$1-$9": {
+      "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
+      "code": "for (var i = 1; i < 10; i++) {\n  if (!(('$' + i) in RegExp)) return false;\n}\nreturn true;"
+    },
+    "Stage 3›Hashbang Grammar": {
+      "spec": "https://github.com/tc39/proposal-hashbang/",
+      "code": "try {\n  return !eval('#!/wash/your/hands');\n} catch (e) {\n  return false\n}"
+    },
+    "Stage 3›Array find from last›Array.prototype.findLast": {
+      "spec": "https://github.com/tc39/proposal-array-find-from-last",
+      "code": "var arr = [{ x: 1 }, { x: 2 }, { x: 1 }, { x: 2 }];\nreturn arr.findLast(function (o) { return o.x === 1; }) === arr[2];"
+    },
+    "Stage 3›Array find from last›Array.prototype.findLastIndex": {
+      "spec": "https://github.com/tc39/proposal-array-find-from-last",
+      "code": "var arr = [{ x: 1 }, { x: 2 }, { x: 1 }, { x: 2 }];\nreturn arr.findLastIndex(function (o) { return o.x === 1; }) === 2;"
+    },
+    "Stage 2›Generator function.sent Meta Property": {
+      "spec": "https://github.com/tc39/proposal-function.sent",
+      "code": "var result;\nfunction* generator() {\n  result = function.sent;\n}\nvar iter = generator();\niter.next('tromple');\nreturn result === 'tromple';"
+    },
+    "Stage 2›Class and Property Decorators›class decorators": {
+      "spec": "https://github.com/tc39/proposal-decorators",
+      "code": "class A {\n  @nonconf\n  get B() {}\n}\nfunction nonconf(target, name, descriptor) {\n  descriptor.configurable = false;\n  return descriptor;\n}\nreturn Object.getOwnPropertyDescriptor(A.prototype, \"B\").configurable === false;"
+    },
+    "Stage 2›throw expressions›logical": {
       "spec": "https://github.com/tc39/proposal-throw-expressions",
       "code": "var a, b;\ntry {\n  a = 19 || throw 77;\n  b = 88 && throw 23;\n} catch (e) {\n  return a + e === 42;\n}"
     },
-    "draft (stage 2)›throw expressions›parameter initializers": {
+    "Stage 2›throw expressions›parameter initializers": {
       "spec": "https://github.com/tc39/proposal-throw-expressions",
       "code": "function fn (arg = throw 42) {\n  return arg;\n}\n\nif (fn(21) !== 21) return false;\n\ntry {\n  fn();\n} catch (e) {\n  return e === 42;\n}"
     },
-    "draft (stage 2)›throw expressions›arrow function bodies": {
+    "Stage 2›throw expressions›arrow function bodies": {
       "spec": "https://github.com/tc39/proposal-throw-expressions",
       "code": "var fn = () => throw 42;\ntry {\n  fn();\n} catch (e) {\n  return e === 42;\n}"
     },
-    "draft (stage 2)›throw expressions›conditionals": {
+    "Stage 2›throw expressions›conditionals": {
       "spec": "https://github.com/tc39/proposal-throw-expressions",
       "code": "true ? 42 : throw 21;\ntry {\n  false ? 42 : throw 21;\n} catch (e) {\n  return e === 21;\n}"
     },
-    "draft (stage 2)›Set methods›Set.prototype.intersection": {
+    "Stage 2›Set methods›Set.prototype.intersection": {
       "spec": "https://github.com/tc39/proposal-set-methods",
       "code": "var set = new Set([1, 2, 3]).intersection(new Set([2, 3, 4]));\nreturn set.size === 2\n  && set.has(2)\n  && set.has(3);"
     },
-    "draft (stage 2)›Set methods›Set.prototype.union": {
+    "Stage 2›Set methods›Set.prototype.union": {
       "spec": "https://github.com/tc39/proposal-set-methods",
       "code": "var set = new Set([1, 2]).union(new Set([2, 3]));\nreturn set.size === 3\n  && set.has(1)\n  && set.has(2)\n  && set.has(3);"
     },
-    "draft (stage 2)›Set methods›Set.prototype.difference": {
+    "Stage 2›Set methods›Set.prototype.difference": {
       "spec": "https://github.com/tc39/proposal-set-methods",
       "code": "var set = new Set([1, 2, 3]).difference(new Set([3, 4]));\nreturn set.size === 2\n  && set.has(1)\n  && set.has(2);"
     },
-    "draft (stage 2)›Set methods›Set.prototype.symmetricDifference": {
+    "Stage 2›Set methods›Set.prototype.symmetricDifference": {
       "spec": "https://github.com/tc39/proposal-set-methods",
       "code": "var set = new Set([1, 2]).symmetricDifference(new Set([2, 3]));\nreturn set.size === 2\n  && set.has(1)\n  && set.has(3);"
     },
-    "draft (stage 2)›Set methods›Set.prototype.isDisjointFrom": {
+    "Stage 2›Set methods›Set.prototype.isDisjointFrom": {
       "spec": "https://github.com/tc39/proposal-set-methods",
       "code": "return new Set([1, 2, 3]).isDisjointFrom([4, 5, 6]);"
     },
-    "draft (stage 2)›Set methods›Set.prototype.isSubsetOf": {
+    "Stage 2›Set methods›Set.prototype.isSubsetOf": {
       "spec": "https://github.com/tc39/proposal-set-methods",
       "code": "return new Set([1, 2, 3]).isSubsetOf([5, 4, 3, 2, 1]);"
     },
-    "draft (stage 2)›Set methods›Set.prototype.isSupersetOf": {
+    "Stage 2›Set methods›Set.prototype.isSupersetOf": {
       "spec": "https://github.com/tc39/proposal-set-methods",
       "code": "return new Set([5, 4, 3, 2, 1]).isSupersetOf([1, 2, 3]);"
     },
-    "draft (stage 2)›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.transfer()": {
+    "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.transfer()": {
       "spec": "https://github.com/domenic/proposal-arraybuffer-transfer/",
       "code": "const buffer1 = new Uint8Array([1, 2]).buffer;\nconst buffer2 = buffer1.transfer();\nreturn buffer1.byteLength === 0\n  && buffer2.byteLength === 2;"
     },
-    "draft (stage 2)›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.realloc()": {
+    "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.realloc()": {
       "spec": "https://github.com/domenic/proposal-arraybuffer-transfer/",
       "code": "const buffer1 = new ArrayBuffer(1024);\nconst buffer2 = buffer1.realloc(256);\nreturn buffer1.byteLength === 0\n  && buffer2.byteLength === 256;"
     },
-    "draft (stage 2)›Map.prototype.upsert›Map.prototype.upsert": {
+    "Stage 2›Map.prototype.upsert›Map.prototype.upsert": {
       "spec": "https://github.com/tc39/proposal-upsert",
       "code": "const map = new Map([['a', 1]]);\nif (map.upsert('a', it => 2, () => 3) !== 2) return false;\nif (map.upsert('b', it => 2, () => 3) !== 3) return false;\nreturn Array.from(map).join() === 'a,2,b,3';"
     },
-    "draft (stage 2)›Map.prototype.upsert›WeakMap.prototype.upsert": {
+    "Stage 2›Map.prototype.upsert›WeakMap.prototype.upsert": {
       "spec": "https://github.com/tc39/proposal-upsert",
       "code": "const a = {}, b = {};\nconst map = new WeakMap([[a, 1]]);\nif (map.upsert(a, it => 2, () => 3) !== 2) return false;\nif (map.upsert(b, it => 2, () => 3) !== 3) return false;\nreturn map.get(a) === 2 && map.get(b) === 3;"
     },
-    "draft (stage 2)›Array.isTemplateObject": {
+    "Stage 2›Array.isTemplateObject": {
       "spec": "https://github.com/tc39/proposal-array-is-template-object",
       "code": "return !Array.isTemplateObject([])\n  && Array.isTemplateObject((it => it)`a{1}c`);"
     },
-    "draft (stage 2)›Iterator Helpers›instanceof Iterator": {
+    "Stage 2›Iterator Helpers›instanceof Iterator": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return [1, 2, 3].values() instanceof Iterator;"
     },
-    "draft (stage 2)›Iterator Helpers›extends Iterator": {
+    "Stage 2›Iterator Helpers›extends Iterator": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "class Class extends Iterator { }\nconst instance = new Class();\nreturn instance[Symbol.iterator]() === instance;"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.from, iterable": {
+    "Stage 2›Iterator Helpers›Iterator.from, iterable": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "const iterator = Iterator.from([1, 2, 3]);\nreturn 'next' in iterator\n  && iterator instanceof Iterator\n  && Array.from(iterator).join() === '1,2,3';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.from, iterator": {
+    "Stage 2›Iterator Helpers›Iterator.from, iterator": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "const iterator = Iterator.from({\n  i: 0,\n  next() {\n    return { value: ++this.i, done: this.i > 3 };\n  }\n});\nreturn 'next' in iterator\n  && iterator instanceof Iterator\n  && Array.from(iterator).join() === '1,2,3';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.asIndexedPairs": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.asIndexedPairs": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return Array.from([1, 2, 3].values().asIndexedPairs()).join() === '0,1,1,2,2,3';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.drop": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.drop": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return Array.from([1, 2, 3].values().drop(1)).join() === '2,3';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.every": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.every": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return [1, 2, 3].values().every(it => typeof it === 'number');"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.filter": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.filter": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return Array.from([1, 2, 3].values().filter(it => it % 2)).join() === '1,3';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.find": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.find": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return [1, 2, 3].values().find(it => it % 2) === 1;"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.flatMap": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.flatMap": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return Array.from([1, 2, 3].values().flatMap(it => [it, 0])).join() === '1,0,2,0,3,0';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.forEach": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.forEach": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "let result = '';\n[1, 2, 3].values().forEach(it => result += it);\nreturn result === '123';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.map": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.map": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return Array.from([1, 2, 3].values().map(it => it * it)).join() === '1,4,9';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.reduce": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.reduce": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return [1, 2, 3].values().reduce((a, b) => a + b) === 6;"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.some": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.some": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return [1, 2, 3].values().some(it => typeof it === 'number');"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.take": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.take": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return Array.from([1, 2, 3].values().take(2)).join() === '1,2';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype.toArray": {
+    "Stage 2›Iterator Helpers›Iterator.prototype.toArray": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "const array = [1, 2, 3].values().toArray();\nreturn Array.isArray(array) && array.join() === '1,2,3';"
     },
-    "draft (stage 2)›Iterator Helpers›Iterator.prototype[@@toStringTag]": {
+    "Stage 2›Iterator Helpers›Iterator.prototype[@@toStringTag]": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return Iterator.prototype[Symbol.toStringTag] === 'Iterator';"
     },
-    "draft (stage 2)›Iterator Helpers›instanceof AsyncIterator": {
+    "Stage 2›Iterator Helpers›instanceof AsyncIterator": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return (async function*() {})() instanceof AsyncIterator;"
     },
-    "draft (stage 2)›Iterator Helpers›extends AsyncIterator": {
+    "Stage 2›Iterator Helpers›extends AsyncIterator": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "class Class extends AsyncIterator { }\nconst instance = new Class();\nreturn instance[Symbol.asyncIterator]() === instance;"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.from, async iterable": {
+    "Stage 2›Iterator Helpers›AsyncIterator.from, async iterable": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\nconst iterator = AsyncIterator.from(async function*() { yield * [1, 2, 3] }());\n\nif (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;\n\ntoArray(iterator).then(it => {\n  if (it.join() === '1,2,3') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.from, iterable": {
+    "Stage 2›Iterator Helpers›AsyncIterator.from, iterable": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\nconst iterator = AsyncIterator.from([1, 2, 3]);\n\nif (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;\n\ntoArray(iterator).then(it => {\n  if (it.join() === '1,2,3') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.from, iterator": {
+    "Stage 2›Iterator Helpers›AsyncIterator.from, iterator": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\nconst iterator = AsyncIterator.from([1, 2, 3].values());\n\nif (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;\n\ntoArray(iterator).then(it => {\n  if (it.join() === '1,2,3') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.asIndexedPairs": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.asIndexedPairs": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray((async function*() { yield * [1, 2, 3] })().asIndexedPairs()).then(it => {\n  if (it.join() === '0,1,1,2,2,3') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.drop": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.drop": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().drop(1)).then(it => {\n  if (it.join() === '2,3') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.every": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.every": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "(async function*() { yield * [1, 2, 3] })().every(it => typeof it === 'number').then(it => {\n  if (it === true) asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.filter": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.filter": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().filter(it => it % 2)).then(it => {\n  if (it.join() === '1,3') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.find": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.find": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "(async function*() { yield * [1, 2, 3] })().find(it => it % 2).then(it => {\n  if (it === 1) asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.flatMap": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.flatMap": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().flatMap(it => [it, 0])).then(it => {\n  if (it.join() === '1,0,2,0,3,0') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.forEach": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.forEach": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "let result = '';\n(async function*() { yield * [1, 2, 3] })().forEach(it => result += it).then(() => {\n  if (result === '123') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.map": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.map": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().map(it => it * it)).then(it => {\n  if (it.join() === '1,4,9') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.reduce": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.reduce": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "(async function*() { yield * [1, 2, 3] })().reduce((a, b) => a + b).then(it => {\n  if (it === 6) asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.some": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.some": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "(async function*() { yield * [1, 2, 3] })().some(it => typeof it === 'number').then(it => {\n  if (it === true) asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.take": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.take": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().take(2)).then(it => {\n  if (it.join() === '1,2') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.toArray": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype.toArray": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "(async function*() { yield * [1, 2, 3] })().toArray().then(it => {\n  if (Array.isArray(it) && it.join() === '1,2,3') asyncTestPassed();\n});"
     },
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": {
+    "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return AsyncIterator.prototype[Symbol.toStringTag] === 'AsyncIterator';"
-    },
-    "draft (stage 2)›`.item` method›Array.prototype.item": {
-      "spec": "https://github.com/tc39/proposal-item-method/",
-      "code": "var arr = [1, 2, 3];\nreturn arr.item(0) === 1\n  && arr.item(-3) === 1\n  && arr.item(1) === 2\n  && arr.item(-2) === 2\n  && arr.item(2) === 3\n  && arr.item(-1) === 3\n  && arr.item(3) === undefined\n  && arr.item(-4) === undefined;"
-    },
-    "draft (stage 2)›`.item` method›String.prototype.item": {
-      "spec": "https://github.com/tc39/proposal-item-method/",
-      "code": "var str = 'abc';\nreturn str.item(0) === 'a'\n  && str.item(-3) === 'a'\n  && str.item(1) === 'b'\n  && str.item(-2) === 'b'\n  && str.item(2) === 'c'\n  && str.item(-1) === 'c'\n  && str.item(3) === undefined\n  && str.item(-4) === undefined;"
-    },
-    "draft (stage 2)›`.item` method›%TypedArray%.prototype.item": {
-      "spec": "https://github.com/tc39/proposal-item-method/",
-      "code": "return [\n  'Int8Array',\n  'Uint8Array',\n  'Uint8ClampedArray',\n  'Int16Array',\n  'Uint16Array',\n  'Int32Array',\n  'Uint32Array',\n  'Float32Array',\n  'Float64Array',\n  'BigInt64Array',\n  'BigUint64Array'\n].every(function (TypedArray) {\n  var Constructor = globalThis[TypedArray];\n  if (typeof Constructor !== 'function') {\n    return true;\n  }\n  var arr = new Constructor([1, 2, 3]);\n  return arr.item(0) === 1\n    && arr.item(-3) === 1\n    && arr.item(1) === 2\n    && arr.item(-2) === 2\n    && arr.item(2) === 3\n    && arr.item(-1) === 3\n    && arr.item(3) === undefined\n    && arr.item(-4) === undefined;\n});"
-    },
-    "proposal (stage 1)›do expressions": {
-      "spec": "https://github.com/tc39/proposal-do-expressions",
-      "code": "return do {\n  let x = 23;\n  x + 19;\n} === 42;"
-    },
-    "proposal (stage 1)›Observable›basic support": {
-      "spec": "https://github.com/tc39/proposal-observable",
-      "code": "return typeof Observable !== 'undefined';"
-    },
-    "proposal (stage 1)›Observable›Symbol.observable well known symbol": {
-      "spec": "https://github.com/tc39/proposal-observable",
-      "code": "return typeof Symbol.observable === 'symbol';"
-    },
-    "proposal (stage 1)›Observable›Observable.prototype.subscribe": {
-      "spec": "https://github.com/tc39/proposal-observable",
-      "code": "return 'subscribe' in Observable.prototype;"
-    },
-    "proposal (stage 1)›Observable›Observable constructor behavior": {
-      "spec": "https://github.com/tc39/proposal-observable",
-      "code": "if(!(new Observable(function(){}) instanceof Observable))return false;\n\nvar nonCallableCheckPassed,\n    primitiveCheckPassed,\n    newCheckPassed;\n\ntry { new Observable({ }) } catch(e) { nonCallableCheckPassed = true }\ntry { new Observable(false) } catch(e) { primitiveCheckPassed = true }\ntry { Observable(function() { }) } catch(e) { newCheckPassed = true }\n\nreturn nonCallableCheckPassed && primitiveCheckPassed && newCheckPassed;"
-    },
-    "proposal (stage 1)›Observable›Observable.prototype[Symbol.observable]": {
-      "spec": "https://github.com/tc39/proposal-observable",
-      "code": "var o = new Observable(function() { });\nreturn Symbol.observable in Observable.prototype && o[Symbol.observable]() === o;"
-    },
-    "proposal (stage 1)›Observable›Observable.of": {
-      "spec": "https://github.com/tc39/proposal-observable",
-      "code": "return Observable.of(1, 2, 3) instanceof Observable;"
-    },
-    "proposal (stage 1)›Observable›Observable.from": {
-      "spec": "https://github.com/tc39/proposal-observable",
-      "code": "return (Observable.from([1,2,3,4]) instanceof Observable) && (Observable.from(new Set([1, 2, 3])) instanceof Observable);"
-    },
-    "proposal (stage 1)›Frozen Realms API": {
-      "spec": "https://github.com/tc39/proposal-frozen-realms",
-      "code": "return typeof Reflect.Realm.immutableRoot === 'function'\n  && typeof Reflect.Realm.prototype.spawn === 'function';"
-    },
-    "proposal (stage 1)›Math.signbit": {
-      "spec": "https://github.com/tc39/proposal-Math.signbit",
-      "code": "return Math.signbit(NaN) === false\n  && Math.signbit(-0) === true\n  && Math.signbit(0) === false\n  && Math.signbit(-42) === true\n  && Math.signbit(42) === false;"
-    },
-    "proposal (stage 1)›Math extensions proposal›Math.clamp": {
-      "spec": "https://github.com/rwaldron/proposal-math-extensions",
-      "code": "return Math.clamp(2, 4, 6) === 4\n  && Math.clamp(4, 2, 6) === 4\n  && Math.clamp(6, 2, 4) === 4;"
-    },
-    "proposal (stage 1)›Math extensions proposal›Math.DEG_PER_RAD": {
-      "spec": "https://github.com/rwaldron/proposal-math-extensions",
-      "code": "return Math.DEG_PER_RAD === Math.PI / 180;"
-    },
-    "proposal (stage 1)›Math extensions proposal›Math.degrees": {
-      "spec": "https://github.com/rwaldron/proposal-math-extensions",
-      "code": "return Math.degrees(Math.PI / 2) === 90\n  && Math.degrees(Math.PI) === 180;"
-    },
-    "proposal (stage 1)›Math extensions proposal›Math.fscale": {
-      "spec": "https://github.com/rwaldron/proposal-math-extensions",
-      "code": "return Math.fscale(3, 1, 2, 1, Math.PI) === Math.fround((3 - 1) * (Math.PI - 1) / (2 - 1) + 1);"
-    },
-    "proposal (stage 1)›Math extensions proposal›Math.RAD_PER_DEG": {
-      "spec": "https://github.com/rwaldron/proposal-math-extensions",
-      "code": "return Math.RAD_PER_DEG === 180 / Math.PI;"
-    },
-    "proposal (stage 1)›Math extensions proposal›Math.radians": {
-      "spec": "https://github.com/rwaldron/proposal-math-extensions",
-      "code": "return Math.radians(90) === Math.PI / 2\n  && Math.radians(180) === Math.PI;"
-    },
-    "proposal (stage 1)›Math extensions proposal›Math.scale": {
-      "spec": "https://github.com/rwaldron/proposal-math-extensions",
-      "code": "return Math.scale(0, 3, 5, 8, 10) === 5;"
-    },
-    "proposal (stage 1)›Promise.try›basic support": {
-      "spec": "https://github.com/tc39/proposal-promise-try",
-      "code": "return typeof Promise.try === 'function';"
-    },
-    "proposal (stage 1)›Promise.try›returns instance of Promise": {
-      "spec": "https://github.com/tc39/proposal-promise-try",
-      "code": "return Promise.try(function () {}) instanceof Promise;"
-    },
-    "proposal (stage 1)›Promise.try›call function synchronously": {
-      "spec": "https://github.com/tc39/proposal-promise-try",
-      "code": "var score = 0;\nPromise.try(function () { score++ });\nreturn score === 1;"
-    },
-    "proposal (stage 1)›Promise.try›function returns value": {
-      "spec": "https://github.com/tc39/proposal-promise-try",
-      "code": "var score = 0;\nPromise.try(function() {\n  score++;\n  return 'foo';\n}).then(function(val) {\n  score += (val === 'foo');\n  if (score === 2) asyncTestPassed();\n});"
-    },
-    "proposal (stage 1)›Promise.try›function throws exception": {
-      "spec": "https://github.com/tc39/proposal-promise-try",
-      "code": "var score = 0;\nPromise.try(function() {\n  score++;\n  throw 'bar';\n}).catch(function(err) {\n  score += (err === 'bar');\n  if (score === 2) asyncTestPassed();\n});"
-    },
-    "proposal (stage 1)›Promise.try›function returns fulfilled Promise": {
-      "spec": "https://github.com/tc39/proposal-promise-try",
-      "code": "var score = 0;\nPromise.try(function() {\n  score++;\n  return Promise.resolve('foo');\n}).then(function(val) {\n  score += (val === 'foo');\n  if (score === 2) asyncTestPassed();\n});"
-    },
-    "proposal (stage 1)›Promise.try›function returns rejected Promise": {
-      "spec": "https://github.com/tc39/proposal-promise-try",
-      "code": "var score = 0;\nPromise.try(function() {\n  score++;\n  return Promise.reject('bar');\n}).catch(function(err) {\n  score += (err === 'bar');\n  if (score === 2) asyncTestPassed();\n});"
-    },
-    "proposal (stage 1)›`.of` and `.from` on collection constructors›Map.of": {
-      "spec": "https://github.com/tc39/proposal-setmap-offrom",
-      "code": "var A = {};\nvar B = {};\nvar C = Map.of([A, 1], [B, 2]);\nreturn C.get(A) + C.get(B) === 3;"
-    },
-    "proposal (stage 1)›`.of` and `.from` on collection constructors›Map.from": {
-      "spec": "https://github.com/tc39/proposal-setmap-offrom",
-      "code": "var A = {};\nvar B = {};\nvar C = Map.from([[A, 1], [B, 2]], function (it) {\n  return [it[0], it[1] + 1];\n});\nreturn C.get(A) + C.get(B) === 5;"
-    },
-    "proposal (stage 1)›`.of` and `.from` on collection constructors›Set.of": {
-      "spec": "https://github.com/tc39/proposal-setmap-offrom",
-      "code": "var A = {};\nvar B = {};\nvar C = Set.of(A, B);\nreturn C.has(A) + C.has(B);"
-    },
-    "proposal (stage 1)›`.of` and `.from` on collection constructors›Set.from": {
-      "spec": "https://github.com/tc39/proposal-setmap-offrom",
-      "code": "var C = Set.from([1, 2], function (it) {\n  return it + 2;\n});\nreturn C.has(3) + C.has(4);"
-    },
-    "proposal (stage 1)›`.of` and `.from` on collection constructors›WeakMap.of": {
-      "spec": "https://github.com/tc39/proposal-setmap-offrom",
-      "code": "var A = {};\nvar B = {};\nvar C = WeakMap.of([A, 1], [B, 2]);\nreturn C.get(A) + C.get(B) === 3;"
-    },
-    "proposal (stage 1)›`.of` and `.from` on collection constructors›WeakMap.from": {
-      "spec": "https://github.com/tc39/proposal-setmap-offrom",
-      "code": "var A = {};\nvar B = {};\nvar C = WeakMap.from([[A, 1], [B, 2]], function (it) {\n  return [it[0], it[1] + 1];\n});\nreturn C.get(A) + C.get(B) === 5;"
-    },
-    "proposal (stage 1)›`.of` and `.from` on collection constructors›WeakSet.of": {
-      "spec": "https://github.com/tc39/proposal-setmap-offrom",
-      "code": "var A = {};\nvar B = {};\nvar C = WeakSet.of(A, B);\nreturn C.has(A) + C.has(B);"
-    },
-    "proposal (stage 1)›`.of` and `.from` on collection constructors›WeakSet.from": {
-      "spec": "https://github.com/tc39/proposal-setmap-offrom",
-      "code": "var A = {};\nvar B = {};\nvar C = WeakSet.from([A, B]);\nreturn C.has(A) + C.has(B);"
-    },
-    "proposal (stage 1)›the pipeline operator": {
-      "spec": "https://github.com/tc39/proposal-pipeline-operator",
-      "code": "function doubleSay (str) {\n  return str + ', ' + str;\n}\nfunction capitalize (str) {\n  return str[0].toUpperCase() + str.slice(1);\n}\n\nvar result = 'hello'\n  |> doubleSay\n  |> capitalize\n  |> _ => _ + '!';\n\nreturn result === 'Hello, hello!';"
-    },
-    "proposal (stage 1)›extensible numeric literals": {
-      "spec": "https://github.com/tc39/proposal-extended-numeric-literals",
-      "code": "function i (str, num) {\n  return typeof str + str + typeof num + num;\n}\n\nreturn 123i === 'string123number123';"
-    },
-    "proposal (stage 1)›partial application syntax›partial application from left": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function f(a, b) {\n  return a + b;\n};\nvar p = f('a', ?);\nreturn p('b') === 'ab';"
-    },
-    "proposal (stage 1)›partial application syntax›partial application from right": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function f(a, b) {\n  return a + b;\n};\nvar p = f(?, 'b');\nreturn p('a') === 'ab';"
-    },
-    "proposal (stage 1)›partial application syntax›partial application for any arg": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function f(a, b, c) {\n  return a + b + c;\n};\nvar p = f(?, 'b', ?);\nreturn p('a', 'c') === 'abc';"
-    },
-    "proposal (stage 1)›partial application syntax›partial application from left with rest": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function f(a, b, c) {\n  return a + b + c;\n};\nvar p = f('a', ...);\nreturn p('b', 'c') === 'abc';"
-    },
-    "proposal (stage 1)›partial application syntax›partial application from right with rest": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function f(a, b, c) {\n  return a + b + c;\n};\nvar p = f(..., 'c');\nreturn p('a', 'b') === 'abc';"
-    },
-    "proposal (stage 1)›partial application syntax›partial application for any arg with rest": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function f(a, b, c, d, e) {\n  return a + b + c + d + e;\n};\nvar p = f(..., 'c', ...);\nreturn p('a', 'b') === 'abcab';"
-    },
-    "proposal (stage 1)›partial application syntax›mixed partial application": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function f(a, b, c, d) {\n  return a + b + c;\n};\nvar p = f(?, 'b', ...);\nreturn p('a', 'c', 'd') === 'abcd';"
-    },
-    "proposal (stage 1)›partial application syntax›runtime evaluation": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "var f = function() {\n  throw new Error();\n};\nvar p = f(?, 'b');\nf = function(a, b) {\n  return a + b;\n};\nreturn p('a') === 'ab';"
-    },
-    "proposal (stage 1)›partial application syntax›runtime evaluation of property access": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "var o = {};\nvar p = o.f(?, 'b');\no = { x: 'c', f: function(a, b) {\n  return a + b + this.x;\n} };\nreturn p('a') === 'abc';"
-    },
-    "proposal (stage 1)›partial application syntax›lexical `this`": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function f(a, b) {\n  return a + b + (this === o);\n}\nvar o = { f: f(?, 'b') };\nreturn o.f('a') === 'abfalse';"
-    },
-    "proposal (stage 1)›partial application syntax›constructor partial application": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function F(a, b) {\n  this.x = a + b;\n}\nvar p = new F(?, 'b');\nreturn p('a').x === 'ab';"
-    },
-    "proposal (stage 1)›partial application syntax›constructor partial application with rest": {
-      "spec": "https://github.com/tc39/proposal-partial-application",
-      "code": "function F(a, b, c) {\n  this.x = a + b + c;\n}\nvar p = new F('a', ...);\nreturn p('b', 'c').x === 'abc';"
-    },
-    "proposal (stage 1)›Object.freeze and Object.seal syntax›Object.freeze syntax": {
-      "spec": "https://github.com/keithamus/object-freeze-seal-syntax",
-      "code": "return Object.isFrozen({# foo: 42 #});"
-    },
-    "proposal (stage 1)›Object.freeze and Object.seal syntax›Object.freeze syntax with array literal": {
-      "spec": "https://github.com/keithamus/object-freeze-seal-syntax",
-      "code": "return Object.isFrozen([# 42 #]);"
-    },
-    "proposal (stage 1)›Object.freeze and Object.seal syntax›Object.seal syntax": {
-      "spec": "https://github.com/keithamus/object-freeze-seal-syntax",
-      "code": "return Object.isSealed({| foo: 42 |});"
-    },
-    "proposal (stage 1)›Object.freeze and Object.seal syntax›Object.seal syntax with array literal": {
-      "spec": "https://github.com/keithamus/object-freeze-seal-syntax",
-      "code": "return Object.isSealed([| 42 |]);"
-    },
-    "proposal (stage 1)›Object.freeze and Object.seal syntax›Sealing, function destructuring": {
-      "spec": "https://github.com/keithamus/object-freeze-seal-syntax",
-      "code": "function foo({| bar, baz |}) {\n  return bar + baz;\n}\nif (foo({ bar: 1, baz: 2 }) !== 3) return;\ntry {\n  foo({ bar: 1, fuz: 2 });\n} catch (e) {\n  return true;\n}"
-    },
-    "proposal (stage 1)›Object.freeze and Object.seal syntax›Freezing, function destructuring": {
-      "spec": "https://github.com/keithamus/object-freeze-seal-syntax",
-      "code": "function foo({# bar, baz #}) {\n  if (baz === 42) bar = 27;\n  return bar + baz;\n}\nif (foo({ bar: 1, baz: 2 }) !== 3) return;\ntry {\n  foo({ bar: 1, baz: 42 });\n} catch (e) {\n  return true;\n}"
-    },
-    "proposal (stage 1)›Object.freeze and Object.seal syntax›Sealing, function arguments": {
-      "spec": "https://github.com/keithamus/object-freeze-seal-syntax",
-      "code": "function foo(| bar, baz |) {\n  return bar + baz;\n}\nif (foo(1, 2) !== 3) return;\ntry {\n  foo(1, 2, 3);\n} catch (e) {\n  return true;\n}"
-    },
-    "proposal (stage 1)›Object.freeze and Object.seal syntax›Freezing, function arguments": {
-      "spec": "https://github.com/keithamus/object-freeze-seal-syntax",
-      "code": "function foo(# bar, baz #) {\n  if (baz === 42) bar = 27;\n  return bar + baz;\n}\nif (foo(1, 2) !== 3) return;\ntry {\n  foo(1, 42);\n} catch (e) {\n  return true;\n}"
-    },
-    "proposal (stage 1)›String.prototype.codePoints": {
-      "spec": "https://github.com/tc39/proposal-string-prototype-codepoints",
-      "code": "var results = [];\nfor (let code of 'a𠮷b'.codePoints()) results.push(code);\nreturn results.length === 3\n  && results[0].codePoint === 97 && results[0].position === 0\n  && results[1].codePoint === 134071 && results[1].position === 1\n  && results[2].codePoint === 98 && results[2].position === 3;"
-    },
-    "proposal (stage 1)›Getting last item from array›Array.prototype.lastItem": {
-      "spec": "https://github.com/keithamus/proposal-array-last",
-      "code": "return [1, 2, 3].lastItem === 3;"
-    },
-    "proposal (stage 1)›Getting last item from array›Array.prototype.lastIndex": {
-      "spec": "https://github.com/keithamus/proposal-array-last",
-      "code": "return [1, 2, 3].lastIndex === 2;"
-    },
-    "proposal (stage 1)›Collections methods›Map.groupBy": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var map = Map.groupBy(new Set([1, 2, 3, 4]), it => it % 2)\nreturn map.size === 2\n  && map.get(0)[0] === 2\n  && map.get(0)[1] === 4\n  && map.get(1)[0] === 1\n  && map.get(1)[1] === 3;"
-    },
-    "proposal (stage 1)›Collections methods›Map.keyBy": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var map = Map.keyBy(new Set([{ id: 101 }, { id: 102 }]), it => it.id)\nreturn map.size === 2\n  && map.get(101).id === 101\n  && map.get(102).id === 102;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.deleteAll": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var map = new Map([[1, 2], [3, 4], [5, 6], [7, 8]]);\nmap.deleteAll(1, 5)\nreturn map.size === 2\n  && map.get(3) === 4\n  && map.get(7) === 8;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.every": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Map([[1, 4], [2, 5], [3, 6]]).every(it => typeof it === 'number');"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.filter": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var map = new Map([[1, 4], [2, 5], [3, 6]]).filter(it => !(it % 2));\nreturn map.size === 2\n  && map.get(1) === 4\n  && map.get(3) === 6;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.find": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Map([[1, 2], [2, 3], [3, 4]]).find(it => it % 2) === 3;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.findKey": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Map([[1, 2], [2, 3], [3, 4]]).findKey(it => it % 2) === 2;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.includes": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Map([[1, 2], [2, NaN]]).includes(2)\n  && new Map([[1, 2], [2, NaN]]).includes(NaN);"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.keyOf": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Map([[1, 2], [2, NaN]]).keyOf(2) === 1\n  && new Map([[1, 2], [2, NaN]]).keyOf(NaN) === void undefined;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.mapKeys": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var map = new Map([[1, 4], [2, 5], [3, 6]]).mapKeys((value, key) => key * key);\nreturn map.size === 3\n  && map.get(1) === 4\n  && map.get(4) === 5\n  && map.get(9) === 6;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.mapValues": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var map = new Map([[1, 4], [2, 5], [3, 6]]).mapValues((value, key) => value * value);\nreturn map.size === 3\n  && map.get(1) === 16\n  && map.get(2) === 25\n  && map.get(3) === 36;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.merge": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var map = new Map([[1, 4], [2, 5]]).merge(new Map([[2, 7], [3, 6]]));\nreturn map.size === 3\n  && map.get(1) === 4\n  && map.get(2) === 7\n  && map.get(3) === 6;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.reduce": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Map([['a', 1], ['b', 2], ['c', 3], ]).reduce(((a, b) => a + b), 1) === 7;"
-    },
-    "proposal (stage 1)›Collections methods›Map.prototype.some": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Map([[1, 4], [2, 5], [3, 6]]).some(it => it % 2);"
-    },
-    "proposal (stage 1)›Collections methods›Set.prototype.addAll": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var set = new Set([1, 2]).addAll(2, 3);\nreturn set.size === 3\n  && set.has(1)\n  && set.has(2)\n  && set.has(3);"
-    },
-    "proposal (stage 1)›Collections methods›Set.prototype.deleteAll": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var set = new Set([1, 2, 3, 4]);\nreturn set.deleteAll(2, 3) === true\n  && set.size === 2\n  && set.has(1)\n  && set.has(4);"
-    },
-    "proposal (stage 1)›Collections methods›Set.prototype.every": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Set([1, 2, 3]).every(it => typeof it === 'number');"
-    },
-    "proposal (stage 1)›Collections methods›Set.prototype.filter": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var set = new Set([1, 2, 3]).filter(it => it % 2);\nreturn set.size === 2\n  && set.has(1)\n  && set.has(3);"
-    },
-    "proposal (stage 1)›Collections methods›Set.prototype.find": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Set([1, 2, 3]).find(it => !(it % 2)) === 2;"
-    },
-    "proposal (stage 1)›Collections methods›Set.prototype.join": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Set([1, 2, 3]).join('|') === '1|2|3';"
-    },
-    "proposal (stage 1)›Collections methods›Set.prototype.map": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var set = new Set([1, 2, 3]).map(it => it * it);\nreturn set.size === 3\n  && set.has(1)\n  && set.has(4)\n  && set.has(9);"
-    },
-    "proposal (stage 1)›Collections methods›Set.prototype.reduce": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Set([1, 2, 3]).reduce((memo, it) => memo + it) === 6;"
-    },
-    "proposal (stage 1)›Collections methods›Set.prototype.some": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "return new Set([1, 2, 3]).some(it => it % 2);"
-    },
-    "proposal (stage 1)›Collections methods›WeakMap.prototype.deleteAll": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var a = {};\nvar b = {};\nvar c = {};\nvar d = {};\nvar map = new WeakMap([[a, 1], [b, 2], [c, 3], [d, 4]]);\nmap.deleteAll(a, c)\nreturn !map.has(a)\n  && map.get(b) === 2\n  && !map.has(c)\n  && map.get(d) === 4;"
-    },
-    "proposal (stage 1)›Collections methods›WeakSet.prototype.addAll": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var a = {};\nvar b = {};\nvar c = {};\nvar d = {};\nvar set = new WeakSet([a, b]);\nset.addAll(c, d)\nreturn set.has(a)\n  && set.has(b)\n  && set.has(c)\n  && set.has(d);"
-    },
-    "proposal (stage 1)›Collections methods›WeakSet.prototype.deleteAll": {
-      "spec": "https://github.com/tc39/proposal-collection-methods",
-      "code": "var a = {};\nvar b = {};\nvar c = {};\nvar d = {};\nvar set = new WeakSet([a, b, c, d]);\nset.deleteAll(a, c)\nreturn !set.has(a)\n  && set.has(b)\n  && !set.has(c)\n  && set.has(d);"
-    },
-    "proposal (stage 1)›Math.seededPRNG": {
-      "spec": "https://github.com/tc39/proposal-seeded-random",
-      "code": "var gen1 = Math.seededPRNG({ seed: 42 });\nvar gen2 = Math.seededPRNG({ seed: 42 });\nif (!gen1.next || !gen1[Symbol.iterator]) return false;\nvar first = gen1.next().value;\nif (first < 0 || first > 1) return false;\nif (first !== gen2.next().value) return false;\nvar second = gen1.next().value;\nif (first === second) return false;\nreturn second === gen2.next().value;"
-    },
-    "proposal (stage 1)›{ BigInt, Number }.fromString›Number.fromString": {
-      "spec": "https://github.com/tc39/proposal-number-fromstring",
-      "code": "return Number.fromString('42') === 42;"
-    },
-    "proposal (stage 1)›{ BigInt, Number }.fromString›BigInt.fromString": {
-      "spec": "https://github.com/tc39/proposal-number-fromstring",
-      "code": "return BigInt.fromString('42') === 42n;"
-    },
-    "proposal (stage 1)›Object iteration›Object.iterateKeys": {
-      "spec": "https://github.com/tc39/proposal-object-iteration",
-      "code": "const object = { a: 1, b: 2, c: 3 };\nconst iterator = Object.iterateKeys(object);\nif (typeof iterator[Symbol.iterator] !== 'function' || typeof iterator.next !== 'function') return false;\ndelete object.b;\nreturn [...iterator].join() === 'a,c';"
-    },
-    "proposal (stage 1)›Object iteration›Object.iterateValues": {
-      "spec": "https://github.com/tc39/proposal-object-iteration",
-      "code": "const object = { a: 1, b: 2, c: 3 };\nconst iterator = Object.iterateValues(object);\nif (typeof iterator[Symbol.iterator] !== 'function' || typeof iterator.next !== 'function') return false;\ndelete object.b;\nreturn [...iterator].join() === '1,3';"
-    },
-    "proposal (stage 1)›Object iteration›Object.iterateEntries": {
-      "spec": "https://github.com/tc39/proposal-object-iteration",
-      "code": "const object = { a: 1, b: 2, c: 3 };\nconst iterator = Object.iterateEntries(object);\nif (typeof iterator[Symbol.iterator] !== 'function' || typeof iterator.next !== 'function') return false;\ndelete object.b;\nreturn [...iterator].join() === 'a,1,c,3';"
     }
   }
 }

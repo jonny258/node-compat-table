@@ -9,8 +9,9 @@
 # 4) Edit "rhinoversions.js" to add your new version to the list
 # 5) Run this script!
 
-rhinoJar=~/src/rhino/buildGradle/libs/rhino-1.7.13-SNAPSHOT.jar
-rhinoVersion=1.7.13
+rhinoJar=~/src/rhino/buildGradle/libs/rhino-1.7.14.jar
+rhinoVersion=1.7.14
+supportVersion=14
 
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es6.js > data-es6.js
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es2016plus.js > data-es2016plus.js
@@ -23,9 +24,13 @@ node extract.js ./data-es2016plus.js > ./testers-es2016plus.json
 node extract.js ./data-esnext.js > ./testers-esnext.json
 node testers.js > testers.json
 
+echo "supportVersion=${supportVersion}; load('rhinotest.js');" > tmptest.$$
+
 echo 'Running test...'
-java -jar ${rhinoJar} -version 0 rhinotest.js > rhino-results/${rhinoVersion}.json
-java -jar ${rhinoJar} -version 200 rhinotest.js > rhino-results/${rhinoVersion}-es6.json
+java -jar ${rhinoJar} -version 0 -debug tmptest.$$ > rhino-results/${rhinoVersion}.json
+java -jar ${rhinoJar} -version 200 -debug tmptest.$$ > rhino-results/${rhinoVersion}-es6.json
+
+rm -f tmptest.$$
 
 echo 'Building...'
 node buildrhino.js

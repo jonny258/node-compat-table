@@ -1,15 +1,11 @@
 var testers = JSON.parse(readFile('./testers.json'));
 
-supportVersion = 100;
-
 // We'll need this for the tests
 var global = {};
 
-var DEBUG = false;
-
 // This function is needed to run the tests and was extracted from:
 // https://github.com/kangax/compat-table/blob/gh-pages/node.js
-function __createIterableObject(arr, methods) {
+function __createIterableObject (arr, methods) {
   methods = methods || {}
   if (typeof Symbol !== 'function' || !Symbol.iterator) {
     return {}
@@ -40,7 +36,7 @@ var output = {
 }
 
 var versions = Object.keys(testers)
-function next(ver) {
+function next (ver) {
   if (!ver) return write()
 
   var completed = 0
@@ -60,87 +56,67 @@ function next(ver) {
 
       if (++completed === results._count) {
         results._percent = results._successful / results._count
-        setTimeout(next, 10, versions.pop());
+		// In the future this needs to become setTimeout
+		// so that we can support Promises
+		next(versions.pop());
       }
     })
   })
 }
+next(versions.pop());
 
-setTimeout(next, 10, versions.pop());
+function run (name, script, cb) {
+  // The variable "supportVersion" should have been set in "rhinoall.sh" to tell us
+  // approximately what version of Rhino we're using. This is necessary because the
+  // tests below don't just fail, but cause Rhino to crash in older versions.
 
-function run(name, script, cb) {
+  if (supportVersion <= 10 && /__define[GS]etter__.+ToObject/.test(name)) {
+	  return cb(false);
+  }
+
+  if (supportVersion <= 7 && /trailing commas in function syntax/.test(name)) {
+    return cb(false);
+  }
+
+  if (supportVersion <= 7 && /incomplete patterns and quantifiers/.test(name)) {
+	  return cb(false);
+  }
+
   // kangax's Promise tests reply on a asyncTestPassed function.
   var async = /asyncTestPassed/.test(script)
   if (async) {
-    runAsync(name, script, function (result) {
-      return cb(result);
-    });
+    runAsync(script, function (result) {
+      return cb(result)
+    })
   } else {
-    var result = runSync(script);
-    return cb(result);
+    var result = runSync(script)
+    return cb(result)
   }
 }
 
-function runAsync(name, script, cb) {
-  if (DEBUG) {
-    print('started ' + name);
-  }
-
-  var timer = setTimeout(function () {
-    if (DEBUG) {
-      print('timeout: ' + name);
-    }
-    cb(false);
-  }, 5000)
+function runAsync (script, cb) {
 
   try {
-    // This confusing bit of JS creates a function that runs the
-    // code called "script" and assigns the name "asyncTestPassed"
-    // to its first argument. All the test scripts will call that!
-    var fn = new Function('asyncTestPassed', script);
+    var fn = new Function('asyncTestPassed', script)
 
     fn(function () {
-      if (DEBUG) {
-        print('success: ' + name);
-      }
-      clearTimeout(timer);
-      setTimeout(function () {
-        if (DEBUG) {
-          print('moving on: ' + name);
-        }
-        cb(true);
-      });
+	  // TODO eventually do this async. We don't have that today.
+	  cb(true);
     })
   } catch (e) {
-    clearTimeout(timer);
-    setTimeout(function () {
-      if (DEBUG) {
-        print('failure: ' + name);
-      }
-      cb(e.message);
-    });
+    cb(e.message)
   }
 }
 
-function runSync(script) {
-  if (DEBUG) {
-    print('***\n' + script + '*** ...');
-  }
+function runSync (script) {
   try {
     var fn = new Function(script)
-    var result = fn() || false;
-    if (DEBUG) {
-      print(result + '\n');
-    }
-    return result;
+    return fn() || false
   } catch (e) {
-    if (DEBUG) {
-      print(e.message + '\n');
-    }
     return e.message
   }
 }
 
-function write() {
+function write () {
   print(JSON.stringify(output, null, 2));
 }
